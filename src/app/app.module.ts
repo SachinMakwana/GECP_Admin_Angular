@@ -7,11 +7,13 @@ import { AddComponent } from './about-college/add/add.component';
 import { LoadScriptsService } from '../services/load-scripts.service';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     AddComponent
+    
   ],
   imports: [
     BrowserModule,
