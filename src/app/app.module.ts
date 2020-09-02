@@ -3,15 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddComponent } from './about-college/add/add.component';
 import { LoadScriptsService } from '../services/load-scripts.service';
-
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
-    AddComponent
+    routingComponents
   ],
   imports: [
     BrowserModule,
@@ -23,3 +20,4 @@ import { LoadScriptsService } from '../services/load-scripts.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
