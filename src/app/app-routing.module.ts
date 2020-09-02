@@ -18,7 +18,18 @@ import { NewsComponent } from './news/news.component';
 import { EventsGallaryComponent } from './events-gallary/events-gallary.component';
 import { AchievementsComponent } from './achievements/achievements.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
+import { AddComponent } from './about-college/add/add.component';
 
+import { AddDepartmentComponent } from './department/add-department/add-department.component';
+import { ViewDepartmentComponent } from './department/view-department/view-department.component';
+import { AddSubjectsComponent } from './subjects/add-subjects/add-subjects.component';
+import { AddNewsComponent } from './news/add-news/add-news.component';
+import { AddEventsGallaryComponent } from './events-gallary/add-events-gallary/add-events-gallary.component';
+import { AddCampusComponent } from './campus/add-campus/add-campus.component';
+import { AddAttachmentsComponent } from './attachments/add-attachments/add-attachments.component';
+import { AddContactInfoComponent } from './contact-info/add-contact-info/add-contact-info.component';
+import { AddAchievementsComponent } from './achievements/add-achievements/add-achievements.component';
+import { ViewAchievementsComponent } from './achievements/view-achievements/view-achievements.component';
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aboutCollege', component: AboutCollegeComponent },
@@ -38,6 +49,17 @@ const routes: Routes = [
   { path: 'events', component: EventsGallaryComponent },
   { path: 'achievements', component: AchievementsComponent },
   { path: 'contactinfo', component: ContactInfoComponent },
+  { path: 'addabout', component: AddComponent },
+  { path: 'department/add', component: AddDepartmentComponent },
+  { path: 'department/view-department', component: ViewDepartmentComponent },
+  { path: 'subjects/add', component: AddSubjectsComponent },
+  { path: 'news/add', component: AddNewsComponent },
+  { path: 'events-gallary/add', component: AddEventsGallaryComponent },
+  { path: 'campus/add', component: AddCampusComponent },
+  { path: 'attachments/add', component: AddAttachmentsComponent },
+  { path: 'contact-info/add', component: AddContactInfoComponent },
+  { path: 'achievements/add', component: AddAchievementsComponent},
+  { path: 'achievements/view-achievements', component: ViewAchievementsComponent}
 ];
 
 @NgModule({
@@ -64,5 +86,16 @@ export const routingComponents = [
   NewsComponent,
   EventsGallaryComponent,
   AchievementsComponent,
-  ContactInfoComponent
+  ContactInfoComponent,
+  AddComponent,
+  AddDepartmentComponent,
+  ViewDepartmentComponent,
+  AddSubjectsComponent,
+  AddNewsComponent,
+  AddEventsGallaryComponent,
+  AddCampusComponent,
+  AddAchievementsComponent,
+  AddAttachmentsComponent,
+  AddContactInfoComponent,
+  ViewAchievementsComponent
 ]
