@@ -2,8 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule, routingComponents } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { LoadScriptsService } from '../services/load-scripts.service';
+import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [

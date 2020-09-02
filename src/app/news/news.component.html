@@ -1,4 +1,4 @@
-<div class="content-wrapper">
+<div>
     <!-- Content Header (Page header) -->
     <div class="content">
         <div class="container-fluid">
@@ -7,7 +7,7 @@
                     <h1>News Details</h1>
                 </div>
                 <div class="col-sm-6" style="margin-top:10px;">
-                    <a href="news_add.html">
+                    <a [routerLink]="['/news/add']" routerLinkActive="active">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle"></i></li>
                             <li>Add New Details</li>
@@ -47,7 +47,7 @@
                                                 <td>COVID NEWS</td>
                                                 <td>news link</td>
                                                 <td>news Image</td>
-                                                <td><a href="news_add.html"><i
+                                                <td><a [routerLink]="['/news/add']" routerLinkActive="active"><i
                                                             class="nav-icon fas fa-edit"></i></a></td>
                                                 <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
 
@@ -56,7 +56,7 @@
                                                 <td>Holiday news</td>
                                                 <td>news link</td>
                                                 <td>news Image</td>
-                                                <td><a href="news_add.html"><i
+                                                <td><a [routerLink]="['/news/add']" routerLinkActive="active"><i
                                                             class="nav-icon fas fa-edit"></i></a></td>
                                                 <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
 
