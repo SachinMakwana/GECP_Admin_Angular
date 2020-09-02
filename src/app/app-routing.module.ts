@@ -37,6 +37,7 @@ import { ViewAntiRaggingCellMembersComponent } from './anti-ragging-cell/members
 
 import { GrievanceCellComponent } from './grievance-cell/grievance-cell.component';
 import { AddGrievanceCellComponent } from './grievance-cell/add-grievance-cell/add-grievance-cell.component';
+import { GrievanceComplaintViewComponent } from './grievance-cell/grievance-complaint-view/grievance-complaint-view.component';
 import { AddGrievanceCellAttachmentsComponent } from './grievance-cell/attachments/add-grievance-cell-attachments/add-grievance-cell-attachments.component';
 import { ViewGrievanceCellAttachmentsComponent } from './grievance-cell/attachments/view-grievance-cell-attachments/view-grievance-cell-attachments.component';
 import { AddGrievanceCellMembersComponent } from './grievance-cell/members/add-grievance-cell-members/add-grievance-cell-members.component';
@@ -47,48 +48,17 @@ import { EventsGallaryComponent } from './events-gallary/events-gallary.componen
 import { AchievementsComponent } from './achievements/achievements.component';
 import { ContactInfoComponent } from './contact-info/contact-info.component';
 
-import { AddComponent } from './about-college/add/add.component';
-import { AddCompanyComponent } from './company/add-company/add-company.component';
-import { AddFacultyComponent } from './faculty-details/add-faculty/add-faculty.component';
-import { DetailFacultyComponent } from './faculty-details/detail-faculty/detail-faculty.component';
-import { AddLabWorkshopComponent } from './lab-workshop/add-lab-workshop/add-lab-workshop.component';
-import { DetailLabWorkshopComponent } from './lab-workshop/detail-lab-workshop/detail-lab-workshop.component';
-import { AddPlacementComponent } from './placement/add-placement/add-placement.component';
-import { DetailPlacementComponent } from './placement/detail-placement/detail-placement.component';
-import { AddPlacementMemberComponent } from './placement/members/add-placement-member/add-placement-member.component';
-import { ViewPlacementMemberComponent } from './placement/members/view-placement-member/view-placement-member.component';
-import { ViewPlacementAttachmentComponent } from './placement/attachments/view-placement-attachment/view-placement-attachment.component';
-import { AddPlacementAttachmentComponent } from './placement/attachments/add-placement-attachment/add-placement-attachment.component';
-
- 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'aboutCollege', component: AboutCollegeComponent },
   { path: 'campus', component: CampusComponent },
-
   { path: 'faculty', component: FacultyDetailsComponent },
-  { path: 'faculty/add', component: AddFacultyComponent },
-  { path: 'faculty/details', component: DetailFacultyComponent },
-
   { path: 'department', component: DepartmentComponent },
   { path: 'subjects', component: SubjectsComponent },
-
   { path: 'labandworkshop', component: LabWorkshopComponent },
-  { path: 'labandworkshop/add', component: AddLabWorkshopComponent },
-  { path: 'labandworkshop/details', component: DetailLabWorkshopComponent },
-
   { path: 'attachments', component: AttachmentsComponent },
-
   { path: 'company', component: CompanyComponent },
-  { path: 'company/add', component: AddCompanyComponent },
-  
   { path: 'placementcell', component: PlacementComponent },
-  { path: 'placementcell/add', component: AddPlacementComponent },
-  { path: 'placementcell/details', component: DetailPlacementComponent },
-  { path: 'placementcell/add-attachment', component: AddPlacementAttachmentComponent },
-  { path: 'placementcell/view-attachment', component: ViewPlacementAttachmentComponent },
-  { path: 'placementcell/add-member', component: AddPlacementMemberComponent },
-  { path: 'placementcell/view-member', component: ViewPlacementMemberComponent },
 
   { path: 'womencell', component: WomenCellComponent },
   { path: 'womencell/add', component: AddWomenCellComponent },
@@ -113,6 +83,7 @@ const routes: Routes = [
 
   { path: 'grievancecell', component: GrievanceCellComponent },
   { path: 'grievancecell/add', component: AddGrievanceCellComponent },
+  { path: 'grievancecell/view-complaint', component: GrievanceComplaintViewComponent },
   { path: 'grievancecell/add-attachments', component: AddGrievanceCellAttachmentsComponent },
   { path: 'grievancecell/view-attachments', component: ViewGrievanceCellAttachmentsComponent },
   { path: 'grievancecell/add-member', component: AddGrievanceCellMembersComponent },
@@ -167,6 +138,7 @@ export const routingComponents = [
 
   GrievanceCellComponent,
   AddGrievanceCellComponent,
+  GrievanceComplaintViewComponent,
   AddGrievanceCellAttachmentsComponent,
   ViewGrievanceCellAttachmentsComponent,
   AddGrievanceCellMembersComponent,
@@ -175,19 +147,5 @@ export const routingComponents = [
   NewsComponent,
   EventsGallaryComponent,
   AchievementsComponent,
-  ContactInfoComponent,
-
-  AddComponent,
-  AddCompanyComponent,
-  AddFacultyComponent,
-  DetailFacultyComponent,
-  AddLabWorkshopComponent,
-  DetailLabWorkshopComponent,
-  AddPlacementComponent,
-  DetailPlacementComponent,
-  AddPlacementMemberComponent,
-  ViewPlacementMemberComponent,
-  ViewPlacementAttachmentComponent,
-  AddPlacementAttachmentComponent
+  ContactInfoComponent
 ]
-
