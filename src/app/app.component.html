@@ -1,4 +1,5 @@
-<div>
+<div class="wrapper">
+
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -97,28 +98,34 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item has-treeview">
             <a [routerLink]="['/department']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Department
+                <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-          </li>
-          <li class="nav-item">
-            <a [routerLink]="['/subjects']" routerLinkActive="active" class="nav-link">
-              <i class="nav-icon fas fa-book-open"></i>
-              <p>Subjects Lists
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a [routerLink]="['/labandworkshop']" routerLinkActive="active" class="nav-link">
-              <i class="nav-icon fa fa-cogs"></i>
-              <p>
-                Lab and workshops
-              </p>
-            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a [routerLink]="['/subjects']" routerLinkActive="active" class="nav-link">
+                  <p>
+                    <i class="nav-icon far fa-circle"></i>
+                    <i class="nav-icon fas fa-book-open"></i>
+                    Subjects Lists
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a [routerLink]="['/labandworkshop']" routerLinkActive="active" class="nav-link">
+                  <p>
+                    <i class="nav-icon far fa-circle"></i>
+                    <i class="nav-icon fa fa-cogs"></i>
+                    Lab and workshops
+                  </p>
+                </a>
+              </li>
+            </ul>
           </li>
           <li class="nav-item">
             <a [routerLink]="['/attachments']" routerLinkActive="active" class="nav-link">
@@ -136,7 +143,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a [routerLink]="['/placementcell']" routerLinkActive="active" class="nav-link">
+            <a class="nav-link" routerLinkActive="active" >
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>
                 Placement cell
@@ -146,26 +153,26 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a [routerLink]="['/placementcell']" routerLinkActive="active" class="nav-link">
-                  <i class="nav-icon far fa-circle"></i>
-                  <p>Placement Details</p>
+                  <p>
+                    <i class="nav-icon far fa-circle"></i>
+                    Placement Details
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../placementMember/placementMember_view.html" class="nav-link">
-                  <i class="nav-icon far fa-circle"></i>
-                  <p>Members Details</p>
+                <a [routerLink]="['/placementcell/view-member']" routerLinkActive="active" class="nav-link">
+                  <p><i class="nav-icon far fa-circle"></i>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../placement/placementAttachments_view.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Files Attachments</p>
+                <a [routerLink]="['/placementcell/view-attachment']" routerLinkActive="active" class="nav-link">
+                  <p><i class="nav-icon far fa-circle"></i>Files Attachments</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a [routerLink]="['/womencell']" routerLinkActive="active" class="nav-link">
+            <a class="nav-link">
               <i class="nav-icon fa fa-female"></i>
               <p>
                 Women cell
@@ -180,13 +187,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/womenCell/member-details']" routerLinkActive="active" class="nav-link">
+                <a href="../womenCell/womenCellMembers_details.html" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/womenCell/view-attachments']" routerLinkActive="active" class="nav-link">
+                <a href="../womenCell/womenCellAttachments_view.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
                 </a>
@@ -194,7 +201,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a [routerLink]="['/ssipcell']" routerLinkActive="active" class="nav-link">
+            <a class="nav-link">
               <i class="nav-icon fa fa-cube"></i>
               <p>
                 SSIP cell
@@ -223,7 +230,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a [routerLink]="['/antiRaggingcell']" routerLinkActive="active" class="nav-link">
+            <a class="nav-link">
               <i class="nav-icon fa fa-male"></i>
               <p>
                 Anti Ragging cell
@@ -252,7 +259,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a [routerLink]="['/grievancecell']" routerLinkActive="active" class="nav-link">
+            <a class="nav-link">
               <i class="nav-icon fas fa-user-edit"></i>
               <p>
                 Grievance cell
@@ -321,7 +328,7 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-  <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
   <!-- /.content-wrapper -->
 
