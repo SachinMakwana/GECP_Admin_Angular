@@ -9,7 +9,7 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
 export class FacultyDetailsComponent implements OnInit {
   
   constructor(private _loadSriptService : LoadScriptsService) {
-    this._loadSriptService.loadScripts();
+    this._loadSriptService.loadDatatbles();
   }
 
   ngOnInit(): void {
