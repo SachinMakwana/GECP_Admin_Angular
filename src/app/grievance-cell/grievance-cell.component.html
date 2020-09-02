@@ -1,4 +1,5 @@
-<div>    <!-- Content Header (Page header) -->
+<div>
+    <!-- Content Header (Page header) -->
     <div class="content">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -7,7 +8,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6" style="margin-top:10px;">
-                    <a href="greivanceCell__add.html">
+                    <a [routerLink]="['/grievancecell/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle"></i></li>
                             <li>Add New Details</li>
@@ -52,7 +53,7 @@
                                                 <td>Computer Department</td>
                                                 <td>Checked</td>
                                                 <td>
-                                                    <a href="../greivanceCell/greivanceCell_complaint_view.html"
+                                                    <a [routerLink]="['/grievancecell/complaint']"
                                                         class="nav-icon fas fa-eye"></a>
                                                 </td>
                                             </tr>
@@ -112,7 +113,8 @@
                                                 <td>Computer Department</td>
                                                 <td>Checked</td>
                                                 <td>
-                                                    <a href="../greivanceCell/greivanceCell_complaint_view.html" class="nav-icon fas fa-eye"></a>
+                                                    <a href="../greivanceCell/greivanceCell_complaint_view.html"
+                                                        class="nav-icon fas fa-eye"></a>
                                                 </td>
                                             </tr>
                                             <tr>

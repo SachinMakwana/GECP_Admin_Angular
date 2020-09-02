@@ -37,7 +37,7 @@
                             <table id="example1" class="table table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        
+
                                         <th>Title</th>
                                         <th>Attachment</th>
                                         <th>View</th>
@@ -48,36 +48,37 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                    
+
                                         <td>GTU</td>
                                         <td>gtu.pdf</td>
-                                        <td><a [routerLink]="['/affiliation/view-affiliation']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        <td><a [routerLink]="['/affiliation/view']" class="nav-icon fas fa-eye"></a>
                                         </td>
-                                        <td><a [routerLink]="['/affiliation/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        <td><a [routerLink]="['/affiliation/add']" class="nav-icon fas fa-edit"></a>
                                         </td>
                                         <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
                                         </td>
 
                                     </tr>
                                     <tr>
-                                        
+
                                         <td>AICTE</td>
                                         <td>aicte.pdf</td>
-                                        <td><a [routerLink]="['/affiliation/view-affiliation']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        <td><a [routerLink]="['/affiliation/view']"
+                                                routerLinkActive="router-link-active" class="nav-icon fas fa-eye"></a>
                                         </td>
-                                        <td><a [routerLink]="['/affiliation/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        <td><a [routerLink]="['/affiliation/add']" class="nav-icon fas fa-edit"></a>
                                         </td>
                                         <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
                                         </td>
 
                                     </tr>
-                                   
-                                   
-                                    
+
+
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                      
+
                                         <th>Title</th>
                                         <th>Attachment</th>
                                         <th>View</th>
@@ -98,4 +99,3 @@
     </section>
     <!-- /.content -->
 </div>
-
