@@ -1,4 +1,5 @@
 <div>
+    <div class="content">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -8,31 +9,30 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
-                    <a href="../womenCell/womenCellAttachments_add.html">
+                    <a [routerLink]="['/womencell/add-attachments']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle"></i></li>
                             <li>Add New Attachment</li>
                         </ol>
                     </a>
                 </div>
-                <!-- /.col -->
+                <!-- /.row -->
             </div>
-            <!-- /.row -->
+            <!-- /.container-fluid -->
         </div>
-        <!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row justify-content-center">
-                <div class="col-10">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Women Cell Lists</h3>
-                        </div>
-                        <!-- /.card-header -->
+        <!-- /.content-header -->
+      
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Women Cell Lists</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr>
@@ -48,7 +48,8 @@
                                     <td>Women's Day Celebration </td>
                                     <td>Image Or PDF</td>
                                     <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
-                                    <td><a href="womenCellAttachments_add.html"><i class="nav-icon fas fa-edit"></i></a>
+                                    <td><a [routerLink]="['/womencell/add-attachments']"
+                                            class="nav-icon fas fa-edit"></a>
                                     </td>
                                     <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                 </tr>
@@ -56,7 +57,9 @@
                                     <td>Saree Competition</td>
                                     <td>Image Or PDF</td>
                                     <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
-                                    <td><a href="womenCellAttachments_add.html"><i class="nav-icon fas fa-edit"></i></a>
+                                    <td><a [routerLink]="['/womencell/add-attachments']"
+                                            class="nav-icon fas fa-edit"></a>
+                                   
                                     </td>
                                     <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                 </tr>
@@ -64,7 +67,9 @@
                                     <td>Mehandi Competition</td>
                                     <td>Image Or PDF</td>
                                     <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
-                                    <td><a href="womenCellAttachments_add.html"><i class="nav-icon fas fa-edit"></i></a>
+                                    <td><a [routerLink]="['/womencell/add-attachments']"
+                                            class="nav-icon fas fa-edit"></a>
+                                   
                                     </td>
                                     <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                 </tr>
@@ -72,17 +77,19 @@
                                     <td>Cooking Competition </td>
                                     <td>Image Or PDF</td>
                                     <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
-                                    <td><a href="womenCellAttachments_add.html"><i class="nav-icon fas fa-edit"></i></a>
+                                    <td><a [routerLink]="['/womencell/add-attachments']"
+                                            class="nav-icon fas fa-edit"></a>
+                                   
                                     </td>
                                     <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                 </tr>
-
-
-                            </tbody>
-                        </table>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>

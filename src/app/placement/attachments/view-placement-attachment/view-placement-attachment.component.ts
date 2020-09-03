@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 @Component({
   selector: 'app-view-placement-attachment',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPlacementAttachmentComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private _loadSriptService: LoadScriptsService) {
   }
 
+  ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
+  }
 }

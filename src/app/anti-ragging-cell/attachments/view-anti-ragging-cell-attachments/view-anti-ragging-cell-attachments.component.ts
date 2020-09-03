@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 @Component({
   selector: 'app-view-anti-ragging-cell-attachments',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewAntiRaggingCellAttachmentsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _loadSriptService: LoadScriptsService) {
+  }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
   }
 
 }
