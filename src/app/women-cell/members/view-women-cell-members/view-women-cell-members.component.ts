@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 @Component({
   selector: 'app-view-women-cell-members',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewWomenCellMembersComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private _loadSriptService: LoadScriptsService) {
   }
 
+  ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
+  }
 }
