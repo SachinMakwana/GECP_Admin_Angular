@@ -8,11 +8,11 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
 })
 export class AddCompanyComponent implements OnInit {
 
-  constructor(private _loadSriptService : LoadScriptsService) {
-    this._loadSriptService.loadScripts();
+  constructor(private _loadSriptService: LoadScriptsService) {
   }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
   }
 
 }

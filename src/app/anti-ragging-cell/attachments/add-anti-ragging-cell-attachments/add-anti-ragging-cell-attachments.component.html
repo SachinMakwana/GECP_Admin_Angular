@@ -8,9 +8,9 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
-                    <a href="../antiRagging/antiRaggingAttachments_view.html">
+                    <a [routerLink]="['/antiRaggingcell/view-attachments']" >
                         <ol class="breadcrumb float-sm-right">
-                            <li><i class="nav-icon fas fa-minus-circle"></i></li>
+                            <li><i class="nav-icon fas fa-chevron-circle-left"></i></li>
                             <li>Back To Details</li>
                         </ol>
                     </a>
@@ -67,7 +67,7 @@
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                 </div>
                 <div class="col-6">
-                    <a href="antiRaggingAttachments_view.html" class="btn btn-default">Clear</a>
+                    <button type="clear" class="btn btn-default">Clear</button>
                 </div>
             </div>
         </div>

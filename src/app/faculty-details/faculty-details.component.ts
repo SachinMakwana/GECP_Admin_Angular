@@ -7,11 +7,11 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
   styleUrls: ['./faculty-details.component.css']
 })
 export class FacultyDetailsComponent implements OnInit {
-  
-  constructor(private _loadSriptService : LoadScriptsService) {
-    this._loadSriptService.loadDatatbles();
+
+  constructor(private _loadSriptService: LoadScriptsService) {
   }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
   }
 }

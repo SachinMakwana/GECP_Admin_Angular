@@ -10,7 +10,8 @@
 </head>
 
 <body class="hold-transition sidebar-mini">
-    <app-root></app-root>
+  <!--<div *ngIf="condition; else elseBlock">Content to render when condition is true.</div>-->
+  <app-root #elseBlock></app-root>
 </body>
 
 </html>
