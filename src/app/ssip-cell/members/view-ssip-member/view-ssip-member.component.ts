@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 @Component({
   selector: 'app-view-ssip-member',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewSsipMemberComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _loadSriptService: LoadScriptsService) {
+  }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
   }
 
 }
