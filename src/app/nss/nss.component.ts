@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 @Component({
   selector: 'app-nss',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NssComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _loadSriptService: LoadScriptsService) { }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
   }
 
 }

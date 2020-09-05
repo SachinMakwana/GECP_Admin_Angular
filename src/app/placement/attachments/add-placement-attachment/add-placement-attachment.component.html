@@ -3,15 +3,15 @@
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Add Placement Cell Attachments Details</h1>
+                <div class="col-sm-8">
+                    <h2 class="m-0 text-dark">Add Placement Cell Attachments Details</h2>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6">
+                <div class="col-sm-4">
                     <a [routerLink]="['/placementcell/view-attachment']">
                         <ol class="breadcrumb float-sm-right">
-                            <li><i class="nav-icon fas fa-chevron-circle-left"></i></li>
-                            <li>Back To Details</li>
+                            <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                            <li>Back</li>
                         </ol>
                     </a>
                 </div>
@@ -38,15 +38,13 @@
                                 <div class="input-group">
                                     <div class="col-6">
                                         <label for="Name"> Enter Title</label>
-                                        <input type="text" class="form-control" id="Name"
-                                            placeholder="Enter Title">
+                                        <input type="text" class="form-control" id="Name" placeholder="Enter Title">
                                     </div>
                                     <div class="col-6">
                                         <label for="exampleInputFile">Upload Attachment File</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input"
-                                                    id="exampleInputFile">
+                                                <input type="file" class="custom-file-input" id="exampleInputFile">
                                                 <label class="custom-file-label" for="exampleInputFile">Choose
                                                     file</label>
                                             </div>
@@ -69,7 +67,7 @@
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                 </div>
                 <div class="col-6">
-                    <a [routerLink]="['/placement']" class="btn btn-default">Clear</a>
+                    <a [routerLink]="['/placement']" class="btn btn-default">Cancel</a>
                 </div>
             </div>
         </div>

@@ -10,8 +10,10 @@
     background: #dad8d873;
     border: 1px solid #dad8d8;
 }
-
-td,
+.Content-Wrapper-Padding{
+    padding: 1.50% 1.50%;
+}
+/* td,
 th {
     text-align: center;
-}
+} */

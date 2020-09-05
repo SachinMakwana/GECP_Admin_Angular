@@ -59,7 +59,10 @@ export class LoadScriptsService {
 
   loadEditorSummernote() {
     (function ($) {
-      $('.textarea').summernote()
+      $('.textarea').summernote({
+        height:150,
+        width:1200
+      })
     })(jQuery);
   }
 
