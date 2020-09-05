@@ -4,13 +4,13 @@
     <!-- /.content-header -->
 
     <!-- Main content -->
-    <section class="content" style="margin-top:20px;">
+    <section class="content">
         <div class="row">
             <div class="col-md-12">
                 <a [routerLink]="['/grievancecell']">
                     <ol class="breadcrumb float-sm-right">
-                        <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left"></i></li>
-                        <li style="margin-left: px;">Back to Details</li>
+                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li>Back</li>
                     </ol>
                 </a>
             </div>
@@ -139,10 +139,11 @@
                                                 <button type="submit"
                                                     class="btn btn-primary float-right col-md-2">Submit</button>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <a [routerLink]="['/grievancecell']"
-                                                    class="btn btn-default col-md-2">Clear</a>
+                                            <div class="col-6">
+                                                <a [routerLink]="['grievancecell']" type="clear"
+                                                    class="btn btn-default">Cancel</a>
                                             </div>
+
                                         </div>
                                     </div>
 

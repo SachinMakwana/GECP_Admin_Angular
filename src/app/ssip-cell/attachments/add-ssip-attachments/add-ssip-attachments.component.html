@@ -4,14 +4,14 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">Add SSIP Attachments Details</h1>
+                    <h2 class="m-0 text-dark">Add SSIP Attachments Details</h2>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
-                    <a [routerLink]="['/ssipcell/view-attachments']" >
+                    <a [routerLink]="['/ssipcell/view-attachments']">
                         <ol class="breadcrumb float-sm-right">
-                            <li><i class="nav-icon fas fa-chevron-circle-left"></i></li>
-                            <li>Back To Details</li>
+                            <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                            <li>Back</li>
                         </ol>
                     </a>
                 </div>
@@ -67,7 +67,7 @@
                     <button type="submit" class="btn btn-primary float-right">Submit</button>
                 </div>
                 <div class="col-6">
-                    <button type="clear" class="btn btn-default">Clear</button>
+                    <a [routerLink]="['/ssipcell/view-attachments']" type="clear" class="btn btn-default">Cancel</a>
                 </div>
             </div>
         </div>
