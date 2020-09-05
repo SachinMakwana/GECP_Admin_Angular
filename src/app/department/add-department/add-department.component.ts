@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { LoadScriptsService } from 'src/services/load-scripts.service';
 @Component({
   selector: 'app-add-department',
   templateUrl: './add-department.component.html',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDepartmentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _loadSriptService: LoadScriptsService) { }
 
   ngOnInit(): void {
+    this._loadSriptService.loadEditorSummernote();
   }
 
 }

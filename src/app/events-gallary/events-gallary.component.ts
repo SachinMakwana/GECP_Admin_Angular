@@ -9,9 +9,10 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
 export class EventsGallaryComponent implements OnInit {
   
   constructor(private _loadSriptService : LoadScriptsService) {
-    this._loadSriptService.loadScripts();
+    
   }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles();
   }
 }

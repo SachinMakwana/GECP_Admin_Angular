@@ -4,13 +4,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0 text-dark">View Contact Details</h1>
+                    <h2 class="m-0 text-dark">Contact Details</h2>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-6">
                     <a [routerLink]="['/contact-info/add']" routerLinkActive="active">
                         <ol class="breadcrumb float-sm-right">
-                            <li><i class="nav-icon fas fa-plus-circle"></i></li>
+                            <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
                         </ol>
                     </a>
@@ -29,9 +29,12 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Contact-Info Lists</h3>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-striped">
+                            <table id="example1" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
                                         <th>Address</th>
