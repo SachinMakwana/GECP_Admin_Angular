@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { AuthGuardService } from '../services/auth-guard.service';
+
+import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutCollegeComponent } from './about-college/about-college.component';
 import { CampusComponent } from './campus/campus.component';
@@ -17,8 +21,6 @@ import { AddWomenCellAttachmentsComponent } from './women-cell/attachments/add-w
 import { ViewWomenCellAttachmentsComponent } from './women-cell/attachments/view-women-cell-attachments/view-women-cell-attachments.component';
 import { AddWomenCellMembersComponent } from './women-cell/members/add-women-cell-members/add-women-cell-members.component';
 import { ViewWomenCellMembersComponent } from './women-cell/members/view-women-cell-members/view-women-cell-members.component';
-
-
 
 import { SsipCellComponent } from './ssip-cell/ssip-cell.component';
 import { AddSsipComponent } from './ssip-cell/add-ssip/add-ssip.component';
@@ -85,19 +87,21 @@ import { AffiliationComponent } from './affiliation/affiliation.component';
 import { AddAffiliationComponent } from './affiliation/add-affiliation/add-affiliation.component';
 import { ViewAffiliationComponent } from './affiliation/view-affiliation/view-affiliation.component';
 
- 
+
 const routes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  
-  { path: 'aboutCollege', component: AboutCollegeComponent },
-  { path: 'aboutCollege/add', component: AddComponent },
+  { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
 
-  { path: 'campus', component: CampusComponent },
-  { path: 'campus/add', component: AddCampusComponent },
+  { path: 'aboutCollege', component: AboutCollegeComponent, canActivate: [AuthGuardService]  },
+  { path: 'aboutCollege/add', component: AddComponent, canActivate: [AuthGuardService]  },
 
-  { path: 'faculty', component: FacultyDetailsComponent },
-  { path: 'faculty/add', component: AddFacultyComponent },
-  { path: 'faculty/details', component: DetailFacultyComponent },
+  { path: 'campus', component: CampusComponent, canActivate: [AuthGuardService]  },
+  { path: 'campus/add', component: AddCampusComponent, canActivate: [AuthGuardService]  },
+
+  { path: 'faculty', component: FacultyDetailsComponent, canActivate: [AuthGuardService]  },
+  { path: 'faculty/add', component: AddFacultyComponent, canActivate: [AuthGuardService]  },
+  { path: 'faculty/details', component: DetailFacultyComponent, canActivate: [AuthGuardService]  },
 
   { path: 'department', component: DepartmentComponent },
   { path: 'department/add', component: AddDepartmentComponent },
@@ -115,7 +119,7 @@ const routes: Routes = [
 
   { path: 'company', component: CompanyComponent },
   { path: 'company/add', component: AddCompanyComponent },
-  
+
   { path: 'placementcell', component: PlacementComponent },
   { path: 'placementcell/add', component: AddPlacementComponent },
   { path: 'placementcell/details', component: DetailPlacementComponent },
@@ -152,7 +156,7 @@ const routes: Routes = [
   { path: 'grievancecell/add-member', component: AddGrievanceCellMembersComponent },
   { path: 'grievancecell/view-member', component: ViewGrievanceCellMembersComponent },
   { path: 'grievancecell/complaint', component: GrievanceComplaintViewComponent },
-  
+
   { path: 'news', component: NewsComponent },
   { path: 'news/add', component: AddNewsComponent },
 
@@ -160,8 +164,8 @@ const routes: Routes = [
   { path: 'events/add', component: AddEventsGallaryComponent },
 
   { path: 'achievements', component: AchievementsComponent },
-  { path: 'achievements/add', component: AddAchievementsComponent},
-  { path: 'achievements/view', component: ViewAchievementsComponent},
+  { path: 'achievements/add', component: AddAchievementsComponent },
+  { path: 'achievements/view', component: ViewAchievementsComponent },
 
   { path: 'contactinfo', component: ContactInfoComponent },
   { path: 'contact-info/add', component: AddContactInfoComponent },
@@ -172,11 +176,11 @@ const routes: Routes = [
 
   { path: 'nss', component: NssComponent },
   { path: 'nss/add', component: AddNssComponent },
-  { path: 'nss/view', component: ViewNssComponent},
+  { path: 'nss/view', component: ViewNssComponent },
 
   { path: 'affiliation', component: AffiliationComponent },
   { path: 'affiliation/add', component: AddAffiliationComponent },
-  { path: 'affiliation/view', component: ViewAffiliationComponent}
+  { path: 'affiliation/view', component: ViewAffiliationComponent }
 ];
 
 @NgModule({
@@ -186,8 +190,9 @@ const routes: Routes = [
 export class AppRoutingModule { }
 
 export const routingComponents = [
+  LoginComponent,
   DashboardComponent,
-  
+
   AboutCollegeComponent,
   AddComponent,
 
@@ -197,14 +202,14 @@ export const routingComponents = [
   FacultyDetailsComponent,
   AddFacultyComponent,
   DetailFacultyComponent,
-  
+
   DepartmentComponent,
   AddDepartmentComponent,
   ViewDepartmentComponent,
-  
+
   SubjectsComponent,
   AddSubjectsComponent,
-  
+
   LabWorkshopComponent,
   AddLabWorkshopComponent,
   DetailLabWorkshopComponent,
@@ -215,7 +220,7 @@ export const routingComponents = [
 
   CompanyComponent,
   AddCompanyComponent,
-  
+
   PlacementComponent,
   AddPlacementComponent,
   DetailPlacementComponent,
