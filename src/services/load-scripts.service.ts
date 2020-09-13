@@ -22,9 +22,9 @@ export class LoadScriptsService {
     }
   }
 
-  loadDatatbles() {
+  loadDatatbles(id: string) {
     (function ($) {
-      $("#example1").DataTable({
+      $("#"+id).DataTable({
         "paging": true,
         "lengthChange": true,
         "searching": true,
