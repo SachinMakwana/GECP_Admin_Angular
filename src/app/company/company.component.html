@@ -1,6 +1,6 @@
 <div>
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <div class="content">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
@@ -8,7 +8,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
-                    <a [routerLink]="['/company/add']">
+                    <a [routerLink]="['/company/add']" routerLinkActive="active">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Company</li>
@@ -28,172 +28,36 @@
         <div class="container-fluid">
 
             <div class="row justify-content-center">
-                <div class="col-10">
+                <div class="col-12">
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">Company Details</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="row justify-content-center">
-                            <div class="col-10">
+                            <div class="col-12">
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-hover text-center">
+                                    <table id="tblCompany" class="table table-bordered table-hover text-center">
                                         <thead>
                                             <tr>
-                                                <th>Logo</th>
                                                 <th>Company Name</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
+                                            <tr *ngFor="let comp of companyService.companies; let i = index;">
+                                                <td>{{ comp.name }}</td>
                                                 <td>
                                                     <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
                                                 </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                            </tr>
-                                            <tr>
-                                                <td><img src="../../dist/img/microsoft-logo-50-50.png" class="img-circle elevation-2" alt="User Image"></td>
-                                                <td>Microsoft</td>
-
-                                                <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
-                                                </td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                                <td><a routerLinkActive="active" [routerLink]="[]"
+                                                        (click)="onDelete(comp._id, companyForm)"><i
+                                                            class="nav-icon fas fa-trash"></i></a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
-                                                <th>Logo</th>
                                                 <th>Company Name</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
