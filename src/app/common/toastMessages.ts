@@ -1,0 +1,20 @@
+export const ToastMessage = {
+  LoginSuccess: 'You are successfully logged in...',
+  ConfirmPasswordError: 'Confirm password does not match with new password',
+  EmailAddressNotValid: 'Email address is not valid.',
+  MandotaryFields: 'Please enter required fields',
+  EmployeeRole: 'Please select employee role',
+  InternalServerError: 'Not connected to server...Please try again after some time',
+  TryAfterSomeTime: 'The resource you are looking for is not found or may be permission issue',
+  SaveSuccess: 'Record saved successfully.',
+  UpdateSuccess: 'Record updated successfully.',
+  ChangePasswordSuccess: 'Your password changed successfully.',
+  ForgotPasswordSuccess: 'Forgot password link sent successfully',
+  DomainNotFound: 'Resource not found. Please try again after some time.',
+  CompanyGSTNInvalid: 'Company GSTN No. is invalid.',
+  BothAddressSame: 'Please enter different company address.',
+  SelectCountry: 'Please select country first.',
+  SelectState: 'Please select state first.',
+  DataRetrieveSuccess: 'Data successfully retrieved.',
+  DropdownValuesRequired: 'Some of dropdown values are require.'
+}
