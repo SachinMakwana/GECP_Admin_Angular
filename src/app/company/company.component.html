@@ -40,6 +40,7 @@
                                     <table id="tblCompany" class="table table-bordered table-hover text-center">
                                         <thead>
                                             <tr>
+                                                <th>Logo</th>
                                                 <th>Company Name</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>
@@ -47,17 +48,22 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let comp of companyService.companies; let i = index;">
+                                                <td><img src={{comp.logo}} alt="" id="imgLogo" height="50px"
+                                                        width="50px"></td>
                                                 <td>{{ comp.name }}</td>
                                                 <td>
-                                                    <a [routerLink]="['/company/add']" class="nav-icon fas fa-edit"></a>
+                                                    <a routerLinkActive="active" [routerLink]="[]"
+                                                        (click)="onEdit(comp._id,comp)"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
                                                 </td>
                                                 <td><a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onDelete(comp._id, companyForm)"><i
+                                                        (click)="onDelete(comp._id)"><i
                                                             class="nav-icon fas fa-trash"></i></a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
+                                                <th>Logo</th>
                                                 <th>Company Name</th>
                                                 <th>Edit</th>
                                                 <th>Delete</th>

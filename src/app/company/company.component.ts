@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { NgForm } from "@angular/forms";
+import { Router } from '@angular/router';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { CompanyService } from 'src/services/Components/company.service';
 import { Company } from '../models/company.model';
@@ -13,16 +14,17 @@ import { Company } from '../models/company.model';
 })
 export class CompanyComponent implements OnInit {
 
-  dynamicArray: Array<Company> = [];
+  company: Company;
 
   constructor(public companyService: CompanyService,
     private chRef: ChangeDetectorRef,
-    private _loadSriptService: LoadScriptsService) {
-      
+    private _loadSriptService: LoadScriptsService,
+    private router: Router) {
   }
 
   ngOnInit(): void {
     this.refreshCompanyList();
+    this.companyService.selectedCompany = null;
   }
 
   refreshCompanyList() {
@@ -32,20 +34,37 @@ export class CompanyComponent implements OnInit {
       this._loadSriptService.loadDatatbles("tblCompany");
     });
   }
+  //end of refreshCompanyList
 
-  onDelete(_id: number, form: NgForm, index) {
+  onDelete(_id: number) {
     if (confirm('Are You Sure To Delete This Record ?') == true) {
       this.companyService.deleteCompany(_id).subscribe((res) => {
         alert("Deleted Successfully!");
-        this.chRef.detectChanges();
-        //this.refreshCompanyList();
-        this.companyService.companies.splice(index, 1);
-        //this._loadSriptService.loadDatatbles("tblCampus");
-        //this.refreshCompanyList();
-        //this.resetForm(form);
+
+        this._loadSriptService.destroyDatatbles("tblCompany");
+        this.refreshCompanyList();
       });
     }
   }
+  //end of onDelete
 
 
+  onEdit(_id: number,comp: Company) {
+    //console.log(_id);
+    //console.log(comp);
+    this.companyService.selectedCompany = null;
+    this.companyService.selectedCompany = comp;
+    console.log(this.companyService.selectedCompany);
+    
+    /*this.companyService.selectedCompany = {
+      _id:_id,
+      name: comp.name,
+      logo: comp.logo,
+      description:comp.description
+    }*/
+    //console.log(comp);
+    //console.log(this.companyService.selectedCompany);
+
+    this.router.navigateByUrl('/company/add',{ state: this.companyService.selectedCompany });
+  }
 }

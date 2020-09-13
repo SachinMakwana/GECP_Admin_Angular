@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 declare var jQuery: any;
+declare var $: any;
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class LoadScriptsService {
 
   loadDatatbles(id: string) {
     (function ($) {
-      $("#"+id).DataTable({
+      $("#" + id).DataTable({
         "paging": true,
         "lengthChange": true,
         "searching": true,
@@ -33,6 +34,12 @@ export class LoadScriptsService {
         "autoWidth": true,
         "responsive": true,
       });
+    })(jQuery);
+  }
+
+  destroyDatatbles(id: string) {
+    (function ($) {
+      $("#" + id).DataTable().destroy();
     })(jQuery);
   }
 
@@ -57,12 +64,36 @@ export class LoadScriptsService {
     })(jQuery);
   }
 
-  loadEditorSummernote() {
+  loadEditorSummernote(id: string) {
     (function ($) {
-      $('.textarea').summernote({
-        height:150,
-        width:1200
+      $('#' + id).summernote({
+        height: 150
       })
+    })(jQuery);
+  }
+
+  getSummernoteCode(id: string) {
+    let code = $('#' + id).summernote('code');
+    return code;
+  }
+
+  setSummernoteCode(id: string, code: string) {
+    $('#' + id).summernote('code', code);
+  }
+
+  setSummernoteParseHTML(id: string, HTMLstring : string) {
+    $('#' + id).summernote('pasteHTML', HTMLstring );
+  }
+
+  resetSummernote(id: string) {
+    (function ($) {
+      $('#' + id).summernote('code', '');
+    })(jQuery);
+  }
+
+  resetFileInput(id: string) {
+    (function ($) {
+      return $("#" + id).val(null);
     })(jQuery);
   }
 

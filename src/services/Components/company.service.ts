@@ -14,20 +14,17 @@ export class CompanyService {
   selectedCompany: Company;
   companies: Company[];
   readonly baseURL = 'http://localhost:3000/company';
-  errorMgmt: (err: any, caught: Observable<any>) => ObservableInput<any>;
 
-  constructor(private http: HttpClient) { }
-
-// Create
-createCompany(data): Observable<any> {
-  //let url = '${this.basURL}';
-  return this.http.post(this.baseURL, data)
-    .pipe(
-      catchError(this.errorMgmt)
-    )}
+  constructor(private http: HttpClient) { 
+    this.selectedCompany = new Company();
+  }
 
   getCompany() {
     return this.http.get(this.baseURL);
+  }
+
+  getCompanyById(_id: number) {
+    return this.http.get(this.baseURL + `/${_id}`);
   }
 
   postCompany(cmp: Company) {
