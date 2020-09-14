@@ -3,7 +3,7 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
-import { CompanyService } from "../../../services/Components/company.service";
+import { CompanyService } from "../../../services/component/company.service";
 import { Company } from "../../models/company.model";
 
 @Component({
@@ -19,6 +19,9 @@ export class AddCompanyComponent implements OnInit {
   company: Company;
   isInit: boolean = true;
   isEdit:boolean;
+  fileSelected:boolean;
+  isDescriptionEmpty:boolean;
+  nameEntered:boolean;
 
   constructor(public companyService: CompanyService,
     private _loadScript: LoadScriptsService,
@@ -31,7 +34,7 @@ export class AddCompanyComponent implements OnInit {
 
 
   ngOnInit(): void {
-    //console.log(this.companyService.selectedCompany);
+    this._loadScript.onlyAlphabets("txtName")
     this._loadScript.loadEditorSummernote('txtDescription');
     this.resetForm();
     
@@ -59,8 +62,11 @@ export class AddCompanyComponent implements OnInit {
     //$("#imgLogo").val(null);
     this._loadScript.resetFileInput("imgLogo");
     this.fileLabel = "Choose Image";
+    this.fileSelected = false;
+    this.isDescriptionEmpty == true ? this.isDescriptionEmpty=false : null;
+    this.nameEntered = false;
 
-    !this.isInit ? this._loadScript.resetSummernote("txtDescription") : null;
+    this._loadScript.resetSummernote("txtDescription");
 
     this.company = {
       _id: null,
@@ -103,6 +109,7 @@ export class AddCompanyComponent implements OnInit {
       reader.readAsBinaryString(file);
     }
     this.fileLabel = filename;
+    this.fileSelected = true;
   }
 
   handleReaderLoaded(e) {
@@ -112,6 +119,27 @@ export class AddCompanyComponent implements OnInit {
 
   onSubmit(form?: NgForm) {
 
+    //let blankSummernote = "<p><br></p>"
+    let code = this._loadScript.getSummernoteCode('txtDescription');
+
+    code == "" ? this.isDescriptionEmpty = true : this.isDescriptionEmpty = false;
+    (this.company.name == null || this.company.name == "") ?  this.nameEntered = true : this.nameEntered = false;
+
+
+    if(this.isDescriptionEmpty || this.nameEntered || !this.fileSelected){
+      return;
+    }
+    /*if(blankSummernote == code){
+      this.isDescriptionEmpty=true;
+      return;
+    }
+    if(this.company.name == null || this.company.name == ""){
+      console.log("Name required");
+      console.log(this.company.name);
+      this.nameEntered = true;
+      return;
+    }*/
+
     if(this.isEdit && form != null){
       if(this.base64textString[0]){
         this.company.logo = this.base64textString[0];
@@ -120,7 +148,6 @@ export class AddCompanyComponent implements OnInit {
     else{
       this.company.logo = this.base64textString[0];
     }
-    let code = this._loadScript.getSummernoteCode('txtDescription');
 
     this.company = {
       _id: this.isEdit ? this.company._id : null,

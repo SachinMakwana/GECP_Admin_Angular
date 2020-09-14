@@ -81,8 +81,8 @@ export class LoadScriptsService {
     $('#' + id).summernote('code', code);
   }
 
-  setSummernoteParseHTML(id: string, HTMLstring : string) {
-    $('#' + id).summernote('pasteHTML', HTMLstring );
+  setSummernoteParseHTML(id: string, HTMLstring: string) {
+    $('#' + id).summernote('pasteHTML', HTMLstring);
   }
 
   resetSummernote(id: string) {
@@ -104,6 +104,15 @@ export class LoadScriptsService {
         format: 'L'
       });
     })(jQuery);
+  }
+
+  onlyAlphabets(id: string) {
+    $("#" + id).keypress(function (e) {
+      var key = e.keyCode;
+      if (key >= 48 && key <= 57) {
+        e.preventDefault();
+      }
+    });
   }
 }
 

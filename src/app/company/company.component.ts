@@ -3,7 +3,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { NgForm } from "@angular/forms";
 import { Router } from '@angular/router';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { CompanyService } from 'src/services/Components/company.service';
+import { CompanyService } from 'src/services/component/company.service';
 import { Company } from '../models/company.model';
 
 @Component({
