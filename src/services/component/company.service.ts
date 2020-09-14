@@ -31,6 +31,10 @@ export class CompanyService {
     return this.http.post(this.baseURL, cmp);
   }
 
+  updateCompany(cmp: Company,_id: number) {
+    return this.http.put(this.baseURL + `/${_id}`, cmp);
+  }
+
   deleteCompany(_id: number) {
     return this.http.delete(this.baseURL + `/${_id}`);
   }
