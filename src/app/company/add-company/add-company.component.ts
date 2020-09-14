@@ -18,6 +18,7 @@ export class AddCompanyComponent implements OnInit {
   fileLabel: string = "Choose Image";
   company: Company;
   isInit: boolean = true;
+  isEdit:boolean;
 
   constructor(public companyService: CompanyService,
     private _loadScript: LoadScriptsService,
@@ -33,8 +34,21 @@ export class AddCompanyComponent implements OnInit {
     //console.log(this.companyService.selectedCompany);
     this._loadScript.loadEditorSummernote('txtDescription');
     this.resetForm();
-    if(history.state){
+    
+    if(history.state != undefined){
       this.company = history.state;
+      this._loadScript.setSummernoteParseHTML("txtDescription",this.company.description)
+      this.fileLabel = "Change Image";
+
+      this.company._id = this.company._id
+      this.isEdit = true;
+      console.log(this.company._id);
+      console.log("Edit");
+    }
+    else{
+      this.company._id = null
+      console.log(this.company._id);
+      console.log("Add");
     }
   }
 
@@ -56,8 +70,8 @@ export class AddCompanyComponent implements OnInit {
     }
     this.isInit = false;
 
-    let HTMLstring = '<div><p>Hello, world</p><p><b>Summernote can insert HTML string<b></p></div>';
-    this._loadScript.setSummernoteParseHTML("txtDescription",HTMLstring);
+    //let HTMLstring = '<div><p>Hello, world</p><p><b>Summernote can insert HTML string<b></p></div>';
+    //this._loadScript.setSummernoteParseHTML("txtDescription",HTMLstring);
   }
 
   /*onSubmit(form: NgForm) {
@@ -97,20 +111,36 @@ export class AddCompanyComponent implements OnInit {
 
 
   onSubmit(form?: NgForm) {
-    this.company.logo = this.base64textString[0];
+
+    if(this.isEdit && form != null){
+      if(this.base64textString[0]){
+        this.company.logo = this.base64textString[0];
+      }
+    }
+    else{
+      this.company.logo = this.base64textString[0];
+    }
     let code = this._loadScript.getSummernoteCode('txtDescription');
 
     this.company = {
-      _id: null,
+      _id: this.isEdit ? this.company._id : null,
       name: this.company.name,
       description: code,
       logo: this.company.logo
     }
 
-    this.companyService.postCompany(this.company).subscribe((res) => {
-      alert("Saved Successfully!");
-      console.log("Saved");
-    });
+    if(this.isEdit){
+      this.companyService.updateCompany(this.company,this.company._id).subscribe((res) => {
+        alert("Updated Successfully!");
+        console.log("Updated");
+      });
+    }
+    else{
+      this.companyService.postCompany(this.company).subscribe((res) => {
+        alert("Saved Successfully!");
+        console.log("Saved");
+      });
+    }
 
     this.resetForm(form);
     //this._loadScript.resetSummernote("txtDescription");
