@@ -30,3 +30,21 @@ function loadDateMask() {
 function loadEditorSummernote() {
     $('.textarea').summernote()
 }
+
+function onlyNumbers(e) {
+    var charCode = (event.which) ? event.which : event.keyCode;
+    // Only Numbers 0-9
+    if ((charCode < 48 || charCode > 57)) {
+        event.preventDefault();
+        return false;
+    } else {
+        return true;
+    }
+}
+
+function ValidateAlpha(event) {
+    if ((event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32))
+        return true;
+        
+    return false;
+}

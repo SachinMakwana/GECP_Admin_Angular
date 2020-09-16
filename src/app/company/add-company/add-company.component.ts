@@ -3,6 +3,8 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
+import { ToastrService } from 'ngx-toastr';
+
 import { CompanyService } from "../../../services/component/company.service";
 import { Company } from "../../models/company.model";
 
@@ -22,11 +24,12 @@ export class AddCompanyComponent implements OnInit {
   fileSelected:boolean;
   isDescriptionEmpty:boolean;
   nameEntered:boolean;
+  e:Event;
 
   constructor(public companyService: CompanyService,
     private _loadScript: LoadScriptsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) {
+    private toastr: ToastrService) {
 
       console.log(this.router.getCurrentNavigation().extras.state);
       this.company = new Company();
@@ -34,7 +37,6 @@ export class AddCompanyComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this._loadScript.onlyAlphabets("txtName")
     this._loadScript.loadEditorSummernote('txtDescription');
     this.resetForm();
     
@@ -42,15 +44,12 @@ export class AddCompanyComponent implements OnInit {
       this.company = history.state;
       this._loadScript.setSummernoteParseHTML("txtDescription",this.company.description)
       this.fileLabel = "Change Image";
-
-      this.company._id = this.company._id
-      this.isEdit = true;
-      console.log(this.company._id);
+      this.fileSelected = true;
+      
       console.log("Edit");
     }
     else{
       this.company._id = null
-      console.log(this.company._id);
       console.log("Add");
     }
   }
@@ -59,7 +58,6 @@ export class AddCompanyComponent implements OnInit {
     if (form)
       form.reset();
 
-    //$("#imgLogo").val(null);
     this._loadScript.resetFileInput("imgLogo");
     this.fileLabel = "Choose Image";
     this.fileSelected = false;
@@ -75,23 +73,7 @@ export class AddCompanyComponent implements OnInit {
       logo: ""
     }
     this.isInit = false;
-
-    //let HTMLstring = '<div><p>Hello, world</p><p><b>Summernote can insert HTML string<b></p></div>';
-    //this._loadScript.setSummernoteParseHTML("txtDescription",HTMLstring);
   }
-
-  /*onSubmit(form: NgForm) {
-    //console.log(form.value);
-    this.companyService.postCompany(form.value).subscribe((res) => {
-      this.resetForm(form);
-    });
-  }*/
-
-  /*onSubmit(){
-    let code = this._loadScript.getSummernoteCode("txtDescription");
-    alert(code);
-    console.log(code);
-  }*/
 
   //for image to base64
   base64textString = [];
@@ -119,7 +101,6 @@ export class AddCompanyComponent implements OnInit {
 
   onSubmit(form?: NgForm) {
 
-    //let blankSummernote = "<p><br></p>"
     let code = this._loadScript.getSummernoteCode('txtDescription');
 
     code == "" ? this.isDescriptionEmpty = true : this.isDescriptionEmpty = false;
@@ -127,20 +108,11 @@ export class AddCompanyComponent implements OnInit {
 
 
     if(this.isDescriptionEmpty || this.nameEntered || !this.fileSelected){
+      this.toastr.error("Please Insert Data","Required");
       return;
     }
-    /*if(blankSummernote == code){
-      this.isDescriptionEmpty=true;
-      return;
-    }
-    if(this.company.name == null || this.company.name == ""){
-      console.log("Name required");
-      console.log(this.company.name);
-      this.nameEntered = true;
-      return;
-    }*/
-
-    if(this.isEdit && form != null){
+    
+    if(this.company._id  != null && form != null){
       if(this.base64textString[0]){
         this.company.logo = this.base64textString[0];
       }
@@ -150,30 +122,25 @@ export class AddCompanyComponent implements OnInit {
     }
 
     this.company = {
-      _id: this.isEdit ? this.company._id : null,
+      _id: this.company._id,
       name: this.company.name,
       description: code,
       logo: this.company.logo
     }
 
-    if(this.isEdit){
+    if(this.company._id  != null){
       this.companyService.updateCompany(this.company,this.company._id).subscribe((res) => {
-        alert("Updated Successfully!");
+        this.toastr.success("Information Updated Successfully !", "Updated");
         console.log("Updated");
       });
     }
     else{
       this.companyService.postCompany(this.company).subscribe((res) => {
-        alert("Saved Successfully!");
+        this.toastr.success("Information Saved Successfully !", "Saved");
         console.log("Saved");
       });
     }
 
     this.resetForm(form);
-    //this._loadScript.resetSummernote("txtDescription");
-    console.log(this.company);
-    //console.log(code);
-    //console.log(this.company);
-    //console.log(JSON.stringify(this.company));
   }
 }

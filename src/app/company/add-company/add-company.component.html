@@ -43,11 +43,7 @@
                                                         class="red-text">*</label></label>
                                                 <input type="text" class="form-control" placeholder="Company Name"
                                                     name="txtName" [(ngModel)]="this.company.name"
-                                                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32)"
-                                                    required>
-                                                <span *ngIf="nameEntered" class="text-danger" [hidden]="!nameEntered">
-                                                    Name is Required
-                                                </span>
+                                                    onkeypress="return ValidateAlpha(event)" required>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label for="exampleInputFile">Upload Company Logo<label
@@ -61,19 +57,12 @@
                                                             for="exampleInputFile">{{fileLabel}}</label>
                                                     </div>
                                                 </div>
-                                                <span *ngIf="!fileSelected" class="text-danger" [hidden]="fileSelected">
-                                                    File is Required
-                                                </span>
                                             </div>
                                         </div>
                                         <div class="input-group">
                                             <div class="col-12">
                                                 <label for="companyDetails">Add Company Details Below<label
                                                         class="red-text">*</label></label>
-                                                <span *ngIf="isDescriptionEmpty" class="text-danger"
-                                                    [hidden]="!isDescriptionEmpty">
-                                                    Description is Required
-                                                </span>
                                             </div>
 
                                             <div class="col-12">
