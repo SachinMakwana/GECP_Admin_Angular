@@ -10,7 +10,7 @@ export class AddStudentSectionComponent implements OnInit {
   constructor(private _loadSriptService: LoadScriptsService) { }
 
   ngOnInit(): void {
-    this._loadSriptService.loadEditorSummernote();
+     this._loadSriptService.loadDatatbles("id");
   }
 
 }

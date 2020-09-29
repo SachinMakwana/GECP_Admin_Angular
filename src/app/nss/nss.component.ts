@@ -11,7 +11,7 @@ export class NssComponent implements OnInit {
   constructor(private _loadSriptService: LoadScriptsService) { }
 
   ngOnInit(): void {
-    this._loadSriptService.loadDatatbles();
+     this._loadSriptService.loadDatatbles("id");
   }
 
 }

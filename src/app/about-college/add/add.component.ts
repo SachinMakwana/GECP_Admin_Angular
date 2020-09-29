@@ -12,7 +12,7 @@ export class AddComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    this._loadSriptService.loadEditorSummernote();
+     this._loadSriptService.loadDatatbles("id");
   }
 
 }
