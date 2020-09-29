@@ -29,85 +29,48 @@
             <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Attachments Lists</h3>
-                    </div>
+                        <div class="card-header">
+                            <h3 class="card-title">Attachments Lists</h3>
+                        </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover text-center">
+                            <table id="tblAttachments" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>File Name</th>
+                                        <th>Document</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Rani ki Wav Before Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav After Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav Before Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav After Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav Before Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav After Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav Before Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav After Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav Before Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav After Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav Before Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Rani ki Wav After Cleaning </td>
-                                        <td><a [routerLink]="['/attachments/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                    <tr *ngFor="let achieve of attachmentsService.attachments; let i = index;">
+                                        <td>{{achieve.name}}</td>
+                                        <td>{{achieve.fileName}}</td>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(achieve)"><i
+                                                    class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a routerLinkActive="active" [routerLink]="[]"
+                                                (click)="onDelete(achieve._id)"><i
+                                                    class="nav-icon fas fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>File Name</th>
+                                        <th>Edit</th>
+                                        <th>Document</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </tfoot>
                             </table>
-
                         </div>
                     </div>
+                    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                        <p style="color: white;">Please Wait..</p>
+                    </ngx-spinner>
                     <!--ur contents here-->
                 </div>
             </div>

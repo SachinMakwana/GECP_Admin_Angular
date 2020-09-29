@@ -26,25 +26,25 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form role="form" id="quickForm">
+                                <form role="form" #membersForm="ngForm">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="col-6">
-                                                    <label for="Name"> Grievance Cell Member Name</label>
+                                                    <label for="Name">Enter Member Name</label>
                                                     <input type="text" class="form-control" id="Name"
-                                                        placeholder="Enter Name">
+                                                        [(ngModel)]="this.grievenceMembers.name" name="name"
+                                                        placeholder="Enter Name" required>
                                                 </div>
 
                                                 <div class="col-6">
-                                                    <label>Select Grievance Cell Member Role:</label>
-                                                    <select class="form-control select2" style="width: 100%;">
-                                                        <option selected="selected">Convener</option>
-                                                        <option>Supporting Committee of Women Cell</option>
-                                                        <option>Anti Ragging Committee Coordinator</option>
-                                                        <option>SSIP Coordinator</option>
-                                                        <option>Supporting Committee of Anti Ragging Cell</option>
-                                                        <option>Supporting Committee of SSIP</option>
+                                                    <label>Select Member's Role:</label>
+                                                    <select class="form-control select2"
+                                                        [(ngModel)]="this.grievenceMembers.role" name="role" required>
+                                                        <option value="Convener">Convener</option>
+                                                        <option value="Head">Head</option>
+                                                        <option value="Supporting Committee Member">Supporting Committee
+                                                            Member</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -52,27 +52,27 @@
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="col-6">
-                                                    <label>Select Grievance Cell Member Designation</label>
-                                                    <select class="form-control select2" style="width: 100%;">
-                                                        <option selected="selected">HOD </option>
-                                                        <option>Staff Member</option>
-                                                        <option>Staff Member</option>
-                                                        <option>Staff Member</option>
-                                                        <option>Staff Member</option>
+                                                    <label>Select Member's Designation</label>
+                                                    <select class="form-control select2"
+                                                        [(ngModel)]="this.grievenceMembers.designation"
+                                                        name="designation" required>
+                                                        <option value="HOD">HOD </option>
+                                                        <option value="Faculty">Faculty</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="col-6">
-                                                    <label>Select Grievance Cell Member Department</label>
-                                                    <select class="form-control select2" style="width: 100%;">
-                                                        <option selected="selected">Computer Engineering</option>
-                                                        <option>Electic Engineering</option>
-                                                        <option>Electic Engineering</option>
-                                                        <option>Electic Engineering</option>
-                                                        <option>Electic Engineering</option>
-                                                        <option>Electic Engineering</option>
+                                                    <label>Select Member's Department</label>
+                                                    <select class="form-control select2" id="ddlDepartment"
+                                                        name="department" [(ngModel)]="this.grievenceMembers.department"
+                                                        required>
+                                                        <option value="Computer">Computer</option>
+                                                        <option value="Civil">Civil</option>
+                                                        <option value="Mechanical">Mechanical</option>
+                                                        <option value="Eletrical">Eletrical</option>
+                                                        <option value="Electronics & Communications">Electronics &
+                                                            Communications</option>
                                                     </select>
-
                                                 </div>
                                             </div>
                                         </div>
@@ -80,11 +80,10 @@
                                     <div class="card-footer">
                                         <div class="input-group col-12">
                                             <div class="col-sm-6"><button type="submit"
+                                                    [disabled]="!membersForm.form.valid" (click)="onSubmit(membersForm)"
                                                     class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                            <div class="col-6">
-                                                <a [routerLink]="['/grievancecell/view-member']"
-                                                    class="btn btn-default">Cancel</a>
-                                            </div>
+                                            <div class="col-sm-6"><button type="clear" (click)="resetForm(membersForm)"
+                                                    class="btn btn-primary col-md-2">Cancel</button></div>
                                         </div>
                                     </div>
                                 </form>

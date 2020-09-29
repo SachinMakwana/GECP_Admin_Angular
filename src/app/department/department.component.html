@@ -26,7 +26,7 @@
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -34,92 +34,52 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover text-center">
+                            <table id="tblDepartment" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
-                                        <th>Brach Code</th>
-                                        <th>Branch Name</th>
-                                        <th>Branch Image</th>
+                                        <th>Department Code</th>
+                                        <th>Department Name</th>
+                                        <th>Image</th>
                                         <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Electronic And Communication</td>
-                                        <td>Branch Image</td>
-                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                    <tr *ngFor="let dept of departmentService.department; let i = index;">
+                                        <td>{{dept.code}}</td>
+                                        <td>{{dept.name}}</td>
+                                        <td><img src={{dept.image}} alt="" id="image" height="70px" width="70px"></td>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onView(dept._id,dept)">
+                                                <i class="nav-icon fas fa-eye"></i></a>
                                         </td>
-                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(dept)"><i
+                                                    class="nav-icon fas fa-edit"></i></a>
                                         </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Electrical</td>
-                                        <td>Branch Image</td>
-                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
-                                        </td>
-                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
-                                        </td>
-
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Computer</td>
-                                        <td>Branch Image</td>
-                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
-                                        </td>
-                                        <td><a [routerLink]="['/department/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Civil</td>
-                                        <td>Branch Image</td>
-                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
-                                        </td>
-                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Mechanical</td>
-                                        <td>Branch Image</td>
-                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
-                                        </td>
-                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        <td><a routerLinkActive="active" [routerLink]="[]"
+                                                (click)="onDelete(dept._id)"><i class="nav-icon fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>Brach Code</th>
-                                        <th>Branch Name</th>
-                                        <th>Branch Image</th>
+                                        <th>Department Code</th>
+                                        <th>Department Name</th>
+                                        <th>Image</th>
                                         <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
-
                                     </tr>
                                 </tfoot>
                             </table>
                         </div>
                         <!-- /.card-body -->
                     </div>
+                    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                        <p style="color: white;">Please Wait..</p>
+                    </ngx-spinner>
                 </div>
             </div>
             <!-- /.card -->
