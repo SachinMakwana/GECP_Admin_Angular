@@ -9,7 +9,7 @@ import { SDetails } from '../../../app/models/ssip/s_details.model';
 export class SDetailsService {
 selectedSDetails: SDetails;
 sDetails: SDetails[];
-readonly baseURL = "http://localhost:5000/ssip_details";
+readonly baseURL = "http://localhost:3000/ssip_details";
   
 constructor(private http: HttpClient) { 
  this.selectedSDetails = new SDetails();

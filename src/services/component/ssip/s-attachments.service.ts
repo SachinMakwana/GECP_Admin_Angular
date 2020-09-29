@@ -9,7 +9,7 @@ import { SAttachments } from '../../../app/models/ssip/s-attachments.model';
 export class SAttachmentsService {
   selectedSAttachments: SAttachments;
   sAttachments: SAttachments[];
-  readonly baseURL = 'http://localhost:5000/ssip_attachments';
+  readonly baseURL = 'http://localhost:3000/ssip_attachments';
 
   constructor(private http: HttpClient) {
     this.selectedSAttachments = new SAttachments();

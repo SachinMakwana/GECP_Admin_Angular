@@ -9,7 +9,7 @@ export class ContactInfoService {
 
   selectedContactInfo: ContactInfo;
   contactInfo : ContactInfo[];
-  readonly baseURL = "http://localhost:5000/contactInfo";
+  readonly baseURL = "http://localhost:3000/contactInfo";
 
 
   constructor(private http: HttpClient) {

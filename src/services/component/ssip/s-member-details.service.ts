@@ -9,7 +9,7 @@ import { SMemberDetails } from '../../../app/models/ssip/s-member-details.model'
 export class SMemberDetailsService {
   selectedSDetails: SMemberDetails;
   sMemberDetails: SMemberDetails[];
-  readonly baseURL = 'http://localhost:5000/ssip_memberDetails'
+  readonly baseURL = 'http://localhost:3000/ssip_memberDetails'
 
   constructor(private http: HttpClient) {
     this.selectedSDetails = new SMemberDetails();

@@ -10,7 +10,7 @@ import { Department } from "../../app/models/department.model"
 export class DepartmentService {
   selectedDepartment: Department;
   department: Department[];
-  readonly baseURL = 'http://localhost:5000/department';
+  readonly baseURL = 'http://localhost:3000/department';
 
   constructor(private http: HttpClient) {
     this.selectedDepartment = new Department();

@@ -10,7 +10,7 @@ export class GrievenceMemberService {
 
   selectedGrievenceMembers: GrievenceMembers;
   grievenceMembers: GrievenceMembers[];
-  readonly baseURL = 'http://localhost:5000/grievence_memberDetails';
+  readonly baseURL = 'http://localhost:3000/grievence_memberDetails';
 
   constructor(private http: HttpClient) {
     this.selectedGrievenceMembers = new GrievenceMembers();

@@ -15,7 +15,7 @@ import { Campus } from '../../app/models/campus.model';
 export class CampusService {
   selectedCampus: Campus;
   campus: Campus[];
-  readonly baseURL = "http://localhost:5000/campus";
+  readonly baseURL = "http://localhost:3000/campus";
 
   constructor(private http: HttpClient) {
     this.selectedCampus = new Campus();
