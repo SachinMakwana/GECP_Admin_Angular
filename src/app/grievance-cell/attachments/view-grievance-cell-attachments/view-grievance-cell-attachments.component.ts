@@ -33,7 +33,7 @@ export class ViewGrievanceCellAttachmentsComponent implements OnInit {
     this.gAttachmentService.getGrievenceAttachment().subscribe(res => {
       this.gAttachmentService.grievenceAttachments = res as GrievenceAttachment[];
       this.chRef.detectChanges();
-      this._loadSriptService.loadDatatbles("tblGrievenceAttachment");
+      this._loadSriptService.loadDatatbles("tblGAttachments");
     });
     this.spinnerService.hide();
   }
@@ -54,7 +54,7 @@ export class ViewGrievanceCellAttachmentsComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.gAttachmentService.deleteGrievenceAttachment(_id).subscribe((res) => {
-          this._loadSriptService.destroyDatatbles("tblGrievenceAttachment");
+          this._loadSriptService.destroyDatatbles("tblGAttachments");
           this.refreshList();
           Swal.fire(
             'Deleted!',

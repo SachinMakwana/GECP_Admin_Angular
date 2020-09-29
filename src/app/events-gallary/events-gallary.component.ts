@@ -13,6 +13,6 @@ export class EventsGallaryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._loadSriptService.loadDatatbles();
+    this._loadSriptService.loadDatatbles("id");
   }
 }

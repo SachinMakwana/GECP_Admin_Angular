@@ -73,7 +73,7 @@ export class DepartmentComponent implements OnInit {
     this.router.navigateByUrl('/department/add', { state: this.departmentService.selectedDepartment });
   }
 
-  onView(_id:number,dept: Department) {
+  onView(dept: Department) {
     this.departmentService.selectedDepartment = null;
     this.departmentService.selectedDepartment = dept;
 

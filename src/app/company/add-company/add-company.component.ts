@@ -1,11 +1,10 @@
+import { CompanyService } from 'src/services/company.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
-
-import { CompanyService } from "../../../services/component/company.service";
 import { Company } from "../../models/company.model";
 
 @Component({
