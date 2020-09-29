@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { LoadScriptsService } from 'src/services/load-scripts.service';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+
+import { Router } from '@angular/router';
+
+import { AntiRaggingDetailsService } from 'src/services/component/anti_ragging/anti_ragging_details.service';
+import { AntiRaggingDetails } from '../models/anti_ragging/anti-ragging_details.model';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-anti-ragging-cell',
@@ -7,11 +12,33 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
   styleUrls: ['./anti-ragging-cell.component.css']
 })
 export class AntiRaggingCellComponent implements OnInit {
-  
-  constructor(private _loadSriptService: LoadScriptsService) {
+
+  antiRaggingDetails: AntiRaggingDetails;
+
+  constructor(public antiRaggingDetailsService: AntiRaggingDetailsService,
+    private router: Router,
+    private spinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
-    this._loadSriptService.loadDatatbles();
+    this.antiRaggingDetailsService.selectedAntiRaggingDetails = null;
+    this.refreshList();
+  }
+
+  //refreshing data
+  refreshList() {
+    this.spinnerService.show();
+    this.antiRaggingDetailsService.getAntiRaggingDetails().subscribe(res => {
+      this.antiRaggingDetailsService.antiRaggingDetails = res as AntiRaggingDetails[];
+      this.spinnerService.hide();
+    });
+  }
+  //end of refreshList
+
+  onEdit(data: AntiRaggingDetails) {
+    this.antiRaggingDetailsService.selectedAntiRaggingDetails = data;
+    console.log(this.antiRaggingDetailsService.selectedAntiRaggingDetails);
+
+    this.router.navigateByUrl('/antiRaggingcell/add', { state: this.antiRaggingDetailsService.selectedAntiRaggingDetails });
   }
 }

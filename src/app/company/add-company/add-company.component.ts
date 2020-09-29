@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
-import { NgForm } from "@angular/forms";
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from "@angular/forms";
 
 import { CompanyService } from "../../../services/component/company.service";
 import { Company } from "../../models/company.model";
@@ -24,14 +24,12 @@ export class AddCompanyComponent implements OnInit {
   fileSelected:boolean;
   isDescriptionEmpty:boolean;
   nameEntered:boolean;
-  e:Event;
 
   constructor(public companyService: CompanyService,
     private _loadScript: LoadScriptsService,
     private router: Router,
     private toastr: ToastrService) {
 
-      console.log(this.router.getCurrentNavigation().extras.state);
       this.company = new Company();
   }
 
@@ -45,12 +43,9 @@ export class AddCompanyComponent implements OnInit {
       this._loadScript.setSummernoteParseHTML("txtDescription",this.company.description)
       this.fileLabel = "Change Image";
       this.fileSelected = true;
-      
-      console.log("Edit");
     }
     else{
       this.company._id = null
-      console.log("Add");
     }
   }
 
@@ -131,13 +126,11 @@ export class AddCompanyComponent implements OnInit {
     if(this.company._id  != null){
       this.companyService.updateCompany(this.company,this.company._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
       });
     }
     else{
       this.companyService.postCompany(this.company).subscribe((res) => {
         this.toastr.success("Information Saved Successfully !", "Saved");
-        console.log("Saved");
       });
     }
 
