@@ -26,15 +26,24 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form role="form" id="quickForm">
+                                <form #womendetailForm="ngForm" name="womendetailForm">
                                     <div class="card-body">
                                         <div class="form-group">
                                             <div class="input-group col-12">
                                                 <div class="card-body pad">
-                                                    <div class="mb-3">
-                                                        <textarea class="textarea" id="details"
-                                                            placeholder="Place some text here"
-                                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                                    <div class="input-group">
+                                                        <div class="col-12">
+                                                            <input type="hidden" name="_id" [(ngModel)]="this.womendetail._id">
+                                                            <label for="companyDetails">Add Women Cell Detail Details Below<label
+                                                                    class="red-text">*</label></label>
+                                                        </div>
+                        
+                                                        <div class="col-12">
+                                                            <textarea id="txtDescription" class="textarea form-control"
+                                                                placeholder="Place some text here" name="women_description"
+                                                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
+                                                                required></textarea>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -43,11 +52,11 @@
                                     <!-- /.card-body -->
                                     <div class="card-footer">
                                         <div class="input-group col-12">
-                                            <div class="col-sm-6"><button type="submit"
+                                            <div class="col-sm-6"><button type="submit" (click)="onSubmit(womendetailForm)"
                                                     class="btn btn-primary float-right col-md-2">Submit</button>
                                             </div>
-                                            <div class="col-sm-6"><a [routerLink]="['/womencell']"
-                                                    class="btn btn-default col-md-2">Cancel</a></div>
+                                            <div class="col-sm-6"><button type="reset" (click)="resetForm(womendetailForm)"
+                                                class="btn btn-default col-md-2">Clear</button></div>
                                         </div>
                                     </div>
                                 </form>

@@ -7,8 +7,8 @@
                     <h2 class="m-0 text-dark">View Women cell Details</h2>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6">
-                    <a [routerLink]="['/womencell/add']" routerLinkActive="active">
+                <div class="col-sm-6"*ngFor="let wd of womenService.womendetails; let i = index;" >
+                    <a [routerLink]="[]" (click)="onEdit(wd._id,wd)">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Edit Details</li>
@@ -34,88 +34,19 @@
                             <div class="d-flex justify-content-center">
                                 <h3>Women Cell Details</h3>
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" *ngFor="let wd of womenService.womendetails; let i = index;">
                                 <div class="form-group">
-                                    <span>The Prime Role of Women Development Cell (WDC) is to provide and
-                                        maintain
-                                        a dignified and safe working environment for women employees (including
-                                        teaching, non-teaching and contractual workers) and students, where they
-                                        can
-                                        work, study and explore their potential to the fullest. It includes
-                                        women
-                                        Harassment complaint committee and women empowerment program
-                                        co-ordination
-                                        committee.
+                                    <span>
+                                        <p [innerHTML] = "wd.women_description"></p>
                                     </span>
-                                </div>
-
-
-                                <div class="form-group">
-                                    <div class="sub-obj">
-                                        <h4>Sub-Objectives</h4>
-                                        <ul>
-                                            <li>
-                                                To create awareness of women’s rights and their roles in the
-                                                society.</li>
-                                            <li>
-                                                To create social awareness about the problems of women and in
-                                                particular regarding gender discrimination.</li>
-                                            <li>
-                                                To provide a forum for women on the campus to share information and
-                                                resources and exchange of ideas. </li>
-                                            <li>
-                                                To give information about safety and security measures for female
-                                                employees and girl students by conducting seminar on safety.
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="committe">
-                                        <h4>Women's Development Committee (2018-19)</h4>
-                                        <div class="form-group">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="input-group">
-                                                        <div class="col-1.5">
-                                                            <h6><strong>Convener:</strong></h6>
-                                                        </div>
-                                                        <div class="col-2">
-                                                            <span>Prof. Sita Agarwal</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-12">
-                                                <div class="input-group">
-                                                    <div class="col-1.5">
-                                                        <h6><strong>Supporting Members : </strong></h6>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="row">
-                                                            <div class="col-12">
-                                                                <ul>
-                                                                    <li>Prof. Avani Vithalani</li>
-                                                                    <li>Prof. Swapna Pawar</li>
-                                                                    <li>Prof. Roshni Chaudhari</li>
-                                                                    <li>Smt. Reena Prajapati</li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--ur contents here-->
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+                    <p style="color: white">Please Wait. </p>  
+                    </ngx-spinner>
             </div>
         </div>
     </section>
