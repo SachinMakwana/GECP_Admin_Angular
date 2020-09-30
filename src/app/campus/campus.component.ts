@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -24,7 +23,6 @@ export class CampusComponent implements OnInit {
     private chRef: ChangeDetectorRef,
     private _loadSriptService: LoadScriptsService,
     private router: Router,
-    private toastr: ToastrService,
     private spinnerService: NgxSpinnerService) {
   }
 
@@ -71,7 +69,6 @@ export class CampusComponent implements OnInit {
   onEdit(cam: Campus) {
     this.campusService.selectedCampus = null;
     this.campusService.selectedCampus = cam;
-    console.log(this.campusService.selectedCampus);
 
     this.router.navigateByUrl('/campus/add', { state: this.campusService.selectedCampus });
   }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { CampusService } from '../../../services/component/campus.service'
@@ -17,13 +16,11 @@ export class AddCampusComponent implements OnInit {
 
   fileLabel: string = "Choose File";
   campus: Campus;
-  //isInit: boolean = true;
   fileSelected: boolean;
   isDescriptionEmpty: boolean;
 
   constructor(public campusService: CampusService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
     this.campus = new Campus();
@@ -48,7 +45,6 @@ export class AddCampusComponent implements OnInit {
     if (form)
       form.reset();
 
-    //this._loadScript.resetFileInput("image");
     this.fileLabel = "Choose File";
     this.isDescriptionEmpty == true
     this.fileSelected = false;
@@ -130,6 +126,5 @@ export class AddCampusComponent implements OnInit {
     }
 
     this.resetForm(form);
-    console.log(this.campus);
   }
 }

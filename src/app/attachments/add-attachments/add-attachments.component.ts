@@ -21,8 +21,6 @@ export class AddAttachmentsComponent implements OnInit {
   isDeleted: boolean = false;
 
   constructor(public attachmentsService: AttachmentsService,
-    private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
     this.attachments = new Attachments();
@@ -45,14 +43,13 @@ export class AddAttachmentsComponent implements OnInit {
     if (form)
       form.reset();
 
-    this.isDeleted = false;
     this.fileLabel = "Choose File";
     this.fileSelected = false;
 
     this.attachments = {
       _id: null,
       name: "",
-      isDeleted: null,
+      isDeleted: false,
       fileName: "",
       filePath: "",
       file: "",
@@ -89,7 +86,6 @@ export class AddAttachmentsComponent implements OnInit {
   onSubmit(form?: NgForm) {
     this.attachments.file = this.base64textString[0];
 
-    console.log(this.attachments);
     if (!this.fileSelected || !this.attachments.name || !this.attachments.fileName) {
       this.toastr.error("Please Insert Data", "Required");
       return;
@@ -128,6 +124,5 @@ export class AddAttachmentsComponent implements OnInit {
     }
 
     this.resetForm(form);
-    console.log(this.attachments);
   }
 }

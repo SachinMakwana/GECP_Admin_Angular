@@ -72,7 +72,7 @@ export class ViewGrievanceCellAttachmentsComponent implements OnInit {
     this.gAttachmentService.selectedGrievenceAttachment = null;
     this.gAttachmentService.selectedGrievenceAttachment = data;
 
-    this.router.navigateByUrl('/grievencecell/add-attachments', { state: this.gAttachmentService.selectedGrievenceAttachment });
+    this.router.navigateByUrl('/grievancecell/add-attachments', { state: this.gAttachmentService.selectedGrievenceAttachment });
   }
 
   onView(_id: number) {

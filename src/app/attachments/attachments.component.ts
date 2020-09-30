@@ -23,7 +23,6 @@ export class AttachmentsComponent implements OnInit {
     private chRef: ChangeDetectorRef,
     private _loadSriptService: LoadScriptsService,
     private router: Router,
-    private toastr: ToastrService,
     private spinnerService: NgxSpinnerService) {
   }
 
@@ -71,7 +70,6 @@ export class AttachmentsComponent implements OnInit {
   onEdit(data: Attachments) {
     this.attachmentsService.selectedAttachments = null;
     this.attachmentsService.selectedAttachments = data;
-    //console.log(this.attachmentsService.selectedAttachments);
 
     this.router.navigateByUrl('/attachments/add', { state: this.attachmentsService.selectedAttachments });
   }

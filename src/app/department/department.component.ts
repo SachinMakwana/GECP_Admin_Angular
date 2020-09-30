@@ -2,7 +2,6 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -22,7 +21,6 @@ export class DepartmentComponent implements OnInit {
     private chRef: ChangeDetectorRef,
     private _loadSriptService: LoadScriptsService,
     private router: Router,
-    private toastr: ToastrService,
     private spinnerService: NgxSpinnerService) {
   }
 
@@ -68,7 +66,6 @@ export class DepartmentComponent implements OnInit {
   onEdit(dept: Department) {
     this.departmentService.selectedDepartment = null;
     this.departmentService.selectedDepartment = dept;
-    console.log(this.departmentService.selectedDepartment);
 
     this.router.navigateByUrl('/department/add', { state: this.departmentService.selectedDepartment });
   }
