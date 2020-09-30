@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -9,18 +9,23 @@ import { ToastMessage } from '../app/common/toastMessages';
 import { ToastConstant } from '../app/common/toastConstant';
 import { NgxUiLoaderService } from 'ngx-ui-loader';
 
+import { AuthGuardService } from "../services/auth-guard.service";
+
 @Injectable({
   providedIn: 'root'
 })
 export class GlobalHttpInterceptorService implements HttpInterceptor {
 
-  constructor(private router: Router,
+  /*constructor(private router: Router,
     private toastrService: ToastrService,
     private ngxUiLoaderService: NgxUiLoaderService) { }
-
+*/
+  constructor(private injector: Injector) { }
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
-    this.ngxUiLoaderService.start();
+    const authService = this.injector.get(AuthGuardService);
+    return next.handle(req);
+    /*this.ngxUiLoaderService.start();
     return next.handle(req).pipe(
       catchError((error) => {
         this.ngxUiLoaderService.stop();
@@ -51,6 +56,6 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
           return throwError(error);
         }
       }));
-    this.ngxUiLoaderService.stop();
+    this.ngxUiLoaderService.stop();*/
   }
 }
