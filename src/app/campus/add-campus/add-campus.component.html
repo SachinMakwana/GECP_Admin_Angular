@@ -51,23 +51,18 @@
                                                         <div class="custom-file">
                                                             <input type="file" class="custom-file-input" name="fileName"
                                                                 (change)="onUploadChange($event)"
-                                                                accept=".png, .jpg, .jpeg, .MP4, .MKV" id="fileName" required>
+                                                                accept=".png, .jpg, .jpeg, .MP4, .MKV" id="fileName"
+                                                                required>
                                                             <label class="custom-file-label"
                                                                 for="exampleInputFile">{{fileLabel}}</label>
                                                         </div>
                                                     </div>
-                                                    <!--<span *ngIf="!fileSelected" class="text-danger"
-                                                        [hidden]=fileSelected>Please Select File</span>-->
                                                 </div>
                                             </div>
                                             <div class="input-group">
                                                 <div class="col-12">
                                                     <label for="campusDetails">Add Campus Details Below<label
                                                             class="red-text">*</label></label>
-                                                    <!-- <span *ngIf="isDescriptionEmpty" class="text-danger"
-                                                        [hidden]="!isDescriptionEmpty">
-                                                        Description is Required
-                                                    </span>-->
                                                 </div>
                                                 <div class="col-12">
                                                     <textarea required id="txtDescription" class="textarea form-control"

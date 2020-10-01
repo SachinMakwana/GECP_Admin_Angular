@@ -5,8 +5,6 @@ export class Attachments {
     public file: string;
     public filePath: string;
     public isDeleted: boolean;
-    public createdAtInt: string;
-    public createdAt: string;
     public createdBy: string
 
 }

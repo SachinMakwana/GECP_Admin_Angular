@@ -63,7 +63,6 @@ export class AddCampusComponent implements OnInit {
 
   base64textString = [];
 
-
   onUploadChange(evt: any) {
     const file = evt.target.files[0];
     const filename = evt.target.files[0].name;
@@ -105,14 +104,7 @@ export class AddCampusComponent implements OnInit {
       this.campus.file = this.base64textString[0];
     }
 
-    this.campus = {
-      _id: this.campus._id,
-      category: this.campus.category,
-      description: code,
-      fileName: this.campus.fileName,
-      filePath: this.campus.filePath,
-      file: this.campus.file
-    }
+    this.campus.description = code
 
     if (this.campus._id) {
       this.campusService.updateCampus(this.campus, this.campus._id).subscribe((res) => {

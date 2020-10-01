@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
@@ -54,8 +52,6 @@ export class AddAttachmentsComponent implements OnInit {
       filePath: "",
       file: "",
       createdBy: "XYZ",
-      createdAtInt: "",
-      createdAt: ""
     }
   }
   base64textString = [];
@@ -82,7 +78,6 @@ export class AddAttachmentsComponent implements OnInit {
     this.base64textString.push(window.btoa(e.target.result));
   }
 
-
   onSubmit(form?: NgForm) {
     this.attachments.file = this.base64textString[0];
 
@@ -98,18 +93,6 @@ export class AddAttachmentsComponent implements OnInit {
     }
     else {
       this.attachments.file = this.base64textString[0];
-    }
-
-    this.attachments = {
-      _id: this.attachments._id,
-      name: this.attachments.name,
-      isDeleted: this.attachments.isDeleted,
-      fileName: this.attachments.fileName,
-      filePath: this.attachments.filePath,
-      file: this.attachments.file,
-      createdBy: this.attachments.createdBy,
-      createdAtInt: this.attachments.createdAtInt,
-      createdAt: this.attachments.createdAt
     }
 
     if (this.attachments._id) {
