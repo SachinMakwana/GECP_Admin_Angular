@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpErrorResponse  } from '@angular/common/http';
-import { Observable,throwError, ObservableInput } from 'rxjs/';
-import { catchError, map } from 'rxjs/operators';
-//import 'rxjs/add/operator/map';
-//import 'rxjs/add/operator/toPromise';
+import { HttpClient } from '@angular/common/http';
 
 import { Company } from "../../app/models/company.model";
 
@@ -15,7 +11,7 @@ export class CompanyService {
   companies: Company[];
   readonly baseURL = 'http://localhost:3000/company';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.selectedCompany = new Company();
   }
 
@@ -31,7 +27,7 @@ export class CompanyService {
     return this.http.post(this.baseURL, cmp);
   }
 
-  updateCompany(cmp: Company,_id: number) {
+  updateCompany(cmp: Company, _id: number) {
     return this.http.put(this.baseURL + `/${_id}`, cmp);
   }
 

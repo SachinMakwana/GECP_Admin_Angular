@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,HttpErrorResponse  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Faculty } from "../../app/models/faculty";
 
@@ -11,7 +11,7 @@ export class FacultyService {
   faculties: Faculty[];
   readonly baseURL = 'http://localhost:3000/faculty';
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
     this.selectedFaculty = new Faculty();
   }
 
@@ -23,7 +23,7 @@ export class FacultyService {
     return this.http.post(this.baseURL, faculty);
   }
 
-  updateFaculty(faculty: Faculty,_id: number) {
+  updateFaculty(faculty: Faculty, _id: number) {
     return this.http.put(this.baseURL + `/${_id}`, faculty);
   }
 
