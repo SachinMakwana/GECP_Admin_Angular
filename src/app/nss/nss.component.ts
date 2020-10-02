@@ -70,7 +70,6 @@ export class NssComponent implements OnInit {
  
     this.nssService.selectedNss = null;
     this.nssService.selectedNss = ns;
-    console.log(this.nssService.selectedNss);
     
     
   

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
@@ -22,7 +21,6 @@ export class AddWomenCellAttachmentsComponent implements OnInit {
 
   constructor(public womenattachService: WomenAttachService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) { 
       this.womenattach = new WomenAttach();
     }
@@ -35,11 +33,11 @@ export class AddWomenCellAttachmentsComponent implements OnInit {
       this.fileLabel = "Change File";
       this.fileSelected = true;
       
-      console.log("Edit");
+      
     }
     else{
       this.womenattach._id = null
-      console.log("Add");
+     
     }
   }
     resetForm(form?: NgForm) {
@@ -101,24 +99,17 @@ export class AddWomenCellAttachmentsComponent implements OnInit {
         this.womenattach.file = this.base64textString[0];
       }
   
-      this.womenattach = {
-        _id: this.womenattach._id,
-        wca_title: this.womenattach.wca_title,
-        wca_fileName: this.womenattach.wca_fileName,
-        wca_filePath: this.womenattach.wca_filePath,
-        file:this.womenattach.file
-      }
-  
+    
       if(this.womenattach._id  != null){
         this.womenattachService.updateWomenAttach(this.womenattach,this.womenattach._id).subscribe((res) => {
           this.toastr.success("Information Updated Successfully !", "Updated");
-          console.log("Updated");
+    
         });
       }
       else{
         this.womenattachService.postWomenAttach(this.womenattach).subscribe((res) => {
           this.toastr.success("Information Saved Successfully !", "Saved");
-          console.log("Saved");
+         
         });
       }
   

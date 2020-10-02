@@ -108,12 +108,7 @@ export class AddEventsGallaryComponent implements OnInit {
       this.gallery.image = this.base64textString[0];
     }
 
-    this.gallery = {
-      _id: this.gallery._id,
-      title: this.gallery.title,
-      image: this.gallery.image
-    }
-
+    
     if(this.gallery._id  != null){
       this.galleryService.updateGallery(this.gallery,this.gallery._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");

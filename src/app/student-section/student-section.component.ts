@@ -1,6 +1,5 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from '@angular/forms';
 import { SsService } from '../../services/component/ss.service';
 import { Ss } from '../models/ss.model';
 import { Router } from '@angular/router'; 
@@ -17,7 +16,9 @@ export class StudentSectionComponent implements OnInit {
 
   ss:Ss;
   viewPdf:boolean;
-  constructor(public ssService: SsService, private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,private router: Router,private SpinnerService: NgxSpinnerService) { }
+  constructor(public ssService: SsService, private chRef: ChangeDetectorRef,
+     private _loadSriptService: LoadScriptsService,private router: Router,
+     private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.refreshSsList();
@@ -63,7 +64,6 @@ export class StudentSectionComponent implements OnInit {
  
   this.ssService.selectedSs = null;
   this.ssService.selectedSs = ss;
-  console.log(this.ssService.selectedSs);
   
   
 
@@ -77,7 +77,6 @@ export class StudentSectionComponent implements OnInit {
 onView(_id: number,ss: Ss) {
 this.ssService.getSsById(_id).subscribe(res => {
  this.ssService.selectedSs=res as Ss;
- console.log(this.ssService.selectedSs);
  this.viewPdf =true;
 });
 

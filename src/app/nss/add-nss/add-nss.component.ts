@@ -101,13 +101,7 @@ export class AddNssComponent implements OnInit {
       this.nss.file = this.base64textString[0];
     }
 
-    this.nss = {
-      _id: this.nss._id,
-      nss_title: this.nss.nss_title,
-      nss_fileName: this.nss.nss_fileName,
-      nss_filePath: this.nss.nss_filePath,
-      file:this.nss.file
-    }
+    
 
     if(this.nss._id  != null){
       this.nssService.updateNss(this.nss,this.nss._id).subscribe((res) => {

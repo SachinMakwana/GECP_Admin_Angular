@@ -59,7 +59,7 @@
 
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(newsForm)" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(newsForm)" [disabled]="!newsForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
                                 <div class="col-sm-6"><button type="reset" (click)="resetForm(newsForm)" class="btn btn-default col-md-2">Clear</button></div>
                             </div>
                         </div>

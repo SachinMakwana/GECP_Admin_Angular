@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from '@angular/forms';
 import { WomenAttachService } from '../../../../services/component/women-attach.service';
 import { WomenAttach } from '../../../models/womenattach.model';
 import { Router } from '@angular/router'; 
@@ -18,7 +17,9 @@ export class ViewWomenCellAttachmentsComponent implements OnInit {
   womenattach:WomenAttach;
   viewPdf:boolean;
 
-  constructor(public womenattachService: WomenAttachService, private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,private router: Router,private SpinnerService: NgxSpinnerService) {
+  constructor(public womenattachService: WomenAttachService, 
+    private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,
+    private router: Router,private SpinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -66,7 +67,6 @@ export class ViewWomenCellAttachmentsComponent implements OnInit {
  
   this.womenattachService.selectedWomenattach = null;
   this.womenattachService.selectedWomenattach = wca;
-  console.log(this.womenattachService.selectedWomenattach);
   
   
 
@@ -79,7 +79,6 @@ export class ViewWomenCellAttachmentsComponent implements OnInit {
 onView(_id: number,wca: WomenAttach) {
 this.womenattachService.getWomenAttachById(_id).subscribe(res => {
  this.womenattachService.selectedWomenattach=res as WomenAttach;
- console.log(this.womenattachService.selectedWomenattach);
  this.viewPdf =true;
 });
 

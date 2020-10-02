@@ -27,10 +27,7 @@ export class AddWomenCellMembersComponent implements OnInit {
 
 
   constructor(public wcmemberService: WomenMemberService,
-    private _loadScript: LoadScriptsService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute,private toastr: ToastrService) {
-      console.log(this.router.getCurrentNavigation().extras.state);
+    private _loadScript: LoadScriptsService,private toastr: ToastrService) {
       this.wcmember = new WomenMember();
      }
 
@@ -45,7 +42,7 @@ export class AddWomenCellMembersComponent implements OnInit {
     else{
       this.wcmember._id = null
       console.log(this.wcmember._id);
-      console.log("Add");
+      
     }
   }
 
@@ -67,7 +64,7 @@ export class AddWomenCellMembersComponent implements OnInit {
 
 
   onSubmit(form?: NgForm) {
-    //console.log(this.subject);
+    
 
     
     this.wcmember.wc_name == null ?  this.nameselected = true : this.nameselected = false;
@@ -85,25 +82,18 @@ export class AddWomenCellMembersComponent implements OnInit {
     }
 
     
-    this.wcmember = {
-      _id: this.wcmember._id,
-      wc_name: this.wcmember.wc_name,
-      wc_role: this.wcmember.wc_role,
-      wc_designation: this.wcmember.wc_designation,
-      wc_department:this.wcmember.wc_department,
    
-    }
 
     if(this.wcmember._id){
       this.wcmemberService.updateWcmember(this.wcmember,this.wcmember._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
+      
       });
     }
     else{
       this.wcmemberService.postWcmember(this.wcmember).subscribe((res) => {
         this.toastr.success(ToastMessage.SaveSuccess,ToastConstant.Success)
-        console.log("Saved");
+        
       });
     }
 

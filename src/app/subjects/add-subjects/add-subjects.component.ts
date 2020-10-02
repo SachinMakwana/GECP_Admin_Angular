@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SubjectService } from '../../../services/component/subject.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from '../../models/subject.model';
 import { ToastMessage } from '../../common/toastMessages'
 import { ToastConstant } from '../../common/toastConstant'
@@ -21,8 +20,7 @@ export class AddSubjectsComponent implements OnInit {
   subject: Subject;
  
 
-  constructor(public subjectService: SubjectService,
-    private activatedRoute: ActivatedRoute,private toastr: ToastrService) {
+  constructor(public subjectService: SubjectService,private toastr: ToastrService) {
 
       this.subject = new Subject();
   }
@@ -62,29 +60,21 @@ export class AddSubjectsComponent implements OnInit {
   
   onSubmit(form?: NgForm) {
     
-    this.subject = {
-      _id: this.subject._id,
-      name: this.subject.name,
-      code: this.subject.code,
-      knownAs: this.subject.knownAs,
-      semester:this.subject.semester,
-      deptName:this.subject.deptName
-    }
-
+  
     if(this.subject._id){
       this.subjectService.updateSubject(this.subject,this.subject._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
+      
       });
     }
     else{
       this.subjectService.postSubject(this.subject).subscribe((res) => {
         this.toastr.success(ToastMessage.SaveSuccess,ToastConstant.Success)
-        console.log("Saved");
+        
       });
     }
 
     this.resetForm(form);
-    console.log(this.subject);
+  
 }
 }

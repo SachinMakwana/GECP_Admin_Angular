@@ -115,12 +115,6 @@ export class AddNewsComponent implements OnInit {
       this.news.image = this.base64textString[0];
     }
 
-    this.news = {
-      _id: this.news._id,
-      title: this.news.title,
-      description: code,
-      image: this.news.image
-    }
 
     if(this.news._id  != null){
       this.newsService.updateNews(this.news,this.news._id).subscribe((res) => {

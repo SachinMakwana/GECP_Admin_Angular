@@ -1,8 +1,8 @@
 <div>
-    <section class="content" style="margin-top:20px;">
+    <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/nss']" routerLinkActive="active">
+                <a [routerLink]="['/nss']">
                     <ol class="breadcrumb float-sm-right">
                         <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
                         <li>Back</li>
@@ -25,7 +25,7 @@
                                         <input type="hidden" name="_id" [(ngModel)]="this.nss._id">
                                         <label for="exampleInputEmail1">Enter Title<label
                                             class="red-text">*</label></label>
-                                        <input type="text" class="form-control" name="nss_title" [(ngModel)]="this.nss.nss_title" onkeypress="return ValidateAlpha(event)" required placeholder="Enter title.. ">
+                                        <input type="text" class="form-control" name="nss_title" [(ngModel)]="this.nss.nss_title" required placeholder="Enter title.. ">
                                     </div>
                                 </div>
 
@@ -50,7 +50,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(nssForm)" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(nssForm)" [disabled]="!nssForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
                                 <div class="col-sm-6"><button type="reset" (click)="resetForm(nssForm)" class="btn btn-default col-md-2">Clear</button>
                                 </div>
                             </div>

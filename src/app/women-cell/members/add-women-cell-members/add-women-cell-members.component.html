@@ -1,5 +1,5 @@
 <div>
-    <section class="content" style="margin-top:20px;">
+    <section class="content">
         <div class="row">
             <div class="col-md-12">
                 <a [routerLink]="['/womencell/view-member']">
@@ -27,14 +27,13 @@
                                             <div class="input-group">
                                                 <div class="col-6">
                                                     <label for="Name">Women Cell Member Name<label class="red-text">*</label></label>
-                                                    <input required   type="text" onkeypress="return ValidateAlpha(event)"  name="wc_name" [(ngModel)]="this.wcmember.wc_name"   class="form-control" id="subjectName"
-                                                    placeholder="Enter name.. "/>
+                                                    <input required type="text" onkeypress="return ValidateAlpha(event)" name="wc_name" [(ngModel)]="this.wcmember.wc_name" class="form-control" id="subjectName" placeholder="Enter name.. " />
                                                 </div>
 
                                                 <div class="col-6">
                                                     <label>Select Women Cell Member Role<label class="red-text">*</label></label>
-                                                    
-                                        <select required class="form-control" name="wc_role"  [(ngModel)]="this.wcmember.wc_role">
+
+                                                    <select required class="form-control" name="wc_role" [(ngModel)]="this.wcmember.wc_role">
                                             <option [ngValue]="null" disabled selected >Select Role</option> 
                                                         <option>Convener</option>
                                                         <option>Supporting Committee of Women Cell</option>
@@ -51,7 +50,7 @@
                                             <div class="input-group">
                                                 <div class="col-6">
                                                     <label>Select Women Cell Member Designation<label class="red-text">*</label></label>
-                                                    <select required class="form-control" name="wc_designation"  [(ngModel)]="this.wcmember.wc_designation">
+                                                    <select required class="form-control" name="wc_designation" [(ngModel)]="this.wcmember.wc_designation">
                                                     <option [ngValue]="null" disabled selected >Select Designation</option> 
                                                     <option>HOD </option>
                                                         <option>Staff Member</option>
@@ -63,7 +62,7 @@
 
                                                 <div class="col-6">
                                                     <label>Select Women Cell Member Department<label class="red-text">*</label></label>
-                                                    <select required class="form-control" name="wc_department"  [(ngModel)]="this.wcmember.wc_department">
+                                                    <select required class="form-control" name="wc_department" [(ngModel)]="this.wcmember.wc_department">
                                                     <option [ngValue]="null" disabled selected >Select Department</option>    
                                                     <option>Computer Engineering
                                                         </option>
@@ -81,10 +80,12 @@
                                     <!-- /.card-body -->
                                     <div class="card-footer">
                                         <div class="input-group col-12">
-                                            <div class="col-sm-6"><button type="submit"  [disabled]="!wcmemberForm.valid"  (click)="onSubmit(wcmemberForm)"
-                                                    class="btn btn-primary float-right col-md-2">Submit</button>
+                                            <div class="col-sm-6">
+                                                <button type="submit" [disabled]="!wcmemberForm.valid" (click)="onSubmit(wcmemberForm)" class="btn btn-primary float-right col-md-2">Submit</button>
                                             </div>
-                                            <div class="col-sm-6"><button type="reset" (click)="resetForm(wcmemberForm)" class="btn btn-default col-md-2">Clear</button></div>
+                                            <div class="col-sm-6">
+                                                <button type="reset" (click)="resetForm(wcmemberForm)" class="btn btn-default col-md-2">Clear</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>

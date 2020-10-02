@@ -1,11 +1,11 @@
 <div>
-    <section class="content" style="margin-top:20px;">
+    <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/student-section']" routerLinkActive="active">
+                <a [routerLink]="['/student-section']">
                     <ol class="breadcrumb float-sm-right">
-                        <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                        <li style="margin-left: px;">Back</li>
+                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li>Back</li>
                     </ol>
                 </a>
             </div>
@@ -24,7 +24,7 @@
                                         <input type="hidden" name="_id" [(ngModel)]="this.ss._id">
                                         <label for="exampleInputEmail1">Enter Title<label
                                             class="red-text">*</label></label>
-                                        <input type="text" class="form-control" name="ss_title" [(ngModel)]="this.ss.ss_title" onkeypress="return ValidateAlpha(event)" required placeholder="Enter title.. ">
+                                        <input type="text" class="form-control" name="ss_title" [(ngModel)]="this.ss.ss_title" required placeholder="Enter title.. ">
                                     </div>
                                 </div>
 
@@ -50,7 +50,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(ssForm)" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(ssForm)" [disabled]="!ssForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
                                 <div class="col-sm-6"><button type="reset" (click)="resetForm(ssForm)" class="btn btn-default col-md-2">Clear</button>
                                 </div>
                             </div>

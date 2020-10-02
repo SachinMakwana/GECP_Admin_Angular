@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from '@angular/forms';
 import { WomenMemberService } from '../../../../services/component/women-member.service';
 import { WomenMember } from '../../../models/women_member.model';
 import { Router } from '@angular/router'; 
@@ -18,7 +17,9 @@ export class ViewWomenCellMembersComponent implements OnInit {
 
   wcmember:WomenMember;
 
-  constructor(public wcmemberService: WomenMemberService, private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,private router: Router,private SpinnerService: NgxSpinnerService) {
+  constructor(public wcmemberService: WomenMemberService, private chRef: ChangeDetectorRef,
+     private _loadSriptService: LoadScriptsService,private router: Router,
+     private SpinnerService: NgxSpinnerService) {
   }
   ngOnInit(): void {
     this.refreshWomenMemberList();
@@ -63,7 +64,6 @@ export class ViewWomenCellMembersComponent implements OnInit {
  
   this.wcmemberService.selectedwomenmember = null;
   this.wcmemberService.selectedwomenmember = wcm;
-  console.log(this.wcmemberService.selectedwomenmember);
   
   
 
@@ -72,5 +72,7 @@ export class ViewWomenCellMembersComponent implements OnInit {
 
   
 }
-
+onView(){
+  
+}
 }

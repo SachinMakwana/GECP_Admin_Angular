@@ -110,11 +110,8 @@ export class AddComponent implements OnInit {
       this.about.about_image = this.base64textString[0];
     }
 
-    this.about = {
-      _id: this.about._id,
-      about_image: this.about.about_image,
-      about_description: code
-    }
+    this.about.about_description= code;
+    
 
     if(this.about._id  != null){
       this.aboutService.updateAbout(this.about,this.about._id).subscribe((res) => {

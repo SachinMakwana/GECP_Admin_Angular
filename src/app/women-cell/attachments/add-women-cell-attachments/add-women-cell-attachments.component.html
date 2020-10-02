@@ -2,10 +2,10 @@
     <section class="content" style="margin-top:20px;">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/womencell/view-attachments']" routerLinkActive="active">
+                <a [routerLink]="['/womencell/view-attachments']">
                     <ol class="breadcrumb float-sm-right">
-                        <li ><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                        <li >Back</li>
+                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li>Back</li>
                     </ol>
                 </a>
             </div>
@@ -21,13 +21,11 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        
+
                                         <input type="hidden" name="_id" [(ngModel)]="this.womenattach._id">
                                         <label for="exampleInputEmail1">Enter Title<label
                                             class="red-text">*</label></label>
-                                        <input type="text" class="form-control"  name="wca_title" [(ngModel)]="this.womenattach.wca_title"
-                                        onkeypress="return ValidateAlpha(event)" required
-                                            placeholder="Enter title.. ">
+                                        <input type="text" class="form-control" name="wca_title" [(ngModel)]="this.womenattach.wca_title" required placeholder="Enter title.. ">
                                     </div>
                                 </div>
 
@@ -38,25 +36,22 @@
                                             class="red-text">*</label></label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                               
-                                                <input type="file" class="custom-file-input"
-                                                (change)="onUploadChange($event)" id="file" required>
+
+                                                <input type="file" class="custom-file-input" accept=".pdf" (change)="onUploadChange($event)" id="file" required>
                                                 <label class="custom-file-label" for="exampleInputFile">{{fileLabel}}</label>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                </div>
-                            
+                            </div>
+
                             <!--end of editor-->
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(womenAttachForm)"
-                                        class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                <div class="col-sm-6"><button type="reset" (click)="resetForm(womenAttachForm)"
-                                    class="btn btn-default col-md-2">Clear</button>
+                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(womenAttachForm)" [disabled]="!womenAttachForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><button type="reset" (click)="resetForm(womenAttachForm)" class="btn btn-default col-md-2">Clear</button>
                                 </div>
                             </div>
                         </div>
