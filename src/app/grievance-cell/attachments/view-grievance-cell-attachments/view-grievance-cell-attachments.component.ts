@@ -24,10 +24,8 @@ export class ViewGrievanceCellAttachmentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshList();
-    this.gAttachmentService.selectedGrievenceAttachment = null;
   }
 
-  //refreshing data
   refreshList() {
     this.spinnerService.show();
     this.gAttachmentService.getGrievenceAttachment().subscribe(res => {
@@ -37,11 +35,8 @@ export class ViewGrievanceCellAttachmentsComponent implements OnInit {
     });
     this.spinnerService.hide();
   }
-  //end of refreshList
 
-  //deleting data
   onDelete(_id: number) {
-    //this.toastr.warning()
 
     Swal.fire({
       title: 'Are you sure?',
@@ -65,8 +60,6 @@ export class ViewGrievanceCellAttachmentsComponent implements OnInit {
       }
     })
   }
-  //end of onDelete
-
 
   onEdit(data: GrievenceAttachment) {
     this.gAttachmentService.selectedGrievenceAttachment = null;

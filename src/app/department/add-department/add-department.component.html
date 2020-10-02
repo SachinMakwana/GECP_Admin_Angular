@@ -32,7 +32,6 @@
                                                         [(ngModel)]="this.department.code"
                                                         onkeypress="return onlyNumbers(e)" minlength="2" maxlength="2">
                                                 </div>
-
                                             </div>
                                         </div>
 
@@ -43,7 +42,8 @@
                                                 <input required type="text" class="form-control" id="name"
                                                     placeholder="Enter name.. " name="name"
                                                     [(ngModel)]="this.department.name"
-                                                    (ngModelChange)="this.department.name=$event.toUpperCase()">
+                                                    (ngModelChange)="this.department.name=$event.toUpperCase()"
+                                                    onkeypress="return ValidateAlpha(event)">
                                             </div>
                                         </div>
 

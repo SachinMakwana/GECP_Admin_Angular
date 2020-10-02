@@ -34,7 +34,8 @@
                                                     <label for="Name">Enter Member Name</label>
                                                     <input type="text" class="form-control" id="Name"
                                                         [(ngModel)]="this.grievenceMembers.name" name="name"
-                                                        placeholder="Enter Name" required>
+                                                        placeholder="Enter Name" required
+                                                        onkeypress="return ValidateAlpha(event)">
                                                 </div>
 
                                                 <div class="col-6">

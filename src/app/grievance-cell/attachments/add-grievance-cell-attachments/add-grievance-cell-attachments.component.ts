@@ -94,14 +94,6 @@ export class AddGrievanceCellAttachmentsComponent implements OnInit {
       this.grievenceAttachment.file = this.base64textString[0];
     }
 
-    this.grievenceAttachment = {
-      _id: this.grievenceAttachment._id,
-      name: this.grievenceAttachment.name,
-      fileName: this.grievenceAttachment.fileName,
-      filePath: this.grievenceAttachment.filePath,
-      file: this.grievenceAttachment.file
-    }
-
     if (this.grievenceAttachment._id != null) {
       this.gAttachmentService.updateGrievenceAttachment(this.grievenceAttachment, this.grievenceAttachment._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");

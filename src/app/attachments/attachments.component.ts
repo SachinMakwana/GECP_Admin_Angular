@@ -17,18 +17,17 @@ import { Attachments } from '../../app/models/attachments.model';
 export class AttachmentsComponent implements OnInit {
 
   attachments: Attachments;
-  viewPdf: boolean;
 
   constructor(public attachmentsService: AttachmentsService,
     private chRef: ChangeDetectorRef,
     private _loadSriptService: LoadScriptsService,
     private router: Router,
-    private spinnerService: NgxSpinnerService) {
+    private spinnerService: NgxSpinnerService,
+    private toastrService: ToastrService) {
   }
 
   ngOnInit(): void {
     this.refreshAttachments();
-    this.attachmentsService.selectedAttachments = null;
   }
 
   refreshAttachments() {

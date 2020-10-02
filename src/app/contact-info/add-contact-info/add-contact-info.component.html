@@ -51,15 +51,16 @@
                                                             #phoneNo="ngModel"
                                                             [ngClass]="{'valid-fail': phoneNo.invalid &&
                                                         (phoneNo.errors.pattern || phoneNo.errors.required) && isCheckValid }"
-                                                            pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[7,8,9]\d{9}$">
+                                                            pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6,7,8,9]\d{9}$"
+                                                            minlength="10" maxlength="12">
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-6">
                                                 <label for="address">Enter Address<label class="red-text">*</label>
                                                 </label>
-                                                <textarea  required class="form-control" rows="4" id="address" name="address"
-                                                    placeholder="Enter Address"
+                                                <textarea required class="form-control" rows="4" id="address"
+                                                    name="address" placeholder="Enter Address"
                                                     [(ngModel)]="this.contactInfo.address"></textarea>
                                             </div>
                                         </div>

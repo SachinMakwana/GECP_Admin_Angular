@@ -26,7 +26,6 @@ export class ViewSsipAttachmentsComponent implements OnInit {
     this.sAttachmentService.selectedSAttachments = null;
   }
 
-  //refreshing data
   refreshList() {
     this.spinnerService.show();
     this.sAttachmentService.getSAttachments().subscribe(res => {
@@ -36,11 +35,8 @@ export class ViewSsipAttachmentsComponent implements OnInit {
     });
     this.spinnerService.hide();
   }
-  //end of refreshList
 
-  //deleting data
   onDelete(_id: number) {
-    //this.toastr.warning()
 
     Swal.fire({
       title: 'Are you sure?',
@@ -64,8 +60,6 @@ export class ViewSsipAttachmentsComponent implements OnInit {
       }
     })
   }
-  //end of onDelete
-
 
   onEdit(data: SAttachments) {
     this.sAttachmentService.selectedSAttachments = null;

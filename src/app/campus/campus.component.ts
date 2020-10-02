@@ -17,7 +17,6 @@ import { Campus } from '../../app/models/campus.model';
 export class CampusComponent implements OnInit {
 
   campus: Campus;
-  viewFile: boolean;
 
   constructor(public campusService: CampusService,
     private chRef: ChangeDetectorRef,
@@ -28,7 +27,6 @@ export class CampusComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshCampusList();
-    this.campusService.selectedCampus = null;
   }
 
   refreshCampusList() {

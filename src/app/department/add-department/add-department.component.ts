@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { Router, ActivatedRoute, NavigationStart } from '@angular/router';
+import { Router } from '@angular/router';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,8 +18,6 @@ export class AddDepartmentComponent implements OnInit {
 
   fileLabel: string = "Choose Image";
   department: Department;
-  isInit: boolean = true;
-  isEdit: boolean;
   fileSelected: boolean;
   isDescriptionEmpty: boolean;
 
@@ -111,13 +109,7 @@ export class AddDepartmentComponent implements OnInit {
       this.department.image = this.base64textString[0];
     }
 
-    this.department = {
-      _id: this.department._id,
-      name: this.department.name,
-      about: code,
-      code: this.department.code,
-      image: this.department.image
-    }
+    this.department.about = code
 
     if (this.department._id != null) {
       this.departmentService.updateDepartment(this.department, this.department._id).subscribe((res) => {
