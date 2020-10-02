@@ -1,5 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-
 import { Router } from '@angular/router';
 
 import { NgxSpinnerService } from "ngx-spinner";

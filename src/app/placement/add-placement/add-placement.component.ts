@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 
@@ -19,9 +17,7 @@ export class AddPlacementComponent implements OnInit {
 
   constructor(public placementService: PlacementService,
     private loadScript: LoadScriptsService,
-    private router: Router,
-    private toastr: ToastrService) 
-    {
+    private toastr: ToastrService) {
     this.placement = new Placement();
    }
 
@@ -54,7 +50,6 @@ export class AddPlacementComponent implements OnInit {
 
   onSubmit(form?: NgForm) {
 
-    
     if(!this.placement.dateOfCampus){
       this.toastr.error("Please Insert Data","Required");
       return;

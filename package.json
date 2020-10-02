@@ -21,6 +21,8 @@
     "@angular/router": "~10.0.14",
     "font-awesome": "^4.7.0",
     "imask": "^6.0.5",
+    "ng2-pdf-viewer": "^6.3.2",
+    "ng2-pdfjs-viewer": "^5.0.7",
     "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^13.0.0",
     "ngx-ui-loader": "^9.1.1",

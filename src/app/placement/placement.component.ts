@@ -42,8 +42,7 @@ export class PlacementComponent implements OnInit {
 
   //deleting data
   onDelete(_id: number) {
-    //this.toastr.warning()
-
+  
     Swal.fire({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -82,6 +81,4 @@ export class PlacementComponent implements OnInit {
 
     this.router.navigateByUrl('/placementcell/details', { state: this.placementService.selectedPlacement });
   }
-
-
 }

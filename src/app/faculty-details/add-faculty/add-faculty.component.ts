@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { Faculty } from "../../models/faculty";
@@ -18,8 +16,7 @@ export class AddFacultyComponent implements OnInit {
   faculty: Faculty;
 
   constructor(private facultyService: FacultyService,
-    private loadScript: LoadScriptsService,
-    private router: Router,
+    private loadScript: LoadScriptsService, 
     private toastr: ToastrService) {
     this.faculty = new Faculty();
   }
@@ -66,8 +63,6 @@ export class AddFacultyComponent implements OnInit {
   }
 
   onSubmit(form?: NgForm) {
-
-    console.log(this.faculty);
 
     if (!this.faculty.dob || !this.faculty.doj) {
       this.toastr.error("Please Insert Data", "Required");

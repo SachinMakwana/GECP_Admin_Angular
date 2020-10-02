@@ -32,7 +32,7 @@ function loadEditorSummernote() {
 }
 
 function onlyNumbers(e) {
-    if ((e.charCode < 48 || e.charCode > 57)) {
+    if ((e.charCode > 47 || e.charCode < 58)) {
         e.preventDefault();
         return false;
     } else {
@@ -47,6 +47,14 @@ function ValidateAlpha(event) {
     return false;
 }
 
+function dateMask(value) {
+    var v = value;
+    if (v.match(/^\d{4}$/) !== null) {
+        this.value = v + '/';
+    } else if (v.match(/^\d{4}\/\d{2}$/) !== null) {
+        this.value = v + '/';
+    }
+}
 function b64toBlob(dataURI) {
 
     var byteString = atob(dataURI.split(',')[1]);

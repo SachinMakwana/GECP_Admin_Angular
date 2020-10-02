@@ -1,6 +1,4 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
-
-
 import { Router } from '@angular/router';
 
 import { LoadScriptsService } from 'src/services/load-scripts.service';
@@ -73,7 +71,6 @@ export class AffiliationComponent implements OnInit {
   onEdit(data: Affiliation) {
     this.affiliationService.selectedAffiliation = null;
     this.affiliationService.selectedAffiliation = data;
-    
 
     this.router.navigateByUrl('/affiliation/add', { state: this.affiliationService.selectedAffiliation });
   }
@@ -81,8 +78,6 @@ export class AffiliationComponent implements OnInit {
   onView(_id: number) {
     this.affiliationService.getAffiliationById(_id).subscribe(res => {
       this.affiliationService.selectedAffiliation = res as Affiliation;
-   
-      
     });
   
     this.router.navigateByUrl('/affiliation/view', { state: this.affiliationService.selectedAffiliation });

@@ -50,7 +50,7 @@
                                                     </div>
 
                                                     <div class="col-md-3">
-                                                        <label for="lname">Last Name</label>
+                                                        <label for="lname">Middle Name</label>
                                                         <input type="text" class="form-control" id="lname"
                                                             [(ngModel)]="this.faculty.lastName" name="lastName"
                                                             onkeypress="return ValidateAlpha(event)"
@@ -75,9 +75,9 @@
                                                                         class="fa fa-calendar-alt"></i></div>
                                                             </div>
                                                             <input type="text" class="form-control datetimepicker-input"
-                                                                data-target="#dateofjoining"
+                                                                data-target="#dateofjoining" onkeypress="return dateMask(this.value)"
                                                                 [(ngModel)]="this.faculty.doj" name="dob"
-                                                                placeholder="dd/mm/yyyy"/>
+                                                                placeholder="dd/mm/yyyy" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -88,8 +88,8 @@
                                                     <div class="col-md-2">
                                                         <label for="ddldesgn">Designation</label>
                                                         <select class="form-control select2" name="designation"
-                                                            [(ngModel)]="this.faculty.designation"
-                                                            id="ddldesgn" required>
+                                                            [(ngModel)]="this.faculty.designation" id="ddldesgn"
+                                                            required>
                                                             <option selected="selected" disabled>Choose Designation
                                                             </option>
                                                             <option value="Professor">Professor</option>
@@ -145,7 +145,7 @@
                                                             <input type="text" class="form-control datetimepicker-input"
                                                                 data-target="#dateofbirth"
                                                                 [(ngModel)]="this.faculty.dob" name="dob"
-                                                                placeholder="dd/mm/yyyy"/>
+                                                                placeholder="dd/mm/yyyy" />
                                                         </div>
                                                     </div>
 
@@ -177,7 +177,10 @@
                                                     <div class="col-md-3">
                                                         <label for="email">Email Address</label>
                                                         <input type="email" class="form-control" id="email"
+                                                            #email="ngModel"
+                                                            pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                                             [(ngModel)]="this.faculty.email" name="email"
+                                                            [ngClass]="{'valid-fail': email.invalid && (email.errors.pattern || email.errors.required)}"
                                                             placeholder="abc@gmail.com" required>
                                                     </div>
                                                 </div>
@@ -190,9 +193,12 @@
                                                             <div>
                                                                 <label for="contact1">Contact No</label>
                                                                 <input type="tel" class="form-control" id="contact1"
-                                                                    onkeypress="return onlyNumbers(event)"
+                                                                    #contact1="ngModel"
+                                                                    pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6,7,8,9]\d{9}$"
                                                                     [(ngModel)]="this.faculty.contactNo" minlength='10'
-                                                                    maxlength="10" placeholder="Contact No"
+                                                                    maxlength="12" placeholder="Contact No"
+                                                                    [ngClass]="{'valid-fail': contact1.invalid &&
+                                                                    (contact1.errors.pattern || contact1.errors.required)}"
                                                                     name="contactNo" required>
                                                             </div>
                                                         </div>
@@ -200,9 +206,12 @@
                                                             <div>
                                                                 <label for="contact2">Phone No</label>
                                                                 <input type="tel" class="form-control" id="contact2"
-                                                                    onkeypress="return onlyNumbers(event)"
+                                                                    #contact2="ngModel"
+                                                                    pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6,7,8,9]\d{9}$"
                                                                     name="phoneNo" [(ngModel)]="this.faculty.phoneNo"
-                                                                    minlength='10' maxlength="10" placeholder="Phone No"
+                                                                    minlength='10' maxlength="12" placeholder="Phone No"
+                                                                    [ngClass]="{'valid-fail': contact2.invalid &&
+                                                                    (contact2.errors.pattern || contact2.errors.required)}"
                                                                     required>
                                                             </div>
                                                         </div>

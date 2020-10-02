@@ -54,14 +54,6 @@ export class AddPlacementMemberComponent implements OnInit {
       return;
     }
 
-    this.members = {
-      _id: this.members._id,
-      name: this.members.name,
-      department: this.members.department,
-      designation: this.members.designation,
-      role: this.members.role
-    }
-
     if(this.members._id  != null){
       this.membersService.updatePlacementMembers(this.members,this.members._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");

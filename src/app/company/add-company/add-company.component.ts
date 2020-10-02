@@ -19,15 +19,12 @@ export class AddCompanyComponent implements OnInit {
 
   fileLabel: string = "Choose Image";
   company: Company;
-  isInit: boolean = true;
-  isEdit:boolean;
   fileSelected:boolean;
   isDescriptionEmpty:boolean;
   nameEntered:boolean;
 
   constructor(public companyService: CompanyService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
       this.company = new Company();
@@ -57,8 +54,6 @@ export class AddCompanyComponent implements OnInit {
     this.fileLabel = "Choose Image";
     this.fileSelected = false;
     this.isDescriptionEmpty == true ? this.isDescriptionEmpty=false : null;
-    this.nameEntered = false;
-
     this._loadScript.resetSummernote("txtDescription");
 
     this.company = {
@@ -67,7 +62,6 @@ export class AddCompanyComponent implements OnInit {
       description: "",
       logo: ""
     }
-    this.isInit = false;
   }
 
   //for image to base64
@@ -99,10 +93,8 @@ export class AddCompanyComponent implements OnInit {
     let code = this._loadScript.getSummernoteCode('txtDescription');
 
     code == "" ? this.isDescriptionEmpty = true : this.isDescriptionEmpty = false;
-    (this.company.name == null || this.company.name == "") ?  this.nameEntered = true : this.nameEntered = false;
-
-
-    if(this.isDescriptionEmpty || this.nameEntered || !this.fileSelected){
+    
+    if(this.isDescriptionEmpty || !this.company.name || !this.fileSelected){
       this.toastr.error("Please Insert Data","Required");
       return;
     }

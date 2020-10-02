@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 
@@ -19,8 +17,7 @@ export class AddPlacementAttachmentComponent implements OnInit {
   fileSelected:boolean;
 
   constructor(public attachmentService:PlacementAttachmentService,
-    private _loadScript: LoadScriptsService,
-    private router: Router,
+    private _loadScript: LoadScriptsService,    
     private toastr: ToastrService) { 
 
       this.attachment = new PlacementAttachment();
@@ -95,14 +92,6 @@ export class AddPlacementAttachmentComponent implements OnInit {
     }
     else{
       this.attachment.file = this.base64textString[0];
-    }
-
-    this.attachment = {
-      _id: this.attachment._id,
-      name: this.attachment.name,
-      fileName: this.attachment.fileName,
-      filePath: "",
-      file:this.attachment.file
     }
 
     if(this.attachment._id  != null){

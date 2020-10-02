@@ -73,7 +73,6 @@ export class CompanyComponent implements OnInit {
   onEdit(comp: Company) {
     this.companyService.selectedCompany = null;
     this.companyService.selectedCompany = comp;
-    console.log(this.companyService.selectedCompany);
 
     this.router.navigateByUrl('/company/add', { state: this.companyService.selectedCompany });
   }
