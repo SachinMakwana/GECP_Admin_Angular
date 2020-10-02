@@ -7,7 +7,7 @@
                     <h1 class="m-0 text-dark">SSIP Members List</h1>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-6">
                     <a [routerLink]="['/ssipcell/add-member']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
@@ -55,16 +55,13 @@
                                                 <td>{{data.designation}}</td>
                                                 <td>{{data.department}}</td>
                                                 <td>
-                                                    <a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onView(data._id)"><i
+                                                    <a routerLinkActive="active" [routerLink]="[]" (click)="onView(data._id)"><i
                                                             class="nav-icon fas fa-eye"></i></a>
                                                 </td>
                                                 <td>
-                                                    <a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onEdit(data)"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i class="nav-icon fas fa-edit"></i></a>
                                                 </td>
-                                                <td><a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onDelete(data._id)"><i
+                                                <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(data._id)"><i
                                                             class="nav-icon fas fa-trash"></i></a>
                                                 </td>
                                             </tr>

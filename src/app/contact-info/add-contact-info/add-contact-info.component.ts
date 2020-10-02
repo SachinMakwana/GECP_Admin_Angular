@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 import { ContactInfoService } from '../../../services/component/contactInfo.service';
@@ -17,15 +17,12 @@ import { ContactInfo } from '../../models/contactInfo.model';
 export class AddContactInfoComponent implements OnInit {
 
   contactInfo: ContactInfo;
-  isInit: boolean = true;
-  isEdit: boolean;
   isCheckValid: boolean;
 
   constructor(public contactInfoService: ContactInfoService,
     private _loadScript: LoadScriptsService,
     private router: Router,
-    private toastr: ToastrService,
-    private activatedRoute: ActivatedRoute) {
+    private toastr: ToastrService) {
 
     console.log(this.router.getCurrentNavigation().extras.state);
     this.contactInfo = new ContactInfo();

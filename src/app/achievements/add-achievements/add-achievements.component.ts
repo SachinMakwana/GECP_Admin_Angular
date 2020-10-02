@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
@@ -18,15 +17,12 @@ export class AddAchievementsComponent implements OnInit {
 
   fileLabel: string = "Choose Image";
   achievements: Achievements;
-  isInit: boolean = true;
   fileSelected: boolean;
   isDescriptionEmpty: boolean;
 
   constructor(public achievementsService: AchievementsService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
-    private toastr: ToastrService,
-    private activatedRoute: ActivatedRoute) { }
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this._loadScript.loadEditorSummernote('description');

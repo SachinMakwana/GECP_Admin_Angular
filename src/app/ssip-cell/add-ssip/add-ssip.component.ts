@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 
@@ -18,7 +17,6 @@ export class AddSsipComponent implements OnInit {
   isDescriptionEmpty: boolean;
 
   constructor(private _loadSriptService: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService,
     private sDetailsService: SDetailsService) {
 

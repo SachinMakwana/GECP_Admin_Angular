@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 import { LoadScriptsService } from 'src/services/load-scripts.service';
@@ -19,7 +18,6 @@ export class AddSsipAttachmentsComponent implements OnInit {
 
   constructor(public sattachmentsService: SAttachmentsService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
     this.sAttachments = new SAttachments();

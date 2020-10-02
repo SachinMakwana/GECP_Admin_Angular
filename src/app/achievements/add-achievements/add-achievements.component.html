@@ -27,22 +27,17 @@
                                             <div class="input-group">
                                                 <div class="row">
                                                     <div class="col-4">
-                                                        <input type="hidden" name="_id"
-                                                            [(ngModel)]="this.achievements._id">
+                                                        <input type="hidden" name="_id" [(ngModel)]="this.achievements._id">
                                                         <label for="title">Enter Title<label
                                                                 class="red-text">*</label></label>
-                                                        <input type="text" class="form-control" id="title"
-                                                            placeholder="Enter Title" name="title"
-                                                            [(ngModel)]="this.achievements.title"
-                                                            onkeypress="return ValidateAlpha(event)">
+                                                        <input type="text" class="form-control" id="title" placeholder="Enter Title" name="title" [(ngModel)]="this.achievements.title" onkeypress="return ValidateAlpha(event)">
                                                     </div>
 
                                                     <div class="col-4">
                                                         <label>Select Category
                                                             <label class="red-text">*</label>
                                                         </label>
-                                                        <select required class="form-control" name="category"
-                                                            [(ngModel)]="this.achievements.category">
+                                                        <select required class="form-control" name="category" [(ngModel)]="this.achievements.category">
                                                             <option disabled selected="selected">Choose Category
                                                             </option>
                                                             <option>Canteen</option>
@@ -59,11 +54,8 @@
                                                         </label>
                                                         <div class="input-group">
                                                             <div class="custom-file">
-                                                                <input type="file" class="custom-file-input"
-                                                                    name="image" (change)="onUploadChange($event)"
-                                                                    accept=".png, .jpg, .jpeg" id="image" required>
-                                                                <label class="custom-file-label"
-                                                                    for="exampleInputFile">{{fileLabel}}</label>
+                                                                <input type="file" class="custom-file-input" name="image" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg" id="image" required>
+                                                                <label class="custom-file-label" for="exampleInputFile">{{fileLabel}}</label>
                                                             </div>
                                                         </div>
 
@@ -72,16 +64,10 @@
                                                         <div class="input-group">
                                                             <label for="txtDescription">Add Description <label
                                                                     class="red-text">*</label></label>
-                                                            <!-- <span *ngIf="isDescriptionEmpty" class="text-danger"
-                                                            [hidden]="!isDescriptionEmpty">
-                                                            Description is Required
-                                                        </span>-->
+
                                                         </div>
                                                         <div class="col-12">
-                                                            <textarea required id="description"
-                                                                class="textarea form-control"
-                                                                placeholder="Place some text here" name="description"
-                                                                style="width: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                                            <textarea required id="description" class="textarea form-control" placeholder="Place some text here" name="description" style="width: 100%; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -93,12 +79,9 @@
 
                                 <div class="card-footer">
                                     <div class="input-group col-12">
-                                        <div class="col-sm-6"><button type="submit" [disabled]="!achievementsForm.valid"
-                                                (click)="onSubmit(achievementsForm)"
-                                                class="btn btn-primary float-right col-md-2">Submit</button>
+                                        <div class="col-sm-6"><button type="submit" [disabled]="!achievementsForm.valid" (click)="onSubmit(achievementsForm)" class="btn btn-primary float-right col-md-2">Submit</button>
                                         </div>
-                                        <div class="col-sm-6"><button type="reset" (click)="resetForm(achievementsForm)"
-                                                class="btn btn-default col-md-2">Cancel</button></div>
+                                        <div class="col-sm-6"><button type="reset" (click)="resetForm(achievementsForm)" class="btn btn-default col-md-2">Cancel</button></div>
                                     </div>
 
                                 </div>
