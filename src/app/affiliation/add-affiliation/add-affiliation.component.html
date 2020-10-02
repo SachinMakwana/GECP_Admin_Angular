@@ -21,17 +21,16 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">ENTER TITLE</label>
+                                        <label for="exampleInputEmail1">ENTER TITLE<label class="red-text">*</label></label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter name.. " name="name" [(ngModel)]="this.affiliation.name"
+                                            placeholder="Enter file name" name="name" [(ngModel)]="this.affiliation.name"
                                             required>
                                     </div>
                                 </div>
 
-
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="exampleInputFile">CHOOSE ATTACHMENT</label>
+                                        <label for="exampleInputFile">CHOOSE ATTACHMENT<label class="red-text">*</label></label>
                                         <div class="input-group">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input"
@@ -47,7 +46,7 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(affiliationForm)"
+                                <div class="col-sm-6"><button type="submit" [disabled]="!affiliationForm.form.valid" (click)="onSubmit(affiliationForm)"
                                         class="btn btn-primary float-right col-md-2">Submit</button></div>
                                 <div class="col-sm-6"><button type="reset" (click)="resetForm(affiliationForm)"
                                         class="btn btn-default col-md-2">Cancel</button></div>
@@ -59,3 +58,7 @@
         </div>
     </section>
 </div>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>

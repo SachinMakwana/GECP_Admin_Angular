@@ -98,14 +98,6 @@ export class AddAffiliationComponent implements OnInit {
       this.affiliation.file = this.base64textString[0];
     }
 
-    this.affiliation = {
-      _id: this.affiliation._id,
-      name: this.affiliation.name,
-      fileName: this.affiliation.fileName,
-      filePath: this.affiliation.filePath,
-      file:this.affiliation.file
-    }
-
     if(this.affiliation._id  != null){
       this.affiliationService.updateAffiliation(this.affiliation,this.affiliation._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
