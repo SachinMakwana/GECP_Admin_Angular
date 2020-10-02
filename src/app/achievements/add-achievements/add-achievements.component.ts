@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from '@angular/forms';
 
@@ -18,15 +17,12 @@ export class AddAchievementsComponent implements OnInit {
 
   fileLabel: string = "Choose Image";
   achievements: Achievements;
-  isInit: boolean = true;
   fileSelected: boolean;
   isDescriptionEmpty: boolean;
 
   constructor(public achievementsService: AchievementsService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
-    private toastr: ToastrService,
-    private activatedRoute: ActivatedRoute) { }
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this._loadScript.loadEditorSummernote('description');
@@ -34,7 +30,6 @@ export class AddAchievementsComponent implements OnInit {
 
     if (history.state != undefined) {
       this.achievements = history.state;
-      console.log(this.achievements);
       this._loadScript.setSummernoteParseHTML("description", this.achievements.description)
       this.fileLabel = "Change Image";
     }
@@ -66,7 +61,6 @@ export class AddAchievementsComponent implements OnInit {
   base64textString = [];
 
   onUploadChange(evt: any) {
-    console.log("event entered");
     const file = evt.target.files[0];
     const filename = evt.target.files[0].name;
 

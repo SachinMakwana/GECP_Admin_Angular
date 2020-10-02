@@ -41,7 +41,6 @@ export class ViewSsipMemberComponent implements OnInit {
 
   //deleting data
   onDelete(_id: number) {
-    //this.toastr.warning()
 
     Swal.fire({
       title: 'Are you sure?',

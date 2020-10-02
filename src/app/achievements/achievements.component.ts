@@ -1,7 +1,6 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { Router } from '@angular/router';
-import { ToastrService } from 'ngx-toastr';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -21,7 +20,6 @@ export class AchievementsComponent implements OnInit {
     private chRef: ChangeDetectorRef,
     private _loadSriptService: LoadScriptsService,
     private router: Router,
-    private toastr: ToastrService,
     private spinnerService: NgxSpinnerService) {
   }
 
@@ -67,7 +65,6 @@ export class AchievementsComponent implements OnInit {
   onEdit(achieve: Achievements) {
     this.achievementsService.selectedAchievements = null;
     this.achievementsService.selectedAchievements = achieve;
-    console.log(this.achievementsService.selectedAchievements);
 
     this.router.navigateByUrl('/achievements/add', { state: this.achievementsService.selectedAchievements });
   }
@@ -75,7 +72,6 @@ export class AchievementsComponent implements OnInit {
   onView(_id:number, achieve: Achievements ) {
     this.achievementsService.selectedAchievements = null;
     this.achievementsService.selectedAchievements = achieve;
-    console.log(this.achievementsService.selectedAchievements);
 
     this.router.navigateByUrl('/achievements/view', { state: this.achievementsService.selectedAchievements });
   }
