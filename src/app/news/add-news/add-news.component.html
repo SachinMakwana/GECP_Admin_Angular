@@ -2,12 +2,12 @@
     <section class="content" style="margin-top:20px;">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/news']" routerLinkActive="active">
-                <ol class="breadcrumb float-sm-right">
-                    
-                    <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                    <li style="margin-left: px;">Back</li>
-                </ol>
+                <a [routerLink]="['/news']">
+                    <ol class="breadcrumb float-sm-right">
+
+                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li>Back</li>
+                    </ol>
                 </a>
             </div>
             <div class="col-md-12">
@@ -17,17 +17,16 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form  #newsForm="ngForm" name="newsForm">
+                    <form #newsForm="ngForm" name="newsForm">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        
+
                                         <input type="hidden" name="_id" [(ngModel)]="this.news._id">
                                         <label for="exampleInputEmail1">Enter Title Of News<label
                                             class="red-text">*</label></label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Title for news.. "  name="title" [(ngModel)]="this.news.title"
-                                        onkeypress="return ValidateAlpha(event)" required>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Title for news.. " name="title" [(ngModel)]="this.news.title" onkeypress="return ValidateAlpha(event)" required>
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -36,9 +35,7 @@
                                             class="red-text">*</label></label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" name="image"
-                                                (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg"
-                                                id="imgNews" required>
+                                                <input type="file" class="custom-file-input" name="image" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg" id="imgNews" required>
                                                 <label class="custom-file-label" for="exampleInputFile">{{newsLabel}}</label>
                                             </div>
                                         </div>
@@ -52,21 +49,18 @@
                                     </div>
 
                                     <div class="col-12">
-                                        <textarea id="txtDescription" class="textarea form-control"
-                                            placeholder="Place some text here" name="description"
-                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"
-                                            required></textarea>
+                                        <textarea id="txtDescription" class="textarea form-control" placeholder="Place some text here" name="description" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
                                     </div>
                                 </div>
                             </div>
-                         </div>
+                        </div>
 
-                        
-                    
+
+
                         <div class="card-footer">
                             <div class="input-group col-12">
                                 <div class="col-sm-6"><button type="submit" (click)="onSubmit(newsForm)" class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                <div class="col-sm-6"><button type="reset"  (click)="resetForm(newsForm)" class="btn btn-default col-md-2">Clear</button></div>
+                                <div class="col-sm-6"><button type="reset" (click)="resetForm(newsForm)" class="btn btn-default col-md-2">Clear</button></div>
                             </div>
                         </div>
                     </form>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,8 +17,6 @@ export class AddNewsComponent implements OnInit {
 
   newsLabel: string = "Choose Image";
   news: News;
-  isInit: boolean = true;
-  isEdit:boolean;
   fileSelected:boolean;
   isDescriptionEmpty:boolean;
   nameEntered:boolean;
@@ -28,10 +25,8 @@ export class AddNewsComponent implements OnInit {
 
   constructor(public newsService: NewsService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
-      console.log(this.router.getCurrentNavigation().extras.state);
       this.news = new News();
      }
 
@@ -46,7 +41,7 @@ export class AddNewsComponent implements OnInit {
       this.newsLabel = "Change Image";
       this.fileSelected = true;
       
-      console.log("Edit");
+
     }
     else{
       this.news._id = null
@@ -73,7 +68,7 @@ export class AddNewsComponent implements OnInit {
       description: "",
       image: ""
     }
-    this.isInit = false;
+ 
   }
 
   base64textString = [];
@@ -130,13 +125,13 @@ export class AddNewsComponent implements OnInit {
     if(this.news._id  != null){
       this.newsService.updateNews(this.news,this.news._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
+    
       });
     }
     else{
       this.newsService.postNews(this.news).subscribe((res) => {
         this.toastr.success("Information Saved Successfully !", "Saved");
-        console.log("Saved");
+    
       });
     }
 

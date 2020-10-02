@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef, Input } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from '@angular/forms';
 import { SubjectService } from '../../services/component/subject.service';
 import { Subject } from '../models/subject.model';
 import { Router } from '@angular/router'; 
@@ -17,16 +16,16 @@ export class SubjectsComponent implements OnInit {
   
   subject:Subject;
 
-  constructor(public subjectService: SubjectService, private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,private router: Router,private SpinnerService: NgxSpinnerService) {
+  constructor(public subjectService: SubjectService, private chRef: ChangeDetectorRef, 
+    private _loadSriptService: LoadScriptsService,private router: Router,
+    private SpinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
-   // this.resetForm();
+  
     this.refreshSubjectList();
     this.subjectService.selectedSubject = null;
-    
-    
-    
+   
   }
  
 
@@ -68,7 +67,6 @@ export class SubjectsComponent implements OnInit {
  
   this.subjectService.selectedSubject = null;
   this.subjectService.selectedSubject = sub;
-  console.log(this.subjectService.selectedSubject);
   
   
 

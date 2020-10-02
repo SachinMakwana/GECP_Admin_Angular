@@ -9,7 +9,7 @@
                     <h2 class="m-0 text-dark">Subjects Details</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a [routerLink]="['/subjects/add']" routerLinkActive="active">
+                    <a [routerLink]="['/subjects/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
@@ -19,79 +19,76 @@
             </div>
         </div>
     </div>
-        <section class="content">
-            <div class="container-fluid">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Subject Lists</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="tblSubject" class="table table-bordered table-hover text-center">
-                                    <thead>
-                                        <tr>
-                                            
-                                            <th>Subject Code</th>
-                                            <th>Branch Name</th>
-                                            <th>Semester</th>
-                                            <th>Subject Name</th>
-                                            <th>Acronym of Subject</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                            <!-- <th>Edit</th>
-                                            <th>Delete</th> -->
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let sub of subjectService.subjects; let i = index;">
-                                           
-                                            <td>{{sub.code}}</td>
-                                            <td>{{sub.deptName}}</td>
-                                            <td>{{sub.semester}}</td>
-                                            <td>{{sub.name}}</td>
-                                            <td>{{sub.knownAs}}</td>
-                                            <td><a routerLinkActive="active" [routerLink]="[]"
-                                                (click)="onEdit(sub._id,sub)"><i
-                                                    class="nav-icon fas fa-edit"></i></a>
-                                            </td>
-                                            <td><a [routerLink]="[]" (click)="onDelete(sub._id)"><i class="nav-icon fas fa-trash"></i></a></td>
-
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                           
-                                            <th>Subject Code</th>
-                                            <th>Branch Name</th>
-                                            <th>Semester</th>
-                                            <th>Subject Name</th>
-                                            <th>Acronym of Subject</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-                                            <!-- <th>Edit</th>
-                                            <th>Delete</th> -->
-
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Subject Lists</h3>
                         </div>
-                        <!-- /.card -->
-                            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
-    <p style="color: white">Please Wait. </p>  
-    </ngx-spinner>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="tblSubject" class="table table-bordered table-hover text-center">
+                                <thead>
+                                    <tr>
 
+                                        <th>Subject Code</th>
+                                        <th>Branch Name</th>
+                                        <th>Semester</th>
+                                        <th>Subject Name</th>
+                                        <th>Acronym of Subject</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let sub of subjectService.subjects; let i = index;">
+
+                                        <td>{{sub.code}}</td>
+                                        <td>{{sub.deptName}}</td>
+                                        <td>{{sub.semester}}</td>
+                                        <td>{{sub.name}}</td>
+                                        <td>{{sub.knownAs}}</td>
+                                        <td><a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(sub._id,sub)"><i
+                                                    class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="[]" (click)="onDelete(sub._id)"><i class="nav-icon fas fa-trash"></i></a></td>
+
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <th>Subject Code</th>
+                                        <th>Branch Name</th>
+                                        <th>Semester</th>
+                                        <th>Subject Name</th>
+                                        <th>Acronym of Subject</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+                    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                        <p style="color: white">Please Wait. </p>
+                    </ngx-spinner>
+
+                    <!-- /.card-body -->
                 </div>
-                <!-- /.col -->
+                <!-- /.card -->
             </div>
-            <!-- /.row -->
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
 
         <!-- /.container-fluid -->
     </section>

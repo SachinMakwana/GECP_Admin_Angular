@@ -2,7 +2,7 @@
     <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/subjects']" routerLinkActive="active">
+                <a [routerLink]="['/subjects']">
                     <ol class="breadcrumb float-sm-right">
                         <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
                         <li>Back</li>
@@ -21,15 +21,14 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="form-group">
-                                        <input type="hidden"  name="_id"  [(ngModel)]="this.subject._id"/>
+                                        <input type="hidden" name="_id" [(ngModel)]="this.subject._id" />
                                         <label for="exampleInputEmail1">Enter Subject Code
                                         <label class="red-text">*</label>
                                         </label>
-                                        <input required title="Only six digit number" minlength="6" maxlength="6" onkeypress="return onlyNumbers(event)" type="text"  name="code"   [(ngModel)]="this.subject.code" class="form-control" id="code"
-                                          placeholder="Enter six digit code.. "/>
-                                          
-                                          
-                                          
+                                        <input required title="Only six digit number" minlength="6" maxlength="6" onkeypress="return onlyNumbers(event)" type="text" name="code" [(ngModel)]="this.subject.code" class="form-control" id="code" placeholder="Enter six digit code.. " />
+
+
+
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
@@ -38,7 +37,7 @@
                                         <label>Select Semester <label class="red-text">*</label></label>
                                         <select required class="form-control" name="semester" [(ngModel)]="this.subject.semester">
                                          <option [ngValue]="null" selected disabled>Select Semester</option> 
-                                            <!-- //<option value="0" disabled selected hidden>Choose Semester...</option> -->
+                                           
                                             <option value="1"> 1</option>
                                             <option value="2"> 2</option>
                                             <option value="3"> 3</option>
@@ -49,14 +48,14 @@
                                             <option value="8"> 8</option>
                                         </select>
                                     </div>
-                                </div> 
+                                </div>
                                 <div class="col-sm-4">
                                     <!-- select -->
                                     <div class="form-group">
                                         <label>Select Department <label class="red-text">*</label></label>
-                                        <select required class="form-control" name="deptName"  [(ngModel)]="this.subject.deptName">
+                                        <select required class="form-control" name="deptName" [(ngModel)]="this.subject.deptName">
                                              <option [ngValue]="null" disabled selected >Select Department</option> 
-                                            <!-- <option value="" disabled selected hidden>Choose Department...</option> -->
+                                            
                                             <option value="1"> ELECTRONIC AND COMMUNICATION</option>
                                             <option value="2"> COMPUTER</option>
                                             <option value="3"> ELECTRICAL</option>
@@ -64,8 +63,8 @@
                                             <option value="5"> MECHANICAL</option>
                                         </select>
                                     </div>
-                                </div> 
-                                
+                                </div>
+
                             </div>
 
                             <div class="row">
@@ -73,32 +72,32 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Enter Name Of The Subject <label class="red-text">*</label></label>
-                                        <input required   title="only Uppercase" type="text" onkeypress="return ValidateAlpha(event)"  name="name" [(ngModel)]="this.subject.name"  (ngModelChange)="this.subject.name=$event.toUpperCase()" class="form-control" id="subjectName"
-                                            placeholder="Enter name.. "/>
-                                          
-                                           
-                                    </div>
-                                </div> 
+                                        <input required title="only Uppercase" type="text" onkeypress="return ValidateAlpha(event)" name="name" [(ngModel)]="this.subject.name" (ngModelChange)="this.subject.name=$event.toUpperCase()" class="form-control" id="subjectName" placeholder="Enter name.. "
+                                        />
 
-                                 <div class="col-md-6">
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Enter Acronym For The Subject <label class="red-text">*</label></label>
-                                        <input  required  title="Only Character" type="text" onkeypress="return ValidateAlpha(event)"  name="knownAs" [(ngModel)]="this.subject.knownAs" (ngModelChange)="this.subject.knownAs=$event.toUpperCase()"  class="form-control" id="subjectAcronym"
-                                            placeholder="Enter name.. "/>
-                                            
+                                        <input required title="Only Character" type="text" onkeypress="return ValidateAlpha(event)" name="knownAs" [(ngModel)]="this.subject.knownAs" (ngModelChange)="this.subject.knownAs=$event.toUpperCase()" class="form-control" id="subjectAcronym" placeholder="Enter name.. "
+                                        />
+
                                     </div>
-                                </div> 
+                                </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
                                 <div class="col-sm-6">
-                                    <button type="submit" class="btn btn-primary float-right col-md-2"  [disabled]="!subjectForm.valid" (click)="onSubmit(subjectForm)" >Submit</button>
+                                    <button type="submit" class="btn btn-primary float-right col-md-2" [disabled]="!subjectForm.valid" (click)="onSubmit(subjectForm)">Submit</button>
                                 </div>
                                 <div class="col-sm-6">
                                     <button type="reset" (click)="resetForm(subjectForm)" class="btn btn-default col-md-2">Clear</button>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -107,4 +106,3 @@
         </div>
     </section>
 </div>
- 

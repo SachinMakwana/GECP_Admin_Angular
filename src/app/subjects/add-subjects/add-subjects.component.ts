@@ -3,9 +3,6 @@ import { NgForm } from '@angular/forms';
 import { SubjectService } from '../../../services/component/subject.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subject } from '../../models/subject.model';
-import { SubjectsComponent } from '../subjects.component'
-import { Route } from '@angular/compiler/src/core';
-import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { ToastMessage } from '../../common/toastMessages'
 import { ToastConstant } from '../../common/toastConstant'
 
@@ -22,20 +19,11 @@ export class AddSubjectsComponent implements OnInit {
 
   
   subject: Subject;
-  isInit: boolean = true;
-  isEdit:boolean;
-  codeSelected : boolean;
-  semSelected: boolean;
-  deptSelected: boolean;
-  nameSelected: boolean;
-  knownAsSelected: boolean;
+ 
 
   constructor(public subjectService: SubjectService,
-    private _loadScript: LoadScriptsService,
-    private router: Router,
     private activatedRoute: ActivatedRoute,private toastr: ToastrService) {
 
-      console.log(this.router.getCurrentNavigation().extras.state);
       this.subject = new Subject();
   }
 
@@ -46,14 +34,11 @@ export class AddSubjectsComponent implements OnInit {
     if(history.state != undefined){
       this.subject = history.state;
       this.subject._id = this.subject._id
-      this.isEdit = true;
-      console.log(this.subject._id);
-      console.log("Edit");
+  
     }
     else{
       this.subject._id = null
-      console.log(this.subject._id);
-      console.log("Add");
+     
     }
   
   }
@@ -76,24 +61,6 @@ export class AddSubjectsComponent implements OnInit {
   }
   
   onSubmit(form?: NgForm) {
-    //console.log(this.subject);
-
-    
-    this.subject.code == null ?  this.codeSelected = true : this.codeSelected = false;
-    
-    this.subject.semester == null ?  this.semSelected = true : this.semSelected = false;
-
-    this.subject.deptName == null ?  this.deptSelected = true : this.deptSelected = false;
-    
-    this.subject.name == null ?  this.nameSelected = true : this.nameSelected = false;
-    
-    this.subject.knownAs == null ?  this.knownAsSelected = true : this.knownAsSelected = false;
-
-    if(this.codeSelected || this.semSelected || this.deptSelected || this.nameSelected || this.knownAsSelected){
-      this.toastr.error("Please Insert Data","Required");
-      return;
-    }
-
     
     this.subject = {
       _id: this.subject._id,

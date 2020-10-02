@@ -1,6 +1,5 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from '@angular/forms';
 import { NewsService } from '../../services/component/news.service';
 import { News } from '../models/news.models';
 import { Router } from '@angular/router'; 
@@ -16,7 +15,9 @@ export class NewsComponent implements OnInit {
 
   news:News;
   
-  constructor(public newsService: NewsService, private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,private router: Router,private SpinnerService: NgxSpinnerService) {
+  constructor(public newsService: NewsService, private chRef: ChangeDetectorRef, 
+    private _loadSriptService: LoadScriptsService,private router: Router,
+    private SpinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
@@ -66,7 +67,6 @@ onEdit(_id: number,ne: News) {
 
  this.newsService.selectedNews = null;
  this.newsService.selectedNews = ne;
- console.log(this.newsService.selectedNews);
  
  
 

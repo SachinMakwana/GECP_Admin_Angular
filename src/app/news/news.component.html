@@ -7,7 +7,7 @@
                     <h2>News Details</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a [routerLink]="['/news/add']" routerLinkActive="active">
+                    <a [routerLink]="['/news/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
@@ -43,16 +43,13 @@
                                         </thead>
                                         <tbody>
                                             <tr *ngFor="let ne of newsService.newss; let i = index;">
-                                                <td><img src={{ne.image}} alt="logo" id="imgNews" height="50px"
-                                                        width="50px"></td>
+                                                <td><img src={{ne.image}} alt="logo" id="imgNews" height="50px" width="50px"></td>
                                                 <td>{{ ne.title }}</td>
                                                 <td>
-                                                    <a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onEdit(ne._id,ne)"><i
+                                                    <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(ne._id,ne)"><i
                                                             class="nav-icon fas fa-edit"></i></a>
                                                 </td>
-                                                <td><a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onDelete(ne._id)"><i
+                                                <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(ne._id)"><i
                                                             class="nav-icon fas fa-trash"></i></a></td>
                                             </tr>
                                         </tbody>
@@ -71,9 +68,9 @@
                             </div>
                             <!-- /.card -->
 
-                            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
-                                <p style="color: white">Please Wait. </p>  
-                                </ngx-spinner>
+                            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                                <p style="color: white">Please Wait. </p>
+                            </ngx-spinner>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
