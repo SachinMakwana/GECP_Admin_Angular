@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 
@@ -22,7 +21,6 @@ export class AddLabWorkshopComponent implements OnInit {
 
   constructor(public labAndWorkshopService: LabAndWorkshopService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) 
     {
     this.labAndWorkshop = new LabAndWorkshop();

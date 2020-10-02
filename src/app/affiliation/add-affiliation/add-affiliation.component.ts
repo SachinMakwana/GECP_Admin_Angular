@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 
@@ -21,7 +20,6 @@ export class AddAffiliationComponent implements OnInit {
 
   constructor(public affiliationService:AffiliationService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) { 
 
       this.affiliation = new Affiliation();

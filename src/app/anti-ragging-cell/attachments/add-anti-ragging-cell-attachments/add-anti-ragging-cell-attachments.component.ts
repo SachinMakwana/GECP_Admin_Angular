@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 
@@ -20,7 +19,6 @@ export class AddAntiRaggingCellAttachmentsComponent implements OnInit {
 
   constructor(public attachmentService:AntiRaggingAttachmentService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) { 
 
       this.attachment = new AntiRaggingAttachment();

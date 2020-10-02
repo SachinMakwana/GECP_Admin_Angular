@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 
-import { Router } from '@angular/router';
+
 import { ToastrService } from 'ngx-toastr';
 import { NgForm } from "@angular/forms";
 import { LoadScriptsService } from 'src/services/load-scripts.service';
@@ -20,7 +20,6 @@ export class AddAntiRaggingCellComponent implements OnInit {
 
   constructor(public antiRaggingService: AntiRaggingDetailsService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
       this.antiRaggingDetails = new AntiRaggingDetails();
