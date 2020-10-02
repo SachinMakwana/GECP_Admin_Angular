@@ -32,7 +32,7 @@ function loadEditorSummernote() {
 }
 
 function onlyNumbers(e) {
-    if ((e.charCode > 48 || e.charCode < 57)) {
+    if ((e.charCode < 48 || e.charCode > 57)) {
         e.preventDefault();
         return false;
     } else {
