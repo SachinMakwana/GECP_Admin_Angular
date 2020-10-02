@@ -35,7 +35,6 @@ export class SsipCellComponent implements OnInit {
 
   onEdit(data: SDetails) {
     this.sDetailsService.selectedSDetails = data;
-    console.log(this.sDetailsService.selectedSDetails);
 
     this.router.navigateByUrl('/ssipcell/add', { state: this.sDetailsService.selectedSDetails });
   }

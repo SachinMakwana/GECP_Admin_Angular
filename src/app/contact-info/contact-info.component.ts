@@ -69,7 +69,6 @@ export class ContactInfoComponent implements OnInit {
   onEdit(con: ContactInfo) {
     this.contactInfoService.selectedContactInfo = null;
     this.contactInfoService.selectedContactInfo = con;
-    console.log(this.contactInfoService.selectedContactInfo);
 
     this.router.navigateByUrl('/contact-info/add', { state: this.contactInfoService.selectedContactInfo });
   }

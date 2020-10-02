@@ -24,7 +24,6 @@ export class AddContactInfoComponent implements OnInit {
     private router: Router,
     private toastr: ToastrService) {
 
-    console.log(this.router.getCurrentNavigation().extras.state);
     this.contactInfo = new ContactInfo();
   }
 
@@ -76,7 +75,6 @@ export class AddContactInfoComponent implements OnInit {
     }
 
     this.resetForm(form);
-    console.log(this.contactInfo);
   }
 
 }

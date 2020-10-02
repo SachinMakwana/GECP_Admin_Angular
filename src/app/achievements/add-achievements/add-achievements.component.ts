@@ -30,7 +30,6 @@ export class AddAchievementsComponent implements OnInit {
 
     if (history.state != undefined) {
       this.achievements = history.state;
-      console.log(this.achievements);
       this._loadScript.setSummernoteParseHTML("description", this.achievements.description)
       this.fileLabel = "Change Image";
     }
@@ -62,7 +61,6 @@ export class AddAchievementsComponent implements OnInit {
   base64textString = [];
 
   onUploadChange(evt: any) {
-    console.log("event entered");
     const file = evt.target.files[0];
     const filename = evt.target.files[0].name;
 

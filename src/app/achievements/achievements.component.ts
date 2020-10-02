@@ -65,7 +65,6 @@ export class AchievementsComponent implements OnInit {
   onEdit(achieve: Achievements) {
     this.achievementsService.selectedAchievements = null;
     this.achievementsService.selectedAchievements = achieve;
-    console.log(this.achievementsService.selectedAchievements);
 
     this.router.navigateByUrl('/achievements/add', { state: this.achievementsService.selectedAchievements });
   }
@@ -73,7 +72,6 @@ export class AchievementsComponent implements OnInit {
   onView(_id:number, achieve: Achievements ) {
     this.achievementsService.selectedAchievements = null;
     this.achievementsService.selectedAchievements = achieve;
-    console.log(this.achievementsService.selectedAchievements);
 
     this.router.navigateByUrl('/achievements/view', { state: this.achievementsService.selectedAchievements });
   }
