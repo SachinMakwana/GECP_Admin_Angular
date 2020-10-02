@@ -56,7 +56,7 @@ export class AddWomenCellComponent implements OnInit {
 
   }
  
-  onSubmit(form?: NgForm) {
+  onSubmit() {
 
     let code = this._loadScript.getSummernoteCode('txtDescription');
 
@@ -74,17 +74,16 @@ export class AddWomenCellComponent implements OnInit {
     if(this.womendetail._id  != null){
       this.womenService.updateWomenDetail(this.womendetail,this.womendetail._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
+      
       });
     }
     else{
-      //this.womenService.postWomenDetail(this.womendetail).subscribe((res) => {
-       this.toastr.info("Please Go back and click on Edit");
-      //   console.log("Saved");
-       //});
+      this.womenService.postWomenDetail(this.womendetail).subscribe((res)=>{
+        this.toastr.success("Information Saved Sucessfully!","Saved");
+      });
     }
 
-    this.resetForm(form);
+    this.resetForm();
   }
 
 

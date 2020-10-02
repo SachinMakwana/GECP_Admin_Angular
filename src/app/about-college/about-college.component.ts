@@ -16,14 +16,12 @@ export class AboutCollegeComponent implements OnInit {
   about: About;
 
   constructor(public aboutService: AboutService,
-    private chRef: ChangeDetectorRef,
     private router: Router,private SpinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
 
     this.refreshAbout();
-    this.aboutService.selectedAbout = null;
     
   }
 
@@ -31,15 +29,14 @@ export class AboutCollegeComponent implements OnInit {
     this.SpinnerService.show(); 
      this.aboutService.getAbout().subscribe((res)=>{
       this.aboutService.abouts = res as About[];
-      this.chRef.detectChanges();
       
     this.SpinnerService.hide(); 
      });
    }
 
-   onEdit(_id: number,ab: About) {
+   onEdit(ab: About) {
  
-    this.aboutService.selectedAbout = null;
+    
     this.aboutService.selectedAbout = ab;
     
     

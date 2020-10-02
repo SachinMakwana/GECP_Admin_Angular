@@ -1,11 +1,11 @@
 <div>
     <section class="content">
         <div class="row">
-            <div class="col-md-12" *ngFor="let ab of aboutService.abouts; let i = index;">
-                <a [routerLink]="[]" (click)="onEdit(ab._id,ab)">
+
+            <div class="col-sm-6">
+                <a [routerLink]="[]" routerLinkActive="router-link-active" (click)="onEdit(this.aboutService.abouts[0])">
                     <ol class="breadcrumb float-sm-right">
-                        <li><i class="nav-icon fas fa-plus-circle pr-2"></i>
-                        </li>
+                        <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                         <li>Edit Details</li>
                     </ol>
                 </a>
@@ -16,27 +16,24 @@
                         <h3 class="card-title">About College</h3>
                     </div>
                     <div class="card-body">
-                        <div class="raw" *ngFor="let ab of aboutService.abouts; let i = index;">
+                        <div class="raw">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="input-group justify-content-center">
                                         <div class="col-8">
 
-                                            <img class="img-thumbnail" src={{ab.about_image}} alt="logo" id="aboutImage" width="100%" height="50%">
+                                            <img class="img-thumbnail" src={{this.aboutService.abouts[0].about_image}} alt="logo" id="aboutImage" width="100%" height="50%">
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mt-3">
-                                    <span>
-                                        <p [innerHTML] = "ab.about_description"></p>
-                                     
-                                    </span>
+                                    <p [innerHTML]="this.aboutService.abouts[0].about_description"></p>
                                 </div>
 
                             </div>
                             <div class="input-group col-md-12 mt-4">
-                                <div class="col-sm-6"><a [routerLink]="[]" (click)="onEdit(ab._id,ab)" class="btn btn-primary float-right">Edit</a>
+                                <div class="col-sm-6"><a [routerLink]="[]" (click)="onEdit(this.aboutService.abouts[0])" class="btn btn-primary float-right">Edit</a>
 
                                 </div>
 

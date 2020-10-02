@@ -119,7 +119,9 @@ export class AddComponent implements OnInit {
       });
     }
     else{
-       this.toastr.info("Please Go back and click on Edit");
+       this.aboutService.postAbout(this.about).subscribe((res)=>{
+         this.toastr.success("Information Saved Sucessfully!","Saved")
+       })
       
     }
 
