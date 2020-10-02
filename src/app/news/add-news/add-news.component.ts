@@ -45,7 +45,7 @@ export class AddNewsComponent implements OnInit {
     }
     else{
       this.news._id = null
-      console.log("Add");
+      
     }
   }
 

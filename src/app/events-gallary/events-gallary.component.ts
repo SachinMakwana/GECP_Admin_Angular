@@ -1,6 +1,5 @@
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from "@angular/forms";
 import { Router } from '@angular/router';
 import { GalleryService } from 'src/services/component/gallery.service';
 import { Gallery } from '../models/gallery.model';
@@ -70,20 +69,12 @@ export class EventsGallaryComponent implements OnInit {
 
 
   onEdit(_id: number,gal: Gallery) {
-    //console.log(_id);
-    //console.log(comp);
+  
     this.galleryService.selectedGallery = null;
     this.galleryService.selectedGallery = gal;
     console.log(this.galleryService.selectedGallery);
     
-    /*this.companyService.selectedCompany = {
-      _id:_id,
-      name: comp.name,
-      logo: comp.logo,
-      description:comp.description
-    }*/
-    //console.log(comp);
-    //console.log(this.companyService.selectedCompany);
+
 
     this.router.navigateByUrl('/events/add',{ state: this.galleryService.selectedGallery });
   }

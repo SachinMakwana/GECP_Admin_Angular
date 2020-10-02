@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
@@ -19,8 +18,7 @@ export class AddEventsGallaryComponent implements OnInit {
   eventLabel: string = "Choose Image";
   images = [];
   gallery: Gallery;
-  isInit: boolean = true;
-  isEdit:boolean;
+ 
   fileSelected:boolean;
   categorySelect:boolean;
   
@@ -28,10 +26,9 @@ export class AddEventsGallaryComponent implements OnInit {
 
   constructor(public galleryService: GalleryService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) { 
 
-      console.log(this.router.getCurrentNavigation().extras.state);
+ 
       this.gallery = new Gallery();
     }
 
@@ -43,11 +40,10 @@ export class AddEventsGallaryComponent implements OnInit {
       this.eventLabel = "Change Image";
       this.fileSelected = true;
       
-      console.log("Edit");
     }
     else{
       this.gallery._id = null
-      console.log("Add");
+      
     }
   }
 
@@ -66,7 +62,7 @@ export class AddEventsGallaryComponent implements OnInit {
       title: "",
       image: ""
     }
-    this.isInit = false;
+  
   }
 
   base64textString = [];
@@ -98,7 +94,7 @@ export class AddEventsGallaryComponent implements OnInit {
     this.categorySelect == null ?  this.categorySelect = true : this.categorySelect = false;
 
 
-    if(this.categorySelect || !this.fileSelected){
+    if( !this.fileSelected ||this.categorySelect ){
       this.toastr.error("Please Insert Data","Required");
       return;
     }
@@ -121,13 +117,13 @@ export class AddEventsGallaryComponent implements OnInit {
     if(this.gallery._id  != null){
       this.galleryService.updateGallery(this.gallery,this.gallery._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
+        
       });
     }
     else{
       this.galleryService.postGallery(this.gallery).subscribe((res) => {
         this.toastr.success("Information Saved Successfully !", "Saved");
-        console.log("Saved");
+      
       });
     }
 
