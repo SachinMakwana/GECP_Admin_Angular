@@ -83,7 +83,7 @@ export class AddAffiliationComponent implements OnInit {
   onSubmit(form?: NgForm) {
     this.affiliation.file = this.base64textString[0];
 
-    console.log(this.affiliation);
+   
     if(!this.fileSelected || !this.affiliation.name){
       this.toastr.error("Please Insert Data","Required");
       return;

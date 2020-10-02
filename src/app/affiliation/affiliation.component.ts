@@ -73,7 +73,7 @@ export class AffiliationComponent implements OnInit {
   onEdit(data: Affiliation) {
     this.affiliationService.selectedAffiliation = null;
     this.affiliationService.selectedAffiliation = data;
-    console.log(this.affiliationService.selectedAffiliation);
+    
 
     this.router.navigateByUrl('/affiliation/add', { state: this.affiliationService.selectedAffiliation });
   }
@@ -81,7 +81,7 @@ export class AffiliationComponent implements OnInit {
   onView(_id: number) {
     this.affiliationService.getAffiliationById(_id).subscribe(res => {
       this.affiliationService.selectedAffiliation = res as Affiliation;
-      console.log(this.affiliationService.selectedAffiliation);
+   
       
     });
   

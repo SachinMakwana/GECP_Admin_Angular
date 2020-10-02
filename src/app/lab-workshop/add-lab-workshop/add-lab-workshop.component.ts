@@ -66,7 +66,6 @@ export class AddLabWorkshopComponent implements OnInit {
   base64textString = [];
 
   onUploadChange(evt: any) {
-    console.log("event entered");
     const file = evt.target.files[0];
     const filename = evt.target.files[0].name;
 
@@ -114,8 +113,6 @@ export class AddLabWorkshopComponent implements OnInit {
       description: this.labAndWorkshop.description,
       image: this.labAndWorkshop.image
     }
-
-    console.log(this.labAndWorkshop);
 
     if(this.labAndWorkshop._id  != null){
       this.labAndWorkshopService.updateLabAndWorkshop(this.labAndWorkshop,this.labAndWorkshop._id).subscribe((res) => {

@@ -37,7 +37,6 @@ export class AntiRaggingCellComponent implements OnInit {
 
   onEdit(data: AntiRaggingDetails) {
     this.antiRaggingDetailsService.selectedAntiRaggingDetails = data;
-    console.log(this.antiRaggingDetailsService.selectedAntiRaggingDetails);
 
     this.router.navigateByUrl('/antiRaggingcell/add', { state: this.antiRaggingDetailsService.selectedAntiRaggingDetails });
   }
