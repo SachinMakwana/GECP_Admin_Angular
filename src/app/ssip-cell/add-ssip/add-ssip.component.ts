@@ -61,10 +61,7 @@ export class AddSsipComponent implements OnInit {
       return;
     }
 
-    this.sDetails = {
-      _id: this.sDetails._id,
-      description: code
-    }
+    this.sDetails.description = code
 
     if (this.sDetails._id != null) {
       this.sDetailsService.updateSDetails(this.sDetails, this.sDetails._id).subscribe((res) => {

@@ -24,10 +24,8 @@ export class ViewSsipMemberComponent implements OnInit {
 
   ngOnInit(): void {
     this.refreshList();
-    this.sMemberDetailsSrvice.selectedSDetails = null;
   }
 
-  //refreshing data
   refreshList() {
     this.spinnerService.show();
     this.sMemberDetailsSrvice.getSMemberDetails().subscribe(res => {
@@ -37,9 +35,7 @@ export class ViewSsipMemberComponent implements OnInit {
     });
     this.spinnerService.hide();
   }
-  //end of refreshList
 
-  //deleting data
   onDelete(_id: number) {
 
     Swal.fire({
@@ -64,13 +60,9 @@ export class ViewSsipMemberComponent implements OnInit {
       }
     })
   }
-  //end of onDelete
-
 
   onEdit(data: SMemberDetails) {
-    this.sMemberDetailsSrvice.selectedSDetails = null;
     this.sMemberDetailsSrvice.selectedSDetails = data;
-
     this.router.navigateByUrl('/ssipcell/add-member', { state: this.sMemberDetailsSrvice.selectedSDetails });
   }
 

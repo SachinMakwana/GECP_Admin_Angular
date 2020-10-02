@@ -65,7 +65,6 @@ export class CampusComponent implements OnInit {
   }
 
   onEdit(cam: Campus) {
-    this.campusService.selectedCampus = null;
     this.campusService.selectedCampus = cam;
 
     this.router.navigateByUrl('/campus/add', { state: this.campusService.selectedCampus });

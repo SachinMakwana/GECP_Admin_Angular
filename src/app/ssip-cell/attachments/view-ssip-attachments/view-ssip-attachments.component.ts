@@ -15,15 +15,14 @@ import { SAttachmentsService } from '../../../../services/component/ssip/s-attac
 export class ViewSsipAttachmentsComponent implements OnInit {
   sAttachments: SAttachments;
 
-  constructor(private _loadSriptService: LoadScriptsService,
-    public sAttachmentService: SAttachmentsService,
+  constructor(public sAttachmentService: SAttachmentsService,
     private chRef: ChangeDetectorRef,
+    private _loadSriptService: LoadScriptsService,
     private router: Router,
     private spinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.refreshList();
-    this.sAttachmentService.selectedSAttachments = null;
   }
 
   refreshList() {
@@ -62,7 +61,6 @@ export class ViewSsipAttachmentsComponent implements OnInit {
   }
 
   onEdit(data: SAttachments) {
-    this.sAttachmentService.selectedSAttachments = null;
     this.sAttachmentService.selectedSAttachments = data;
 
     this.router.navigateByUrl('/ssipcell/add-attachments', { state: this.sAttachmentService.selectedSAttachments });

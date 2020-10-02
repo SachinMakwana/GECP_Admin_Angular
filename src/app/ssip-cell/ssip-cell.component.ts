@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -19,11 +19,9 @@ export class SsipCellComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.sDetailsService.selectedSDetails = null;
     this.refreshList();
   }
 
-  //refreshing data
   refreshList() {
     this.spinnerService.show();
     this.sDetailsService.getSDetails().subscribe(res => {
@@ -31,7 +29,6 @@ export class SsipCellComponent implements OnInit {
       this.spinnerService.hide();
     });
   }
-  //end of refreshList
 
   onEdit(data: SDetails) {
     this.sDetailsService.selectedSDetails = data;

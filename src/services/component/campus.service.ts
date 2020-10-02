@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError, ObservableInput } from 'rxjs/';
-import { catchError, map } from 'rxjs/operators';
-//import { HttpHeaders } from '@angular/common/http';
-// import 'rxjs/add/operator/map';
-// import 'rxjs/add/operator/toPromise'; 
+import { HttpClient } from '@angular/common/http';
 
 import { Campus } from '../../app/models/campus.model';
 
@@ -21,8 +16,7 @@ export class CampusService {
     this.selectedCampus = new Campus();
   }
 
-
-  postAddCampus(cam: Campus) {
+postAddCampus(cam: Campus) {
     return this.http.post(this.baseURL, cam);
   }
 
