@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
@@ -23,7 +22,6 @@ export class AddNssComponent implements OnInit {
 
   constructor(public nssService: NssService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
       
@@ -37,12 +35,9 @@ export class AddNssComponent implements OnInit {
       this.nss = history.state;
       this.fileLabel = "Change File";
       this.fileSelected = true;
-      
-      console.log("Edit");
     }
     else{
       this.nss._id = null
-      console.log("Add");
     }
   }
 
@@ -50,7 +45,7 @@ export class AddNssComponent implements OnInit {
     if (form)
       form.reset();
 
-    this._loadScript.resetFileInput("file");
+    this._loadScript.resetFileInput("filenss");
     this.fileLabel = "Choose File";
     this.fileSelected = false;
     
@@ -91,7 +86,6 @@ export class AddNssComponent implements OnInit {
     
     this.nss.file = this.base64textString[0];
 
-    console.log(this.nss);
 
     if(!this.fileSelected || !this.nss.nss_title){
       this.toastr.error("Please Insert Data","Required");
@@ -118,13 +112,13 @@ export class AddNssComponent implements OnInit {
     if(this.nss._id  != null){
       this.nssService.updateNss(this.nss,this.nss._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
+        
      });
     }
     else{
       this.nssService.postNss(this.nss).subscribe((res) => {
         this.toastr.success("Information Saved Successfully !", "Saved");
-        console.log("Saved");
+        
       });
     }
 

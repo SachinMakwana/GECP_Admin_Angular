@@ -8,7 +8,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
-                    <a [routerLink]="['/nss/add']" routerLinkActive="active">
+                    <a [routerLink]="['/nss/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
@@ -47,29 +47,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    
-                                        <tr *ngFor="let ns of nssService.nsss;">
-                                            <td>{{ ns.nss_title }}</td>
-                                            
-                                            <td>{{ns.nss_fileName}}</td>
-                                          
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]" (click)="onView(ns._id,ns)"
-                                                    ><i
-                                                        class="nav-icon fas fa-eye"></i></a>
-                                            </td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onEdit(ns._id,ns)"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
-                                            </td>
-                                            <td><a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onDelete(ns._id)"><i
-                                                        class="nav-icon fas fa-trash"></i></a></td>
-                                        </tr>
-                                        
 
-                                    
+                                    <tr *ngFor="let ns of nssService.nsss;">
+                                        <td>{{ ns.nss_title }}</td>
+
+                                        <td>{{ns.nss_fileName}}</td>
+
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onView(ns._id,ns)"><i
+                                                        class="nav-icon fas fa-eye"></i></a>
+                                        </td>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(ns._id,ns)"><i
+                                                        class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(ns._id)"><i
+                                                        class="nav-icon fas fa-trash"></i></a></td>
+                                    </tr>
+
+
+
 
                                 </tbody>
                                 <tfoot>
@@ -87,9 +84,9 @@
                         </div>
                         <!-- /.card-body -->
                     </div>
-                    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
-                        <p style="color: white">Please Wait. </p>  
-                        </ngx-spinner>
+                    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                        <p style="color: white">Please Wait. </p>
+                    </ngx-spinner>
                 </div>
             </div>
             <!-- /.card -->

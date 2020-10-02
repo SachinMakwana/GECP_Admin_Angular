@@ -1,13 +1,12 @@
 <div>
-    <!-- <h3 style="margin-left: 15px;">DEPARTMENT</h3> -->
     <section class="content">
         <div class="row">
-            <div class="col-md-12"  *ngFor="let ab of aboutService.abouts; let i = index;">
+            <div class="col-md-12" *ngFor="let ab of aboutService.abouts; let i = index;">
                 <a [routerLink]="[]" (click)="onEdit(ab._id,ab)">
                     <ol class="breadcrumb float-sm-right">
-                        <li ><i class="nav-icon fas fa-plus-circle pr-2"></i>
+                        <li><i class="nav-icon fas fa-plus-circle pr-2"></i>
                         </li>
-                        <li >Edit Details</li>
+                        <li>Edit Details</li>
                     </ol>
                 </a>
             </div>
@@ -17,40 +16,27 @@
                         <h3 class="card-title">About College</h3>
                     </div>
                     <div class="card-body">
-                        <div class="raw"  *ngFor="let ab of aboutService.abouts; let i = index;"> 
+                        <div class="raw" *ngFor="let ab of aboutService.abouts; let i = index;">
                             <div class="col-12">
                                 <div class="form-group">
                                     <div class="input-group justify-content-center">
                                         <div class="col-8">
-                                            <!-- <img alt="college" width="100%" class="img-thumbnail"
-                                                src="../assets/dist/img/GECPatan.jpg" /> -->
-                                                <img class="img-thumbnail" src={{ab.about_image}} alt="logo" id="aboutImage" 
-                                                        width="100%" height="50%">
+
+                                            <img class="img-thumbnail" src={{ab.about_image}} alt="logo" id="aboutImage" width="100%" height="50%">
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="form-group mt-3">
-                                    <label class="h4 text-danger">
-                                        ABOUT COLLEGE
-                                    </label>
-                                    <hr>
-                                </div> -->
-                                
-                                
+
                                 <div class="mt-3">
-                                    <span >
+                                    <span>
                                         <p [innerHTML] = "ab.about_description"></p>
-                                        
-                                      <!-- {{ab.about_description.val()}} -->
-                                     <!-- {{ab.about_description | htmlToPlaintext}} -->
-                                   <!-- var txt =  htmlToPlaintext( {{ab.about_description}}) -->
+                                     
                                     </span>
                                 </div>
-                                
+
                             </div>
                             <div class="input-group col-md-12 mt-4">
-                                <div class="col-sm-6"><a [routerLink]="[]" (click)="onEdit(ab._id,ab)"
-                                        class="btn btn-primary float-right">Edit</a>
+                                <div class="col-sm-6"><a [routerLink]="[]" (click)="onEdit(ab._id,ab)" class="btn btn-primary float-right">Edit</a>
 
                                 </div>
 
@@ -61,9 +47,9 @@
                     </div>
                 </div>
                 <!-- /.card-body -->
-                <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
-                    <p style="color: white">Please Wait. </p>  
-                    </ngx-spinner>
+                <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                    <p style="color: white">Please Wait. </p>
+                </ngx-spinner>
             </div>
         </div>
     </section>

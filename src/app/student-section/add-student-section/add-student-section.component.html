@@ -24,9 +24,7 @@
                                         <input type="hidden" name="_id" [(ngModel)]="this.ss._id">
                                         <label for="exampleInputEmail1">Enter Title<label
                                             class="red-text">*</label></label>
-                                            <input type="text" class="form-control"  name="ss_title" [(ngModel)]="this.ss.ss_title"
-                                            onkeypress="return ValidateAlpha(event)" required
-                                                placeholder="Enter title.. ">
+                                        <input type="text" class="form-control" name="ss_title" [(ngModel)]="this.ss.ss_title" onkeypress="return ValidateAlpha(event)" required placeholder="Enter title.. ">
                                     </div>
                                 </div>
 
@@ -37,26 +35,23 @@
                                             class="red-text">*</label></label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input"
-                                                (change)="onUploadChange($event)" id="file" required>
+                                                <input type="file" class="custom-file-input" (change)="onUploadChange($event)" id="file" accept=".pdf" required>
                                                 <label class="custom-file-label" for="exampleInputFile">{{fileLabel}}</label>
                                             </div>
-                                          
+
                                         </div>
                                     </div>
                                 </div>
 
-                                </div>
-                            
+                            </div>
+
                             <!--end of editor-->
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(ssForm)"
-                                        class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                <div class="col-sm-6"><button type="reset" (click)="resetForm(ssForm)"
-                                    class="btn btn-default col-md-2">Clear</button>
+                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(ssForm)" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><button type="reset" (click)="resetForm(ssForm)" class="btn btn-default col-md-2">Clear</button>
                                 </div>
                             </div>
                         </div>

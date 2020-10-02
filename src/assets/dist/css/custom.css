@@ -1,3 +1,6 @@
+@import '~ngx-toastr/toastr.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~sweetalert2/dist/sweetalert2.css';
 .login-page {
     background-image: url(../img/Login/login_bg.jpg);
     background-position: center;
@@ -10,10 +13,24 @@
     background: #dad8d873;
     border: 1px solid #dad8d8;
 }
-.Content-Wrapper-Padding{
+
+.Content-Wrapper-Padding {
     padding: 1.50% 1.50%;
 }
-/* td,
-th {
-    text-align: center;
-} */
+
+.red-text {
+    color: red;
+}
+
+input.ng-invalid.ng-dirty {
+    border-color: #e91e63 !important;
+    box-shadow: 0 1px 0 0 #e91e63 !important;
+}
+
+input.invalid {
+    border-color: #DD2C00;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}

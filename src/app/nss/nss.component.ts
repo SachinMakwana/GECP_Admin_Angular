@@ -1,6 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
-import { NgForm } from '@angular/forms';
 import { NssService } from '../../services/component/nss.service';
 import { Nss } from '../models/nss.model';
 import { Router } from '@angular/router'; 
@@ -19,7 +18,9 @@ export class NssComponent implements OnInit {
   nss:Nss;
   viewPdf:boolean;
 
-  constructor(public nssService: NssService, private chRef: ChangeDetectorRef, private _loadSriptService: LoadScriptsService,private router: Router,private SpinnerService: NgxSpinnerService) { }
+  constructor(public nssService: NssService, private chRef: ChangeDetectorRef,
+     private _loadSriptService: LoadScriptsService,private router: Router,
+     private SpinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
     

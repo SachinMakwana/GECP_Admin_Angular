@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
 
@@ -18,18 +17,14 @@ export class AddComponent implements OnInit {
   
   aboutLabel: string = "Choose Image";
   about: About;
-  isInit: boolean = true;
-  isEdit:boolean;
   fileSelected:boolean;
   isDescriptionEmpty:boolean
   e:Event;
 
   constructor(public aboutService: AboutService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
-      console.log(this.router.getCurrentNavigation().extras.state);
       this.about = new About();
   
   }
@@ -45,11 +40,9 @@ export class AddComponent implements OnInit {
       this.aboutLabel = "Change Image";
       this.fileSelected = true;
       
-      console.log("Edit");
     }
     else{
       this.about._id = null
-      console.log("Add");
     }
   }
 
@@ -70,7 +63,6 @@ export class AddComponent implements OnInit {
       about_image: "",
       about_description: ""
     }
-    this.isInit = false;
   }
 
    //for image to base64
@@ -127,14 +119,11 @@ export class AddComponent implements OnInit {
     if(this.about._id  != null){
       this.aboutService.updateAbout(this.about,this.about._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
       });
     }
     else{
-      // this.aboutService.postAbout(this.about).subscribe((res) => {
        this.toastr.info("Please Go back and click on Edit");
-      //   console.log("Saved");
-      // });
+      
     }
 
     this.resetForm(form);
