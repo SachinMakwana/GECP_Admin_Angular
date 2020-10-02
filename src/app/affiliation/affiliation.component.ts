@@ -43,7 +43,7 @@ export class AffiliationComponent implements OnInit {
 
   //deleting data
   onDelete(_id: number) {
-    //this.toastr.warning()
+    
 
     Swal.fire({
       title: 'Are you sure?',
@@ -82,7 +82,7 @@ export class AffiliationComponent implements OnInit {
     this.affiliationService.getAffiliationById(_id).subscribe(res => {
       this.affiliationService.selectedAffiliation = res as Affiliation;
       console.log(this.affiliationService.selectedAffiliation);
-      //this.viewPdf = true;
+      
     });
   
     this.router.navigateByUrl('/affiliation/view', { state: this.affiliationService.selectedAffiliation });

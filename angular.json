@@ -152,5 +152,8 @@
       }
     }
   },
-  "defaultProject": "gecp-admin"
+  "defaultProject": "gecp-admin",
+  "cli": {
+    "analytics": "80756d6f-b8f0-40c3-ab80-ab5f83b48ab5"
+  }
 }

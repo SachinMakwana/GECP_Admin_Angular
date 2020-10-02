@@ -23,7 +23,6 @@ export class DetailLabWorkshopComponent implements OnInit {
     if (history.state != undefined) {
       this.labAndWorkshop = null;
       this.labAndWorkshop = history.state;
-      //this._loadScript.setSummernoteCode("description",this.labAndWorkshop.description);
     }
   }
 

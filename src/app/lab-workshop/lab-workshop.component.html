@@ -7,7 +7,7 @@
                     <h1 class="m-0 text-dark">Lab And Workshops</h1>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-6">
                     <a [routerLink]="['/labandworkshop/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
@@ -51,15 +51,12 @@
                                         <td>{{data.category}}</td>
                                         <td>{{data.deptCode}}</td>
                                         <td>
-                                            <a routerLinkActive="active" [routerLink]="[]"
-                                                (click)="onView(data)"><i class="nav-icon fas fa-eye"></i></a>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onView(data)"><i class="nav-icon fas fa-eye"></i></a>
                                         </td>
                                         <td>
-                                            <a routerLinkActive="active" [routerLink]="[]" 
-                                            (click)="onEdit(data)"><i class="nav-icon fas fa-edit"></i></a>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i class="nav-icon fas fa-edit"></i></a>
                                         </td>
-                                        <td><a routerLinkActive="active" [routerLink]="[]"
-                                            (click)="onDelete(data._id)"><i
+                                        <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(data._id)"><i
                                                 class="nav-icon fas fa-trash"></i></a></td>
                                     </tr>
                                 </tbody>

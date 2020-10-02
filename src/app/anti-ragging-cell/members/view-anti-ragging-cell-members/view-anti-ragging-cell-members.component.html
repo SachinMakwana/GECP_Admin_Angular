@@ -7,7 +7,7 @@
                     <h2 class="m-0 text-dark">Anti-Ragging Cell Members List</h2>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-6">
                     <a [routerLink]="['/antiRaggingcell/add-member']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
@@ -62,8 +62,7 @@
                                                     <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i
                                                             class="nav-icon fas fa-edit"></i></a>
                                                 </td>
-                                                <td><a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
+                                                <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -7,7 +7,7 @@
                     <h1 class="m-0 text-dark">Affiliation-Section</h1>
                 </div>
                 <!-- /.col -->
-                <div class="col-sm-6" style="margin-top:10px;">
+                <div class="col-sm-6">
                     <a [routerLink]="['/affiliation/add']" routerLinkActive="active">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
@@ -57,8 +57,7 @@
                                             <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i
                                                     class="nav-icon fas fa-edit"></i></a>
                                         </td>
-                                        <td><a routerLinkActive="active" [routerLink]="[]"
-                                                (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
+                                        <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
