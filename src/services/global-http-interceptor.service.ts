@@ -1,6 +1,13 @@
 import { Injectable, Injector } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { RouteConstant } from '../app/common/route';
+import { ToastrService } from 'ngx-toastr';
+import { ToastMessage } from '../app/common/toastMessages';
+import { ToastConstant } from '../app/common/toastConstant';
+import { NgxUiLoaderService } from 'ngx-ui-loader';
 
 import { AuthGuardService } from "../services/auth-guard.service";
 
@@ -13,7 +20,9 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
     private toastrService: ToastrService,
     private ngxUiLoaderService: NgxUiLoaderService) { }
 */
-constructor(private injector: Injector){}
+
+  constructor(private injector: Injector) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
     const authService = this.injector.get(AuthGuardService);

@@ -1,0 +1,65 @@
+<section class="content" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-md-12">
+            <a [routerLink]="['/aboutCollege']">
+                <ol class="breadcrumb float-sm-right">
+                    <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                    <li>Back</li>
+                </ol>
+            </a>
+        </div>
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add new details</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form #aboutForm="ngForm" name="aboutForm">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="hidden" name="_id" [(ngModel)]="this.about._id">
+                                    <label for="exampleInputFile">Choose Image Of College<label
+                                        class="red-text">*</label></label>
+                                    <div class="input-group">
+
+
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" name="about_image" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg" id="aboutImage" required>
+                                            <label class="custom-file-label" for="exampleInputFile">{{aboutLabel}}</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="input-group">
+                                <div class="col-12">
+                                    <label for="companyDetails">Add College Details Below<label
+                                            class="red-text">*</label></label>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea id="txtDescription" class="textarea form-control" placeholder="Place some text here" name="about_description" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of editor-->
+
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="input-group col-12">
+                            <div class="col-sm-6"><button type="submit" (click)="onSubmit(aboutForm)" class="btn btn-primary float-right col-md-2">Submit</button>
+                            </div>
+                            <div class="col-sm-6"><button type="reset" (click)="resetForm(aboutForm)" class="btn btn-default col-md-2">Clear</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

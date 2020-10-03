@@ -12,7 +12,7 @@ export class AddSsipComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this._loadSriptService.loadDatatbles("id");
+    this._loadSriptService.loadEditorSummernote("id");
   }
 
 }

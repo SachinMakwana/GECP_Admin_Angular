@@ -1,0 +1,87 @@
+<div>
+    <!-- Content Header (Page header) -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2>Gallery Details</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a [routerLink]="['/events/add']">
+                        <ol class="breadcrumb float-sm-right">
+                            <li><i class="nav-icon fas fa-plus-circle"></i></li>
+                            <li>Add New Details</li>
+                        </ol>
+                    </a>
+                </div>
+                <div class="container-fluid">
+
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h1 class="card-title">Gallery List </h1>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="tblGallery" class="table table-bordered table-hover text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Image</th>
+                                                <th>Edit Details</th>
+                                                <th>Delete Details</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let gal of galleryService.gallerys; let i = index;">
+                                                <td><img src={{gal.image}} alt="logo" id="eventImg" height="50px" width="50px"></td>
+                                                <td>{{ gal.title }}</td>
+                                                <td>
+                                                    <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(gal._id,gal)"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
+                                                </td>
+                                                <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(gal._id)"><i
+                                                            class="nav-icon fas fa-trash"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Image</th>
+                                                <th>Edit Details</th>
+                                                <th>Delete Details</th>
+
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+                            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                                <p style="color: white">Please Wait. </p>
+                            </ngx-spinner>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- /.content -->
+    </div>
+</div>
