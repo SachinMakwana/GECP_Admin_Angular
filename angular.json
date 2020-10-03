@@ -36,6 +36,8 @@
               "src/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css",
               "src/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css",
               "src/assets/plugins/summernote/summernote-bs4.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/sweetalert2/src/sweetalert2.scss",
               "src/assets/dist/css/custom.css"
             ],
             "scripts": [
@@ -55,6 +57,7 @@
               "src/assets/plugins/summernote/summernote-bs4.min.js",
               "src/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js",
               "src/assets/dist/js/adminlte.js",
+              "node_modules/sweetalert2/dist/sweetalert2.js",
               "src/assets/dist/js/custom.js",
               "src/assets/dist/js/demo.js"
             ]
@@ -152,5 +155,8 @@
       }
     }
   },
-  "defaultProject": "gecp-admin"
+  "defaultProject": "gecp-admin",
+  "cli": {
+    "analytics": "90a68b30-ed80-4d34-b9c0-2f65820d97c0"
+  }
 }

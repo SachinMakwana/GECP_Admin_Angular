@@ -1,15 +1,14 @@
 <div>
-    <!-- <h3 style="margin-left: 15px;">DEPARTMENT</h3> -->
-    <section class="content" style="margin-top:20px;">
+
+    <section class="content">
         <div class="row">
             <div class="col-md-12">
                 <a [routerLink]="['/labandworkshop']">
-                <ol class="breadcrumb float-sm-right">
-                    <li style="margin-left: 00px;"><i
-                                class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                    <li style="margin-left: px;">Back to Details</li>
-                </ol>
-            </a>
+                    <ol class="breadcrumb float-sm-right">
+                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li>Back</li>
+                    </ol>
+                </a>
             </div>
             <div class="col-md-12">
                 <div class="card card-primary">
@@ -19,34 +18,30 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="preview col-md-5">
-                                <div class="tab-pane active" id="pic-1"><img src="../../dist/img/lab.png"
-                                        class="img-rounded" alt="Cinque Terre" width="400" height="230"> </div>
+                                <div class="tab-pane active" id="pic-1"><img src={{this.labAndWorkshop.image}} class="img-rounded" alt="Cinque Terre" width="400" height="230"> </div>
                             </div>
-                            <div class="col-md-3">
-                                <h6><b>NAME OF LAB AND WORKSHOP:</b></h6><span>Mechanical Workshop</span>
-                                <h6><b>CATEGORY:</b></h6><span>Workshop</span>
-                                <h6><b>DEPARTMENT:</b></h6><span>Mechanical</span>
+                            <div class="col-md-7">
+                                <div>
+                                    <label class="col-4">NAME</label>
+                                    <span class="col-8">{{this.labAndWorkshop.name}}</span>
+                                </div>
+                                <div>
+                                    <label class="col-4">CATEGORY</label>
+                                    <span class="col-8">{{this.labAndWorkshop.category}}</span>
+                                </div>
+                                <div>
+                                    <label class="col-4">DEPARTMENT</label>
+                                    <span class="col-8">{{this.labAndWorkshop.deptCode}}</span>
+                                </div>
                             </div>
                             <div class="col-md-12 mt-4">
-
-                                <h6><b>Detail Description</b></h6> <span>Dynamic loads and undesired
-                                    oscillations increase with higher speed of machines. At that time, knowledge
-                                    and practical exposure is required for better vibration reduction. The
-                                    Laboratory deals with balancing of mechanisms, torsional and bending
-                                    vibrations, vibration isolation, and the dynamic behavior of drives and
-                                    machine frames as complex systems using static and dynamic balancing
-                                    apparatus, whirling of shaft apparatus and universal vibration apparatus.
-                                    Main objective of study about dynamics is to understand how a static and
-                                    dynamic mass is balanced, To study about different types of
-                                    vibration.</span>
+                                <h6><b>Detail Description</b></h6>
+                                <p [innerHTML]="this.labAndWorkshop.description"></p>
 
                             </div>
                             <div class="input-group col-md-12 mt-4">
-                                <div class="col-sm-6"><a [routerLink]="['/labandworkshop/add']" ><button type="submit"
-                                            class="btn btn-primary float-right col-md-2">Edit</button></a>
-
+                                <div class="col-md-6"><a routerLinkActive="active" [routerLink]="[]" class="btn btn-primary float-right col-md-3" (click)="onEdit(this.labAndWorkshop)">Edit</a>
                                 </div>
-
                             </div>
 
                         </div>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import * as IMask from 'imask';
 declare var jQuery: any;
 declare var $: any;
 
@@ -55,7 +56,7 @@ export class LoadScriptsService {
     })(jQuery);
   }
 
-  loadDateMask() {
+  loadDateMask2() {
     (function ($) {
       //Datemask dd/mm/yyyy
       $('.datemask').inputmask('dd/mm/yyyy', {
@@ -105,5 +106,27 @@ export class LoadScriptsService {
       });
     })(jQuery);
   }
+
+  loadDatePicker(id: string) {
+    (function ($) {
+      //Date range picker
+      $('#' + id).datetimepicker({
+        format: 'L'
+      });
+    })(jQuery);
+  }
+
+
+  loadDateMask() {
+    (function ($) {
+      var inputElements = document.querySelectorAll("input[data-format]");
+      inputElements.forEach(input => {
+        let m = new (IMask as any)(input, {
+          mask: input.getAttribute("data-format")
+        });
+      });
+    });
+  }
+
 }
 
