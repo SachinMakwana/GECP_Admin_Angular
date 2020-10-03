@@ -12,7 +12,7 @@ export class AddAntiRaggingCellComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._loadSriptService.loadEditorSummernote();
+    this._loadSriptService.loadEditorSummernote("id");
   }
 
 }

@@ -20,7 +20,9 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
     private toastrService: ToastrService,
     private ngxUiLoaderService: NgxUiLoaderService) { }
 */
-constructor(private injector: Injector){}
+
+  constructor(private injector: Injector) { }
+
   intercept(req: HttpRequest<any>, next: HttpHandler):
     Observable<HttpEvent<any>> {
     const authService = this.injector.get(AuthGuardService);

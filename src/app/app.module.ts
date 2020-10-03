@@ -12,7 +12,7 @@ import { LoginService } from '../services/login.service';
 import { AuthGuardService } from '../services/auth-guard.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -27,6 +27,7 @@ import { AppComponent } from './app.component';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgxSpinnerModule
   ],
   providers: [
     AuthGuardService,

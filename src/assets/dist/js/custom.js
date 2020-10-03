@@ -45,6 +45,17 @@ function onlyNumbers(e) {
 function ValidateAlpha(event) {
     if ((event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode == 32))
         return true;
-        
+
     return false;
 }
+
+function htmlToPlaintext(text) {
+    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+}
+
+angular.module('myApp.filters', []).
+filter('htmlToPlaintext', function() {
+    return function(text) {
+        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
+    };
+});
