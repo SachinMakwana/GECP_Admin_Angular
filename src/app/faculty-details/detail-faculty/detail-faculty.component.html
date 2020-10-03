@@ -1,13 +1,14 @@
 <div>
-  <section class="content">
+  <!-- <h3 style="margin-left: 15px;">DEPARTMENT</h3> -->
+  <section class="content" style="margin-top:20px;">
     <div class="row">
       <div class="col-md-12">
-        <a [routerLink]="['/faculty']">
+        <a [routerLink]="['/faculty']" >
           <ol class="breadcrumb float-sm-right">
-            <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i>
-            </li>
-            <li>Back</li>
-          </ol>
+            <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i>
+        </li>
+        <li style="margin-left: px;">Back to Details</li>
+        </ol>
         </a>
       </div>
       <div class="col-md-12">
@@ -17,92 +18,100 @@
           </div>
           <div class="card-body">
             <div class="row">
-              <div class="preview col-md-6">
-                <div class="tab-pane active" id="pic-1"><img src="../../dist/img/avatar.png" height="100%"
+              <div class="preview col-md-3">
+                <div class="tab-pane active" id="pic-1"><img src="../../dist/img/avatar.png"
                     class="rounded-circle border border-dark" alt="Cinque Terre"> </div>
               </div>
-              <div class="col-md-6">
+              <div class="col-md-9">
                 <table>
                   <tr>
-                    <th>NAME OF FACULTY:</th>
-                    <td>
-                      {{this.faculty.prefix + " " + this.faculty.firstName + " " + this.faculty.lastName + " " + this.faculty.surname}}
-                    </td>
+                    <th><b>NAME OF FACULTY:</b></th>
+                    <td> &nbsp Mr. Sanjay V Patel</td>
                   </tr>
                   <tr>
-                    <th>GENDER</th>
-                    <td>{{this.faculty.gender}}</td>
+                    <th><b>GENDER</b></th>
+                    <td>Male</td>
                   </tr>
                   <tr>
-                    <th>DESIGNATION:</th>
-                    <td>{{this.faculty.designation}}</td>
+                    <th><b>DESIGNATION:</b></th>
+                    <td>Assisant Professor</td>
                   </tr>
                   <tr>
-                    <th>DEPARTMENT:</th>
-                    <td>{{this.deptEnum[this.faculty.deptCode]}}</td>
+                    <th><b>DEPARTMENT:</b></th>
+                    <td>Computer</td>
                   </tr>
                   <tr>
-                    <th>QUALIFICATION:</th>
-                    <td>{{this.faculty.qualification}}</td>
+                    <th><b>QUALIFICATION:</b></th>
+                    <td>M.E in Computer Science</td>
                   </tr>
                   <tr>
-                    <th>AREA OF INTEREST:</th>
-                    <td>{{this.faculty.areaOfInterest}}</td>
+                    <th><b>AREA OF INTREST:</b></th>
+                    <td>AI and ML</td>
                   </tr>
-                </table>
-              </div>
-            </div>
-            <div class="row pt-3">
-              <div class="col-md-6">
-                <table>
-                  <tr>
-                    <th>DATE OF JOINING:</th>
-                    <td>{{this.faculty.doj}}</td>
-                  </tr>
-                  <tr>
-                    <th>TOTAL EXPIERENCE:</th>
-                    <td>{{this.faculty.experience}}</td>
-                  </tr>
-                  <tr>
-                    <th>E-MAIL:</th>
-                    <td>{{this.faculty.email}}</td>
-                  </tr>
-                  <tr>
-                    <th>CONTACT NUMBER:</th>
-                    <td>{{this.faculty.contactNo}}</td>
-                  </tr>
+
 
                 </table>
               </div>
-              <div class="col-md-6">
+              <div class="row"></div>
+              <div class="col-md-5 mt-2">
                 <table>
                   <tr>
-                    <th>DATE OF BIRTH:</th>
-                    <td>{{this.faculty.dob}}</td>
+                    <th><b>DATE OF JOINING:</b></th>
+                    <td> 10 May 1999</td>
                   </tr>
                   <tr>
-                    <th>MARITAL STATUS:</th>
-                    <td>{{this.faculty.maritialStatus}}</td>
+                    <th><b>TOTAL EXPIERENCE:</b></th>
+                    <td>5 years</td>
                   </tr>
                   <tr>
-                    <th>PHONE NO:</th>
-                    <td>{{this.faculty.phoneNo}}</td>
+                    <th><b>E-MAIL:</b></th>
+                    <td>sanjaysir123@gmail.com</td>
                   </tr>
                   <tr>
-                    <th>HOME ADDRESS:</th>
-                    <td>{{this.faculty.address}}</td>
+                    <th><b>CONTACT NUMBER:</b></th>
+                    <td>124455</td>
                   </tr>
+
                 </table>
+
+
               </div>
-            </div>
-            <div class="card-footer">
-              <div class="input-group">
-                <div class="col-md-6"><a routerLinkActive="active" [routerLink]="[]"
-                    class="btn btn-primary float-right col-md-3" (click)="onEdit(this.faculty)">Edit</a>
-                </div>
+              <div class="col-md-1">
+                <div class="vl mt-4"></div>
+              </div>
+              <div class="col-md-6 mt-2">
+
+                <table>
+                  <tr>
+                    <th><b>DATE OF BIRTH:</b></th>
+                    <td> 10 May 1968</td>
+                  </tr>
+                  <tr>
+                    <th><b>MARITAL STATUS:</b></th>
+                    <td>Married</td>
+                  </tr>
+                  <tr>
+                    <th><b>PHONE NO:</b></th>
+                    <td>567890456</td>
+                  </tr>
+                  <tr>
+                    <th><b>HOME ADDRESS:</b></th>
+                    <td>202 A wing swastik app opp Girls College, JAMNAGAR</td>
+                  </tr>
+
+                </table>
+
               </div>
             </div>
 
+
+          </div>
+          <div class="row">
+            <div class="input-group">
+              <div class="col-md-6"><a [routerLink]="['/faculty/add']"><button type="submit"
+                    class="btn btn-primary float-right col-md-3">Edit</button></a>
+              </div>
+            </div>
           </div>
         </div>
       </div>

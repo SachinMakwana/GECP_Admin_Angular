@@ -33,36 +33,41 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" #attachmentForm="ngForm">
+                        <form role="form" id="quickForm">
                             <div class="card-body">
                                 <div class="input-group">
                                     <div class="col-6">
                                         <label for="Name"> Enter Title</label>
-                                        <input type="text" class="form-control" [(ngModel)]="this.attachment.name" name="name" id="Name" placeholder="Enter Title">
+                                        <input type="text" class="form-control" id="Name" placeholder="Enter Title">
                                     </div>
                                     <div class="col-6">
                                         <label for="exampleInputFile">Upload Attachment File</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input"
-                                                        (change)="onUploadChange($event)" accept=".pdf" id="file">
-                                                <label class="custom-file-label" for="exampleInputFile">{{this.fileLabel}}</label>
+                                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                    file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="">Upload</span>
                                             </div>
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div class="input-group col-12">
-                                    <div class="col-sm-6"><button type="submit" (click)="onSubmit(attachmentForm)"
-                                            class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                    <div class="col-sm-6"><button type="reset" (click)="resetForm(attachmentForm)"
-                                            class="btn btn-default col-md-2">Cancel</button></div>
-                                </div>
-                            </div>
                         </form>
+
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <button type="submit" class="btn btn-primary float-right">Submit</button>
+                </div>
+                <div class="col-6">
+                    <a [routerLink]="['/placement']" class="btn btn-default">Cancel</a>
                 </div>
             </div>
         </div>
