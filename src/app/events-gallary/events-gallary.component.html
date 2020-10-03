@@ -7,7 +7,11 @@
                     <h2>Gallery Details</h2>
                 </div>
                 <div class="col-sm-6">
+<<<<<<< HEAD
                     <a [routerLink]="['/events/add']">
+=======
+                    <a [routerLink]="['/events/add']" routerLinkActive="active">
+>>>>>>> parent of 6d3346a... deleted for check
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle"></i></li>
                             <li>Add New Details</li>
@@ -31,17 +35,26 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
+<<<<<<< HEAD
                                     <table id="tblGallery" class="table table-bordered table-hover text-center">
+=======
+                                    <table id="example1" class="table table-bordered table-hover text-center">
+>>>>>>> parent of 6d3346a... deleted for check
                                         <thead>
                                             <tr>
                                                 <th>Category</th>
                                                 <th>Image</th>
+<<<<<<< HEAD
+=======
+                                                <th>View All Details</th>
+>>>>>>> parent of 6d3346a... deleted for check
                                                 <th>Edit Details</th>
                                                 <th>Delete Details</th>
 
                                             </tr>
                                         </thead>
                                         <tbody>
+<<<<<<< HEAD
                                             <tr *ngFor="let gal of galleryService.gallerys; let i = index;">
                                                 <td><img src={{gal.image}} alt="logo" id="eventImg" height="50px" width="50px"></td>
                                                 <td>{{ gal.title }}</td>
@@ -51,12 +64,35 @@
                                                 </td>
                                                 <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(gal._id)"><i
                                                             class="nav-icon fas fa-trash"></i></a></td>
+=======
+                                            <tr>
+                                                <td>Annul function</td>
+                                                <td>Annul function Image</td>
+                                                <td><i class="nav-icon fas fa-eye"></i></td>
+                                                <td><a [routerLink]="['/events/add']" routerLinkActive="active"><i
+                                                            class="nav-icon fas fa-edit"></i></a></td>
+                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Award Function</td>
+                                                <td>Award Function image</td>
+                                                <td><i class="nav-icon fas fa-eye"></i></td>
+                                                <td><a [routerLink]="['/events/add']" routerLinkActive="active"><i
+                                                            class="nav-icon fas fa-edit"></i></a></td>
+                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+
+>>>>>>> parent of 6d3346a... deleted for check
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Category</th>
                                                 <th>Image</th>
+<<<<<<< HEAD
+=======
+                                                <th>View All Details</th>
+>>>>>>> parent of 6d3346a... deleted for check
                                                 <th>Edit Details</th>
                                                 <th>Delete Details</th>
 
@@ -68,9 +104,13 @@
                             </div>
                             <!-- /.card -->
 
+<<<<<<< HEAD
                             <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
                                 <p style="color: white">Please Wait. </p>
                             </ngx-spinner>
+=======
+
+>>>>>>> parent of 6d3346a... deleted for check
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->

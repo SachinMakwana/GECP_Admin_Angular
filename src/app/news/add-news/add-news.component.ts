@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+<<<<<<< HEAD
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 import { NgForm } from "@angular/forms";
@@ -133,4 +134,18 @@ export class AddNewsComponent implements OnInit {
   }
 
 
+=======
+@Component({
+  selector: 'app-add-news',
+  templateUrl: './add-news.component.html',
+  styleUrls: ['./add-news.component.css']
+})
+export class AddNewsComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> parent of 6d3346a... deleted for check
 }

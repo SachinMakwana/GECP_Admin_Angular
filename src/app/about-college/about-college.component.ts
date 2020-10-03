@@ -1,13 +1,19 @@
+<<<<<<< HEAD
 import { Component, OnInit, ChangeDetectorRef  } from '@angular/core';
 import { Router } from '@angular/router';
 import { AboutService } from 'src/services/component/about.service';
 import { About } from '../models/about.models';
 import { NgxSpinnerService } from "ngx-spinner";  
 
+=======
+import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
+>>>>>>> parent of 6d3346a... deleted for check
 
 @Component({
   selector: 'app-about-college',
   templateUrl: './about-college.component.html',
+<<<<<<< HEAD
   styleUrls: ['./about-college.component.css'],
   providers: [AboutService]
 })
@@ -47,4 +53,16 @@ export class AboutCollegeComponent implements OnInit {
     
   }
   
+=======
+  styleUrls: ['./about-college.component.css']
+})
+export class AboutCollegeComponent implements OnInit {
+
+  constructor(private _loadSriptService: LoadScriptsService) {
+  }
+
+  ngOnInit(): void {
+     this._loadSriptService.loadDatatbles("id");
+  }
+>>>>>>> parent of 6d3346a... deleted for check
 }

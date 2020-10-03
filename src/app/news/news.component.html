@@ -7,7 +7,11 @@
                     <h2>News Details</h2>
                 </div>
                 <div class="col-sm-6">
+<<<<<<< HEAD
                     <a [routerLink]="['/news/add']">
+=======
+                    <a [routerLink]="['/news/add']" routerLinkActive="active">
+>>>>>>> parent of 6d3346a... deleted for check
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
@@ -31,10 +35,18 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
+<<<<<<< HEAD
                                     <table id="tblNews" class="table table-bordered table-hover text-center">
                                         <thead>
                                             <tr>
                                                 <th>Title</th>
+=======
+                                    <table id="example1" class="table table-bordered table-hover text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Title</th>
+                                                <th>News Link</th>
+>>>>>>> parent of 6d3346a... deleted for check
                                                 <th>Image</th>
                                                 <th>Edit Details</th>
                                                 <th>Delete Details</th>
@@ -42,6 +54,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+<<<<<<< HEAD
                                             <tr *ngFor="let ne of newsService.newss; let i = index;">
                                                 <td><img src={{ne.image}} alt="logo" id="imgNews" height="50px" width="50px"></td>
                                                 <td>{{ ne.title }}</td>
@@ -51,11 +64,34 @@
                                                 </td>
                                                 <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(ne._id)"><i
                                                             class="nav-icon fas fa-trash"></i></a></td>
+=======
+                                            <tr>
+                                                <td>COVID NEWS</td>
+                                                <td>news link</td>
+                                                <td>news Image</td>
+                                                <td><a [routerLink]="['/news/add']" routerLinkActive="active"><i
+                                                            class="nav-icon fas fa-edit"></i></a></td>
+                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Holiday news</td>
+                                                <td>news link</td>
+                                                <td>news Image</td>
+                                                <td><a [routerLink]="['/news/add']" routerLinkActive="active"><i
+                                                            class="nav-icon fas fa-edit"></i></a></td>
+                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+
+>>>>>>> parent of 6d3346a... deleted for check
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Title</th>
+<<<<<<< HEAD
+=======
+                                                <th>News Link</th>
+>>>>>>> parent of 6d3346a... deleted for check
                                                 <th>Image</th>
                                                 <th>Edit Details</th>
                                                 <th>Delete Details</th>
@@ -68,9 +104,13 @@
                             </div>
                             <!-- /.card -->
 
+<<<<<<< HEAD
                             <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
                                 <p style="color: white">Please Wait. </p>
                             </ngx-spinner>
+=======
+
+>>>>>>> parent of 6d3346a... deleted for check
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->

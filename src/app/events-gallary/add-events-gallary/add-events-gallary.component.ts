@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+<<<<<<< HEAD
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
 import { NgForm } from "@angular/forms";
@@ -6,10 +7,13 @@ import { ToastrService } from 'ngx-toastr';
 
 import { GalleryService } from "../../../services/component/gallery.service";
 import { Gallery } from "../../models/gallery.model";
+=======
+>>>>>>> parent of 6d3346a... deleted for check
 
 @Component({
   selector: 'app-add-events-gallary',
   templateUrl: './add-events-gallary.component.html',
+<<<<<<< HEAD
   styleUrls: ['./add-events-gallary.component.css'],
   providers: [GalleryService]
 })
@@ -126,4 +130,15 @@ export class AddEventsGallaryComponent implements OnInit {
   }
 
 
+=======
+  styleUrls: ['./add-events-gallary.component.css']
+})
+export class AddEventsGallaryComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> parent of 6d3346a... deleted for check
 }

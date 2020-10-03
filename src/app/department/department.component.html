@@ -1,0 +1,130 @@
+<div>
+    <!-- Content Header (Page header) -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2 class="m-0 text-dark">Departments Details</h2>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-6">
+                    <a [routerLink]="['/department/add']" routerLinkActive="active">
+                        <ol class="breadcrumb float-sm-right">
+                            <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
+                            <li>Add New Details</li>
+                        </ol>
+                    </a>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Department Lists</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-hover text-center">
+                                <thead>
+                                    <tr>
+                                        <th>Brach Code</th>
+                                        <th>Branch Name</th>
+                                        <th>Branch Image</th>
+                                        <th>View</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Electronic And Communication</td>
+                                        <td>Branch Image</td>
+                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Electrical</td>
+                                        <td>Branch Image</td>
+                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Computer</td>
+                                        <td>Branch Image</td>
+                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="['/department/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+                                        <td>Civil</td>
+                                        <td>Branch Image</td>
+                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>5</td>
+                                        <td>Mechanical</td>
+                                        <td>Branch Image</td>
+                                        <td><a [routerLink]="['/department/view-department']" routerLinkActive="active"><i class="nav-icon fas fa-eye"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="['/department/add']"  routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th>Brach Code</th>
+                                        <th>Branch Name</th>
+                                        <th>Branch Image</th>
+                                        <th>View</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div>
+            </div>
+            <!-- /.card -->
+        </div>
+        <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>

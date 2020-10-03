@@ -12,6 +12,10 @@ export class ViewAchievementsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     this._loadSriptService.loadDatatbles("id");
+=======
+     this._loadSriptService.loadDatatbles("id");
+>>>>>>> parent of 6d3346a... deleted for check
   }
 }

@@ -1,4 +1,5 @@
 <div>
+<<<<<<< HEAD
     <section class="content">
         <div class="row">
             <div class="col-md-12">
@@ -8,6 +9,17 @@
                         <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
                         <li>Back</li>
                     </ol>
+=======
+    <section class="content" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-md-12">
+                <a [routerLink]="['/news']" routerLinkActive="active">
+                <ol class="breadcrumb float-sm-right">
+                    
+                    <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                    <li style="margin-left: px;">Back</li>
+                </ol>
+>>>>>>> parent of 6d3346a... deleted for check
                 </a>
             </div>
             <div class="col-md-12">
@@ -17,11 +29,16 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
+<<<<<<< HEAD
                     <form #newsForm="ngForm" name="newsForm">
+=======
+                    <form role="form">
+>>>>>>> parent of 6d3346a... deleted for check
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
+<<<<<<< HEAD
 
                                         <input type="hidden" name="_id" [(ngModel)]="this.news._id">
                                         <label for="exampleInputEmail1">Enter Title Of News<label
@@ -37,11 +54,36 @@
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" name="image" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg" id="imgNews" required>
                                                 <label class="custom-file-label" for="exampleInputFile">{{newsLabel}}</label>
+=======
+                                        <label for="exampleInputEmail1">Enter Title Of News</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name.. ">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Enter Link Of News</label>
+                                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name.. ">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputFile">Choose Image For News</label>
+                                        <div class="input-group">
+                                            <div class="custom-file">
+                                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="">Upload</span>
+>>>>>>> parent of 6d3346a... deleted for check
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
+<<<<<<< HEAD
                                 <div class="input-group">
                                     <div class="col-12">
                                         <label for="companyDetails">Add News Details Below<label
@@ -61,6 +103,14 @@
                             <div class="input-group col-12">
                                 <div class="col-sm-6"><button type="submit" (click)="onSubmit(newsForm)" [disabled]="!newsForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
                                 <div class="col-sm-6"><button type="reset" (click)="resetForm(newsForm)" class="btn btn-default col-md-2">Clear</button></div>
+=======
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="input-group col-12">
+                                <div class="col-sm-6"><button type="submit" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><a [routerLink]="['/news']" routerLinkActive="active" class="btn btn-default col-md-2">Cancel</a></div>
+>>>>>>> parent of 6d3346a... deleted for check
                             </div>
                         </div>
                     </form>
@@ -69,4 +119,8 @@
             <!-- /.card-body -->
         </div>
     </section>
+<<<<<<< HEAD
 </div>
+=======
+</div>
+>>>>>>> parent of 6d3346a... deleted for check

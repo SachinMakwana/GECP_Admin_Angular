@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { Router } from '@angular/router';
@@ -20,10 +21,24 @@ export class EventsGallaryComponent implements OnInit {
     private chRef: ChangeDetectorRef,
     private _loadSriptService: LoadScriptsService,
     private router: Router,private SpinnerService: NgxSpinnerService) {
+=======
+import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
+
+@Component({
+  selector: 'app-events-gallary',
+  templateUrl: './events-gallary.component.html',
+  styleUrls: ['./events-gallary.component.css']
+})
+export class EventsGallaryComponent implements OnInit {
+  
+  constructor(private _loadSriptService : LoadScriptsService) {
+>>>>>>> parent of 6d3346a... deleted for check
     
   }
 
   ngOnInit(): void {
+<<<<<<< HEAD
     
     this.refreshGalleryList();
     this.galleryService.selectedGallery = null;
@@ -77,5 +92,8 @@ export class EventsGallaryComponent implements OnInit {
 
 
     this.router.navigateByUrl('/events/add',{ state: this.galleryService.selectedGallery });
+=======
+     this._loadSriptService.loadDatatbles("id");
+>>>>>>> parent of 6d3346a... deleted for check
   }
 }

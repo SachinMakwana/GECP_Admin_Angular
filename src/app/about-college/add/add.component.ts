@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
+<<<<<<< HEAD
 
 import { NgForm } from "@angular/forms";
 import { ToastrService } from 'ngx-toastr';
@@ -129,4 +130,21 @@ export class AddComponent implements OnInit {
   }
 
  
+=======
+@Component({
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.css']
+})
+export class AddComponent implements OnInit {
+
+  constructor(private _loadSriptService: LoadScriptsService) {
+  
+   }
+
+  ngOnInit(): void {
+     this._loadSriptService.loadDatatbles("id");
+  }
+
+>>>>>>> parent of 6d3346a... deleted for check
 }

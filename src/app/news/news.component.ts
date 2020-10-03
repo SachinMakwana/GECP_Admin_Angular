@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 import { NewsService } from '../../services/component/news.service';
@@ -77,4 +78,22 @@ onEdit(_id: number,ne: News) {
 }
 
 
+=======
+import { Component, OnInit } from '@angular/core';
+import { LoadScriptsService } from 'src/services/load-scripts.service';
+
+@Component({
+  selector: 'app-news',
+  templateUrl: './news.component.html',
+  styleUrls: ['./news.component.css']
+})
+export class NewsComponent implements OnInit {
+  
+  constructor(private _loadSriptService: LoadScriptsService) {
+  }
+
+  ngOnInit(): void {
+     this._loadSriptService.loadDatatbles("id");
+  }
+>>>>>>> parent of 6d3346a... deleted for check
 }
