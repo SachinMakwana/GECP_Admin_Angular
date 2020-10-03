@@ -1,5 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
+import Swal from 'sweetalert2/dist/sweetalert2.js';
+
+import { SMemberDetails } from '../../../models/ssip/s-member-details.model';
+import { SMemberDetailsService } from '../../../../services/component/ssip/s-member-details.service'
 
 @Component({
   selector: 'app-view-ssip-member',
@@ -7,12 +13,65 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
   styleUrls: ['./view-ssip-member.component.css']
 })
 export class ViewSsipMemberComponent implements OnInit {
+  sMemberDetails: SMemberDetails;
 
-  constructor(private _loadSriptService: LoadScriptsService) {
+  constructor(public sMemberDetailsSrvice: SMemberDetailsService,
+    private chRef: ChangeDetectorRef,
+    private _loadSriptService: LoadScriptsService,
+    private router: Router,
+    private spinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
-    this._loadSriptService.loadDatatbles("id");
+    this.refreshList();
   }
 
+  refreshList() {
+    this.spinnerService.show();
+    this.sMemberDetailsSrvice.getSMemberDetails().subscribe(res => {
+      this.sMemberDetailsSrvice.sMemberDetails = res as SMemberDetails[];
+      this.chRef.detectChanges();
+      this._loadSriptService.loadDatatbles("tblSMembersDetails");
+    });
+    this.spinnerService.hide();
+  }
+
+  onDelete(_id: number) {
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.sMemberDetailsSrvice.deleteSMemberDetails(_id).subscribe((res) => {
+          this._loadSriptService.destroyDatatbles("tblSMembersDetails");
+          this.refreshList();
+          Swal.fire(
+            'Deleted!',
+            'Your record has been deleted.',
+            'success',
+          )
+        });
+      }
+    })
+  }
+
+  onEdit(data: SMemberDetails) {
+    this.sMemberDetailsSrvice.selectedSDetails = data;
+    this.router.navigateByUrl('/ssipcell/add-member', { state: this.sMemberDetailsSrvice.selectedSDetails });
+  }
+
+  onView(_id: number) {
+    this.sMemberDetailsSrvice.getSMemberDetailsById(_id).subscribe(res => {
+      this.sMemberDetailsSrvice.selectedSDetails = res as SMemberDetails;
+    });
+
+    this.router.navigateByUrl('/ssipcell/view-member', { state: this.sMemberDetailsSrvice.selectedSDetails });
+  }
 }
+
