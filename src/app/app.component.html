@@ -1,7 +1,7 @@
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light"  *ngIf="getIsAuthorized">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" *ngIf="getIsAuthorized">
     <!-- Left navbar links -->
     <div class="col-6">
       <ul class="navbar-nav">
@@ -19,7 +19,7 @@
       <ul class="navbar-nav float-right">
         <!-- Notifications Dropdown Menu -->
         <li class="nav-item dropdown mr4">
-          <a class="nav-link" data-toggle="dropdown" href="#">
+          <a class="nav-link pt-0" data-toggle="dropdown" href="#">
             <i class="far fa-bell btn btn-light"></i>
             <span class="badge badge-warning navbar-badge">15</span>
           </a>
@@ -53,7 +53,7 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4"  *ngIf="getIsAuthorized">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" *ngIf="getIsAuthorized">
     <!-- Brand Logo -->
     <a href="../dashboard/dashboard.html" class="brand-link">
       <img src="../assets/dist/img/gecplogo.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
@@ -98,40 +98,36 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item">
             <a [routerLink]="['/department']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
                 Department
-                <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a [routerLink]="['/subjects']" routerLinkActive="active" class="nav-link">
-                  <p>
-                    <i class="nav-icon far fa-circle"></i>
-                    <i class="nav-icon fas fa-book-open"></i>
-                    Subjects Lists
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a [routerLink]="['/labandworkshop']" routerLinkActive="active" class="nav-link">
-                  <p>
-                    <i class="nav-icon far fa-circle"></i>
-                    <i class="nav-icon fa fa-cogs"></i>
-                    Lab and workshops
-                  </p>
-                </a>
-              </li>
-            </ul>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/subjects']" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fas fa-book-open"></i>
+              <p>
+                Subjects Lists
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a [routerLink]="['/labandworkshop']" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-cogs"></i>
+              <p>
+                Lab and workshops
+              </p>
+            </a>
           </li>
           <li class="nav-item">
             <a [routerLink]="['/attachments']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fa fa-folder-open"></i>
               <p>
-                Attachments </p>
+                Attachments
+              </p>
             </a>
           </li>
           <li class="nav-item">
@@ -143,7 +139,7 @@
             </a>
           </li>
           <li class="nav-item has-treeview">
-            <a class="nav-link" routerLinkActive="active" >
+            <a class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>
                 Placement cell
@@ -153,20 +149,22 @@
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a [routerLink]="['/placementcell']" routerLinkActive="active" class="nav-link">
+                  <i class="nav-icon far fa-circle"></i>
                   <p>
-                    <i class="nav-icon far fa-circle"></i>
                     Placement Details
                   </p>
                 </a>
               </li>
               <li class="nav-item">
                 <a [routerLink]="['/placementcell/view-member']" routerLinkActive="active" class="nav-link">
-                  <p><i class="nav-icon far fa-circle"></i>Members Details</p>
+                  <i class="nav-icon far fa-circle"></i>
+                  <p>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a [routerLink]="['/placementcell/view-attachment']" routerLinkActive="active" class="nav-link">
-                  <p><i class="nav-icon far fa-circle"></i>Files Attachments</p>
+                  <i class="nav-icon far fa-circle"></i>
+                  <p>Files Attachments</p>
                 </a>
               </li>
             </ul>
@@ -187,13 +185,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/womencell/view-member']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['/womencell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/womencell/view-attachments']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['/womencell/view-attachments']" routerLinkActive="active" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
                 </a>
@@ -216,13 +214,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['ssipcell/view-member']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['ssipcell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/ssipcell/view-attachments']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['/ssipcell/view-attachments']" routerLinkActive="active" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
                 </a>
@@ -245,13 +243,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/antiRaggingcell/view-member']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['/antiRaggingcell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/antiRaggingcell/view-attachments']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['/antiRaggingcell/view-attachments']" routerLinkActive="active" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
                 </a>
@@ -274,13 +272,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/grievancecell/view-member']" routerLinkActive="active"  class="nav-link">
+                <a [routerLink]="['/grievancecell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a [routerLink]="['/grievancecell/view-attachments']" routerLinkActive="router-link-active"  class="nav-link">
+                <a [routerLink]="['/grievancecell/view-attachments']" routerLinkActive="router-link-active"
+                  class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
                 </a>
@@ -361,12 +360,12 @@
 
   <!-- /.container-fluid -->
 
-  <footer class="main-footer"  *ngIf="getIsAuthorized">
+  <footer class="main-footer" *ngIf="getIsAuthorized">
     <strong>Copyright &copy; 2020 GEC Patan.</strong> All rights
     reserved.
   </footer>
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark"  *ngIf="getIsAuthorized">
+  <aside class="control-sidebar control-sidebar-dark" *ngIf="getIsAuthorized">
     <!-- Control sidebar content goes here -->
   </aside>
   <!-- /.control-sidebar -->
