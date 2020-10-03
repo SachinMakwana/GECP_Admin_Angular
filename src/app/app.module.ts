@@ -12,12 +12,9 @@ import { LoginService } from '../services/login.service';
 import { AuthGuardService } from '../services/auth-guard.service';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxSpinnerModule } from "ngx-spinner";
-import { PdfJsViewerModule } from 'ng2-pdfjs-viewer';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { NgxSpinnerModule } from 'ngx-spinner'
 
 import { AppComponent } from './app.component';
-import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -31,10 +28,7 @@ import { CommonModule } from '@angular/common';
     FormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    NgxSpinnerModule,
-    CommonModule,
-    PdfJsViewerModule,
-    PdfViewerModule
+    NgxSpinnerModule
   ],
   providers: [
     AuthGuardService,

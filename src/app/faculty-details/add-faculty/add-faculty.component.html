@@ -1,12 +1,12 @@
 <div>
-    <!-- Main content -->
-    <section class="content">
+        <!-- Main content -->
+    <section class="content" style="margin-top:20px;">
         <div class="row">
             <div class="col-md-12">
                 <a [routerLink]="['/faculty']">
                     <ol class="breadcrumb float-sm-right">
-                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i> </li>
-                        <li>Back</li>
+                        <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i> </li>
+                        <li style="margin-left: px;">Back to Details</li>
                     </ol>
                 </a>
             </div>
@@ -20,64 +20,55 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Add New Faculty</h3>
                                 </div>
-                                <form role="form" #facultyForm="ngForm">
+                                <form role="form">
                                     <div class="card-body">
                                         <div class="form-group">
+
                                             <!-- Name Controls -->
                                             <div class="form-group">
                                                 <div class="input-group col-12">
-                                                    <input type="hidden" name="_id" [(ngModel)]="this.faculty._id">
                                                     <div class="col-md-1">
                                                         <label for="ddlprefix">Prefix</label>
                                                         <select class="form-control select2"
-                                                            [(ngModel)]="this.faculty.prefix" style="width: 100%;"
-                                                            id="ddlprefix" name="prefix" required>
-                                                            <option selected="selected" disabled>Choose Prefix</option>
-                                                            <option value="Mr">Mr</option>
-                                                            <option value="Ms">Ms</option>
-                                                            <option value="Mrs">Mrs</option>
-                                                            <option value="Dr">Dr</option>
-                                                            <option value="Prof">Prof</option>
+                                                            style="width: 100%;" id="ddlprefix">
+                                                            <option selected="selected">Mr</option>
+                                                            <option>Mr</option>
+                                                            <option>Ms</option>
+                                                            <option>Mrs</option>
+                                                            <option>Dr</option>
+                                                            <option>Prof</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="col-md-3">
                                                         <label for="fname">First Name</label>
                                                         <input type="text" class="form-control" id="fname"
-                                                            [(ngModel)]="this.faculty.firstName" name="firstName"
-                                                            onkeypress="return ValidateAlpha(event)"
-                                                            placeholder="First Name" required>
+                                                            placeholder="First Name">
                                                     </div>
 
                                                     <div class="col-md-3">
-                                                        <label for="lname">Middle Name</label>
+                                                        <label for="lname">Last Name</label>
                                                         <input type="text" class="form-control" id="lname"
-                                                            [(ngModel)]="this.faculty.lastName" name="lastName"
-                                                            onkeypress="return ValidateAlpha(event)"
-                                                            placeholder="Last Name" required>
+                                                            placeholder="Last Name">
                                                     </div>
 
                                                     <div class="col-md-3">
                                                         <label for="surname">Surname</label>
                                                         <input type="text" class="form-control" id="surname"
-                                                            [(ngModel)]="this.faculty.surname" name="surname"
-                                                            onkeypress="return ValidateAlpha(event)"
-                                                            placeholder="Surname" required>
+                                                            placeholder="Surname">
                                                     </div>
 
                                                     <div class="col-md-2">
                                                         <label for="dateofjoining">Date Of Joining</label>
-                                                        <div class="input-group date" id="dateofjoining"
+                                                        <div class="input-group date" id="reservationdate"
                                                             data-target-input="nearest">
-                                                            <div class="input-group-append" data-target="#dateofjoining"
+                                                            <div class="input-group-append"
+                                                                data-target="#reservationdate"
                                                                 data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i
-                                                                        class="fa fa-calendar-alt"></i></div>
+                                                                        class="far fa-calendar-alt"></i></div>
                                                             </div>
-                                                            <input type="text" class="form-control datetimepicker-input"
-                                                                data-target="#dateofjoining" onkeypress="return dateMask(this.value)"
-                                                                [(ngModel)]="this.faculty.doj" name="dob"
-                                                                placeholder="dd/mm/yyyy" />
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -87,35 +78,30 @@
                                                 <div class="input-group col-12">
                                                     <div class="col-md-2">
                                                         <label for="ddldesgn">Designation</label>
-                                                        <select class="form-control select2" name="designation"
-                                                            [(ngModel)]="this.faculty.designation" id="ddldesgn"
-                                                            required>
-                                                            <option selected="selected" disabled>Choose Designation
-                                                            </option>
-                                                            <option value="Professor">Professor</option>
-                                                            <option value="HOD">HOD</option>
+                                                        <select class="form-control select2"
+                                                            style="width: 100%;" id="ddldesgn">
+                                                            <option selected="selected">Professor</option>
+                                                            <option>Professor</option>
+                                                            <option>HOD</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="col-md-2">
                                                         <label for="qual">Qualification</label>
                                                         <input type="text" class="form-control" id="qual"
-                                                            [(ngModel)]="this.faculty.qualification"
-                                                            name="qualification" placeholder="M.E." required>
+                                                            placeholder="M.E.">
                                                     </div>
 
                                                     <div class="col-md-3">
-                                                        <label for="exp">Total Experience</label>
+                                                        <label for="exp">Experience</label>
                                                         <input type="text" class="form-control" id="exp"
-                                                            name="experience" [(ngModel)]="this.faculty.experience"
-                                                            placeholder="2 Years" required>
+                                                            placeholder="2 Years">
                                                     </div>
 
                                                     <div class="col-md-4">
                                                         <label for="exp">Area Of Interest</label>
                                                         <input type="text" class="form-control" id="exp"
-                                                            [(ngModel)]="this.faculty.areaOfInterest"
-                                                            name="areaOfInterest" placeholder="AI And ML" required>
+                                                            placeholder="AI And ML">
                                                     </div>
                                                 </div>
                                             </div>
@@ -125,63 +111,53 @@
                                                     <div class="col-md-2">
                                                         <label for="ddlgender">Gender</label>
                                                         <select class="form-control select2"
-                                                            [(ngModel)]="this.faculty.gender" name="gender"
-                                                            id="ddlgender" required>
-                                                            <option value="Male">Male</option>
-                                                            <option value="Female">Female</option>
-                                                            <option value="Other" selected="selected">Other</option>
+                                                            style="width: 100%;" id="ddlgender">
+                                                            <option selected="selected">Other</option>
+                                                            <option>Male</option>
+                                                            <option>Female</option>
                                                         </select>
                                                     </div>
+
 
                                                     <div class="col-md-2">
                                                         <label for="dateofbirth">Date Of Birth</label>
                                                         <div class="input-group date" id="dateofbirth"
                                                             data-target-input="nearest">
-                                                            <div class="input-group-append" data-target="#dateofbirth"
+                                                            <div class="input-group-append"
+                                                                data-target="#dateofbirth"
                                                                 data-toggle="datetimepicker">
                                                                 <div class="input-group-text"><i
-                                                                        class="fa fa-calendar-alt"></i></div>
+                                                                        class="far fa-calendar-alt"></i></div>
                                                             </div>
-                                                            <input type="text" class="form-control datetimepicker-input"
-                                                                data-target="#dateofbirth"
-                                                                [(ngModel)]="this.faculty.dob" name="dob"
-                                                                placeholder="dd/mm/yyyy" />
+                                                            <input type="text" class="form-control datetimepicker-input" data-target="#dateofbirth"/>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-2">
                                                         <label for="maritialstatus">Maritial Status</label>
-                                                        <select class="form-control select2" name="maritialStatus"
-                                                            [(ngModel)]="this.faculty.maritialStatus"
-                                                            id="maritialstatus" required>
-                                                            <option value="Married">Married</option>
-                                                            <option value="Unmarried">Unmarried</option>
-                                                            <option value="Other" selected="selected">Other</option>
+                                                        <select class="form-control select2"
+                                                            style="width: 100%;" id="maritialstatus">
+                                                            <option selected="selected">Other</option>
+                                                            <option>Married</option>
+                                                            <option>Unmarried</option>
                                                         </select>
                                                     </div>
 
                                                     <div class="col-md-3">
                                                         <label for="department">Department</label>
-                                                        <select class="form-control select2" name="deptCode"
-                                                            [(ngModel)]="this.faculty.deptCode" id="department"
-                                                            required>
-                                                            <option selected="selected" disabled>Select Department
-                                                            </option>
-                                                            <option value="7">Computer</option>
-                                                            <option value="11">Civil</option>
-                                                            <option value="12">Electrical</option>
-                                                            <option value="14">Mechanical</option>
-                                                            <option value="15">Electronics & Communication</option>
+                                                        <select class="form-control select2"
+                                                            style="width: 100%;" id="department">
+                                                            <option selected="selected">Computer</option>
+                                                            <option>Civil</option>
+                                                            <option>Electrical</option>
+                                                            <option>Mechanical</option>
+                                                            <option>Electronics & Communication</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-md-3">
                                                         <label for="email">Email Address</label>
                                                         <input type="email" class="form-control" id="email"
-                                                            #email="ngModel"
-                                                            pattern="[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                                            [(ngModel)]="this.faculty.email" name="email"
-                                                            [ngClass]="{'valid-fail': email.invalid && (email.errors.pattern || email.errors.required)}"
-                                                            placeholder="abc@gmail.com" required>
+                                                            placeholder="gecp@gmail.com">
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,37 +168,22 @@
                                                         <div class="form-group">
                                                             <div>
                                                                 <label for="contact1">Contact No</label>
-                                                                <input type="tel" class="form-control" id="contact1"
-                                                                    #contact1="ngModel"
-                                                                    pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6,7,8,9]\d{9}$"
-                                                                    [(ngModel)]="this.faculty.contactNo" minlength='10'
-                                                                    maxlength="12" placeholder="Contact No"
-                                                                    [ngClass]="{'valid-fail': contact1.invalid &&
-                                                                    (contact1.errors.pattern || contact1.errors.required)}"
-                                                                    name="contactNo" required>
+                                                                <input type="tel" class="form-control"
+                                                                    id="contact1" placeholder="Contact No">
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
                                                             <div>
                                                                 <label for="contact2">Phone No</label>
-                                                                <input type="tel" class="form-control" id="contact2"
-                                                                    #contact2="ngModel"
-                                                                    pattern="^(?:(?:\+|0{0,2})91(\s*[\-]\s*)?|[0]?)?[6,7,8,9]\d{9}$"
-                                                                    name="phoneNo" [(ngModel)]="this.faculty.phoneNo"
-                                                                    minlength='10' maxlength="12" placeholder="Phone No"
-                                                                    [ngClass]="{'valid-fail': contact2.invalid &&
-                                                                    (contact2.errors.pattern || contact2.errors.required)}"
-                                                                    required>
+                                                                <input type="tel" class="form-control"
+                                                                    id="contact2" placeholder="Phone No">
                                                             </div>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-6">
                                                         <label for="address">Address</label>
-                                                        <textarea type="text" class="form-control" id="address" rows="5"
-                                                            [(ngModel)]="this.faculty.address" name="address"
-                                                            placeholder="24, Sardar Society, Gotri, Vadodara - 380061"
-                                                            required></textarea>
+                                                        <textarea type="text" class="form-control" id="address"
+                                                            rows="4"
+                                                            placeholder="24, Sardar Society, NR. Rajesh Tower, Gotri, Vadodara - 380061"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -233,16 +194,16 @@
                                     <div class="card-footer">
                                         <div class="input-group col-12">
                                             <div class="col-sm-6"><button type="submit"
-                                                    [disabled]="!facultyForm.form.valid" (click)="onSubmit(facultyForm)"
                                                     class="btn btn-primary float-right col-md-2">Submit</button>
                                             </div>
-                                            <div class="col-sm-6"><button type="clear" (click)="resetForm(facultyForm)"
-                                                    class="btn btn-default col-md-2">Cancel</button></div>
+                                            <div class="col-sm-6"><button type="clear"
+                                                    class="btn btn-default col-md-2">Clear</button></div>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                             <!-- /.card -->
+
                         </div>
                     </div>
                 </div>

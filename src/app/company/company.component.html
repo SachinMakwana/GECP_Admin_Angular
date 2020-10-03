@@ -47,13 +47,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let comp of companyService.companies">
+                                            <tr *ngFor="let comp of companyService.companies; let i = index;">
                                                 <td><img src={{comp.logo}} alt="logo" id="imgLogo" height="50px"
                                                         width="50px"></td>
                                                 <td>{{ comp.name }}</td>
                                                 <td>
                                                     <a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onEdit(comp)"><i class="nav-icon fas fa-edit"></i></a>
+                                                        (click)="onEdit(comp._id,comp)"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
                                                 </td>
                                                 <td><a routerLinkActive="active" [routerLink]="[]"
                                                         (click)="onDelete(comp._id)"><i
@@ -82,7 +83,3 @@
     </section>
     <!-- /.content -->
 </div>
-
-<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-    <p style="color: white">Please Wait. </p>
-</ngx-spinner>

@@ -1,11 +1,11 @@
 <div>
-    <section class="content">
+    <section class="content" style="margin-top:20px;">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/events']">
+                <a [routerLink]="['/events']" routerLinkActive="active">
                     <ol class="breadcrumb float-sm-right">
-                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                        <li>Back</li>
+                        <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li style="margin-left: px;">Back</li>
                     </ol>
                 </a>
             </div>
@@ -16,17 +16,14 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form #galleryForm="ngForm" name="galleryForm">
+                    <form role="form">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <!-- select -->
                                     <div class="form-group">
-
-                                        <input type="hidden" name="_id" [(ngModel)]="this.gallery._id" />
-                                        <label>Select Category <label class="red-text">*</label></label>
-                                        <select required class="form-control" name="title" [(ngModel)]="this.gallery.title">
-                                            <option [ngValue]="null" selected disabled>Select Category</option>
+                                        <label>Select Category</label>
+                                        <select class="form-control">
                                             <option>Annual</option>
                                             <option>Awards</option>
                                             <option>Days Celebration</option>
@@ -38,14 +35,15 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Choose Image<label
-                                            class="red-text">*</label></label>
+                                        <label for="exampleInputFile">Choose Image</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input required type="file" class="custom-file-input" name="image" id="eventImg" multiple="" (change)="onUploadChange($event)" accept=".png, .jpg, .jpeg">
-                                                <label class="custom-file-label" for="exampleInputFile">
-                                                    {{eventLabel}}
-                                                </label>
+                                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                    file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="">Upload</span>
                                             </div>
                                         </div>
                                     </div>
@@ -56,8 +54,10 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(galleryForm)" [disabled]="!galleryForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                <div class="col-sm-6"><button type="reset" (click)="resetForm(galleryForm)" class="btn btn-default col-md-2">Clear</button>
+                                <div class="col-sm-6"><button type="submit"
+                                        class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><a [routerLink]="['/events']" routerLinkActive="active"
+                                        class="btn btn-default col-md-2">Cancel</a>
                                 </div>
                             </div>
                         </div>

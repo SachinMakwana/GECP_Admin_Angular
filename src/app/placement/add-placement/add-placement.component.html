@@ -20,10 +20,10 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Add New Placement Details</h3>
                                 </div>
-                                <form role="form" #placementForm="ngForm">
+                                <form role="form">
                                     <div class="card-body">
                                         <div class="form-group row justify-content-center">
-                                            <div class="col-12">
+                                            <div class="col-11">
                                                 <div class="form-group">
                                                     <!---->
                                                     <div class="form-group">
@@ -31,26 +31,26 @@
                                                             <div class="col-md-6">
                                                                 <label for="ddlCompany">Company Name</label>
                                                                 <select class="form-control select2"
-                                                                    [(ngModel)]="this.placement.companyId" name="companyId" id="ddlCompany" required>
+                                                                    style="width: 100%;" id="ddlCompany">
                                                                     <option selected="selected" disabled>Select Company
                                                                     </option>
-                                                                    <option value="2">Microsoft</option>
-                                                                    <option value="2">L & T PVT LTD</option>
-                                                                    <option value="2">Infosys</option>
-                                                                    <option value="2">TCS</option>
-                                                                    <option value="2">Infochips</option>
+                                                                    <option>Microsoft</option>
+                                                                    <option>L & T PVT LTD</option>
+                                                                    <option>Infosys</option>
+                                                                    <option>TCS</option>
+                                                                    <option>Infochips</option>
                                                                 </select>
                                                             </div>
 
                                                             <div class="col-md-6">
                                                                 <label for="ddlDepartment">Department Name</label>
                                                                 <select class="form-control select2"
-                                                                    [(ngModel)]="this.placement.deptCode" name="deptcode" id="ddlDepartment" required>
-                                                                    <option value="2">Computer</option>
-                                                                    <option value="2">Civil</option>
-                                                                    <option value="2">Mechanical</option>
-                                                                    <option value="2">Eletrical</option>
-                                                                    <option value="2">Electronics & Communications</option>
+                                                                    style="width: 100%;" id="ddlDepartment">
+                                                                    <option>Computer</option>
+                                                                    <option>Civil</option>
+                                                                    <option>Mechanical</option>
+                                                                    <option>Eletrical</option>
+                                                                    <option>Electronics & Communications</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -61,35 +61,34 @@
                                                             <div class="col-md-3">
                                                                 <label for="studentTaken">Students Taken</label>
                                                                 <input type="number" class="form-control"
-                                                                [(ngModel)]="this.placement.studentsTaken" name="studentsTaken" id="studentTaken"
-                                                                    placeholder="No. Of Students Taken" required>
+                                                                    id="studentTaken"
+                                                                    placeholder="No. Of Students Taken">
                                                             </div>
 
                                                             <div class="col-md-3">
                                                                 <label for="lowestPackage">Lowest Package</label>
                                                                 <input type="number" class="form-control"
-                                                                [(ngModel)]="this.placement.lowestPkg" name="lowestPkg" id="lowestPackage" placeholder="Lowest Package" required>
+                                                                    id="lowestPackage" placeholder="Lowest Package">
                                                             </div>
 
                                                             <div class="col-md-3">
                                                                 <label for="highestPackage">Highest Package</label>
                                                                 <input type="number" class="form-control"
-                                                                [(ngModel)]="this.placement.highestPkg" name="highestPkg" id="highestPackage" placeholder="Highest Package" required>
+                                                                    id="highestPackage" placeholder="Highest Package">
                                                             </div>
 
                                                             <div class="col-md-3">
-                                                                <label for="dateOfCampus">Date Of Campus</label>
-                                                                <div class="input-group date" id="dateOfCampus"
-                                                                    data-target-input="nearest">
-                                                                    <div class="input-group-append" data-target="#dateOfCampus"
-                                                                        data-toggle="datetimepicker">
-                                                                        <div class="input-group-text"><i
-                                                                                class="fa fa-calendar-alt"></i></div>
+                                                                <label for="dateofcampus">Date Of Campus</label>
+                                                                <div class="input-group">
+                                                                    <div class="input-group-prepend">
+                                                                        <span class="input-group-text"><i
+                                                                                class="far fa-calendar-alt"></i></span>
                                                                     </div>
-                                                                    <input type="text" class="form-control datetimepicker-input"
-                                                                        data-target="#dateOfCampus"
-                                                                        [(ngModel)]="this.placement.dateOfCampus" name="dateOfCampus"
-                                                                        placeholder="dd/mm/yyyy">
+                                                                    <input id="dateofcampus" type="text"
+                                                                        class="form-control datemask"
+                                                                        data-inputmask-alias="datetime"
+                                                                        data-inputmask-inputformat="dd/mm/yyyy"
+                                                                        data-mask>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -102,10 +101,11 @@
 
                                     <div class="card-footer">
                                         <div class="input-group col-12">
-                                            <div class="col-sm-6"><button type="submit" [disabled]="!placementForm.form.valid" (click)="onSubmit(placementForm)"
+                                            <div class="col-sm-6"><button type="submit"
                                                     class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                            <div class="col-sm-6"><button type="reset" (click)="resetForm(placementForm)"
-                                                    class="btn btn-default col-md-2">Cancel</button></div>
+                                            <div class="col-sm-6"> <a [routerLink]="['/placementcell']"
+                                                    class=" btn btn-default col-md-2">Cancel</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
