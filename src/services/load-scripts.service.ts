@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import IMask from 'imask';
 declare var jQuery: any;
 declare var $: any;
 
@@ -43,24 +44,15 @@ export class LoadScriptsService {
     })(jQuery);
   }
 
-  loadSelect2() {
+  loadSelect2(id: string) {
     (function ($) {
       //Initialize Select2 Elements
-      $('.select2').select2()
+      return $("." + id).select2()
 
       //Initialize Select2 Elements
-      $('.select2bs4').select2({
+      /*$('.select2bs4').select2({
         theme: 'bootstrap4'
-      })
-    })(jQuery);
-  }
-
-  loadDateMask() {
-    (function ($) {
-      //Datemask dd/mm/yyyy
-      $('.datemask').inputmask('dd/mm/yyyy', {
-        'placeholder': 'dd/mm/yyyy'
-      })
+      })*/
     })(jQuery);
   }
 
@@ -97,13 +89,25 @@ export class LoadScriptsService {
     })(jQuery);
   }
 
-  loadDateRangePicker() {
+  loadDatePicker(id: string) {
     (function ($) {
       //Date range picker
-      $('#reservationdate').datetimepicker({
+      $('#' + id).datetimepicker({
         format: 'L'
       });
     })(jQuery);
+  }
+
+
+   loadDateMask() {
+    (function ($) {
+      var inputElements = document.querySelectorAll("input[data-format]");
+      inputElements.forEach(input => {
+        let m = new (IMask as any)(input, {
+          mask: input.getAttribute("data-format")
+        });
+      });   
+    });
   }
 }
 

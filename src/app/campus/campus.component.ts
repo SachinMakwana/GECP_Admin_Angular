@@ -36,7 +36,7 @@ export class CampusComponent implements OnInit {
       this.chRef.detectChanges();
       this._loadSriptService.loadDatatbles("tblCampus");
       this.spinnerService.hide();
-    });
+    }); 
   }
 
   onDelete(_id: number) {
