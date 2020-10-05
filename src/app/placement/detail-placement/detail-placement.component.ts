@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Placement } from 'src/app/models/placement/placement_details.model';
+import { PlacementService } from 'src/services/component/placement/placement_details.service';
 
 @Component({
   selector: 'app-detail-placement',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailPlacementComponent implements OnInit {
 
-  constructor() { }
+  placement: Placement;
+
+  constructor(public placementService: PlacementService) { 
+      this.placement = new Placement();
+     }
 
   ngOnInit(): void {
+    if (history.state != undefined) {
+      this.placement = null;
+      this.placement = history.state;
+    }
   }
-
 }
