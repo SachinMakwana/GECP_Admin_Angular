@@ -1,10 +1,10 @@
-import { CompanyService } from 'src/services/company.service';
 import { Component, OnInit } from '@angular/core';
 import { LoadScriptsService } from 'src/services/load-scripts.service';
 
-import { ActivatedRoute, Router, NavigationStart } from '@angular/router';
-import { NgForm } from "@angular/forms";
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { NgForm } from "@angular/forms";
+import { CompanyService } from "../../../services/component/company.service";
 import { Company } from "../../models/company.model";
 
 @Component({
@@ -18,38 +18,29 @@ export class AddCompanyComponent implements OnInit {
 
   fileLabel: string = "Choose Image";
   company: Company;
-  isInit: boolean = true;
-  isEdit:boolean;
-  fileSelected:boolean;
-  isDescriptionEmpty:boolean;
-  nameEntered:boolean;
-  e:Event;
+  fileSelected: boolean;
+  isDescriptionEmpty: boolean;
 
   constructor(public companyService: CompanyService,
     private _loadScript: LoadScriptsService,
-    private router: Router,
     private toastr: ToastrService) {
 
-      console.log(this.router.getCurrentNavigation().extras.state);
-      this.company = new Company();
+    this.company = new Company();
   }
 
 
   ngOnInit(): void {
     this._loadScript.loadEditorSummernote('txtDescription');
     this.resetForm();
-    
-    if(history.state != undefined){
+
+    if (history.state != undefined) {
       this.company = history.state;
-      this._loadScript.setSummernoteParseHTML("txtDescription",this.company.description)
+      this._loadScript.setSummernoteParseHTML("txtDescription", this.company.description)
       this.fileLabel = "Change Image";
       this.fileSelected = true;
-      
-      console.log("Edit");
     }
-    else{
+    else {
       this.company._id = null
-      console.log("Add");
     }
   }
 
@@ -60,8 +51,7 @@ export class AddCompanyComponent implements OnInit {
     this._loadScript.resetFileInput("imgLogo");
     this.fileLabel = "Choose Image";
     this.fileSelected = false;
-    this.isDescriptionEmpty == true ? this.isDescriptionEmpty=false : null;
-    this.nameEntered = false;
+    this.isDescriptionEmpty == true ? this.isDescriptionEmpty = false : null;
 
     this._loadScript.resetSummernote("txtDescription");
 
@@ -71,7 +61,6 @@ export class AddCompanyComponent implements OnInit {
       description: "",
       logo: ""
     }
-    this.isInit = false;
   }
 
   //for image to base64
@@ -103,40 +92,31 @@ export class AddCompanyComponent implements OnInit {
     let code = this._loadScript.getSummernoteCode('txtDescription');
 
     code == "" ? this.isDescriptionEmpty = true : this.isDescriptionEmpty = false;
-    (this.company.name == null || this.company.name == "") ?  this.nameEntered = true : this.nameEntered = false;
 
-
-    if(this.isDescriptionEmpty || this.nameEntered || !this.fileSelected){
-      this.toastr.error("Please Insert Data","Required");
+    if (this.isDescriptionEmpty || !this.company.name || !this.fileSelected) {
+      this.toastr.error("Please Insert Data", "Required");
       return;
     }
-    
-    if(this.company._id  != null && form != null){
-      if(this.base64textString[0]){
+
+    if (this.company._id != null && form != null) {
+      if (this.base64textString[0]) {
         this.company.logo = this.base64textString[0];
       }
     }
-    else{
+    else {
       this.company.logo = this.base64textString[0];
     }
 
-    this.company = {
-      _id: this.company._id,
-      name: this.company.name,
-      description: code,
-      logo: this.company.logo
-    }
+    this.company.description = code;
 
-    if(this.company._id  != null){
-      this.companyService.updateCompany(this.company,this.company._id).subscribe((res) => {
+    if (this.company._id != null) {
+      this.companyService.updateCompany(this.company, this.company._id).subscribe((res) => {
         this.toastr.success("Information Updated Successfully !", "Updated");
-        console.log("Updated");
       });
     }
-    else{
+    else {
       this.companyService.postCompany(this.company).subscribe((res) => {
         this.toastr.success("Information Saved Successfully !", "Saved");
-        console.log("Saved");
       });
     }
 

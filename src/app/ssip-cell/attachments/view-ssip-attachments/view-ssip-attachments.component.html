@@ -35,41 +35,38 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="tblSAttachments" class="table table-bordered table-hover text-center">
+                                <table id="example1" class="table table-bordered table-striped text-center">
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>Document</th>
+                                            <th>Attachment File</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let data of sAttachmentService.sAttachments">
-                                            <td>{{data.name}}</td>
-                                            <td>{{data.fileName}}</td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onView(data._id)"><i class="nav-icon fas fa-eye"></i></a>
+                                        <tr>
+                                            <td>GECP SSIP Circular</td>
+                                            <td>Image Or PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/ssipcell/add-attachments']"
+                                                    class="nav-icon fas fa-edit"></a>
                                             </td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
-                                            </td>
-                                            <td><a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onDelete(data._id)"><i
-                                                        class="nav-icon fas fa-trash"></i></a>
-                                            </td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                         </tr>
+                                        <tr>
+                                            <td>GECP SSIP Circular</td>
+                                            <td>Image Or PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/ssipcell/add-attachments']"
+                                                    class="nav-icon fas fa-edit"></a>
+                                            </td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+
                                     </tbody>
-                                    <tfoot>
-                                        <th>Title</th>
-                                        <th>Document</th>
-                                        <th>View</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tfoot>
                                 </table>
                             </div>
                         </div>
@@ -77,9 +74,6 @@
                 </div>
             </div>
             <!--ur contents here-->
-            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-                <p style="color: white;">Please Wait..</p>
-            </ngx-spinner>
         </section>
     </div>
 </div>

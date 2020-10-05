@@ -7,10 +7,11 @@ import { LoadScriptsService } from 'src/services/load-scripts.service';
   styleUrls: ['./grievance-cell.component.css']
 })
 export class GrievanceCellComponent implements OnInit {
-
+  
   constructor(private _loadSriptService: LoadScriptsService) {
   }
 
   ngOnInit(): void {
+    this._loadSriptService.loadDatatbles("id");
   }
 }

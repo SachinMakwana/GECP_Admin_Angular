@@ -7,7 +7,7 @@
                     <h2>News Details</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a [routerLink]="['/news/add']" routerLinkActive="active">
+                    <a [routerLink]="['/news/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
@@ -31,11 +31,10 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
-                                    <table id="example1" class="table table-bordered table-hover text-center">
+                                    <table id="tblNews" class="table table-bordered table-hover text-center">
                                         <thead>
                                             <tr>
                                                 <th>Title</th>
-                                                <th>News Link</th>
                                                 <th>Image</th>
                                                 <th>Edit Details</th>
                                                 <th>Delete Details</th>
@@ -43,29 +42,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>COVID NEWS</td>
-                                                <td>news link</td>
-                                                <td>news Image</td>
-                                                <td><a [routerLink]="['/news/add']" routerLinkActive="active"><i
-                                                            class="nav-icon fas fa-edit"></i></a></td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Holiday news</td>
-                                                <td>news link</td>
-                                                <td>news Image</td>
-                                                <td><a [routerLink]="['/news/add']" routerLinkActive="active"><i
-                                                            class="nav-icon fas fa-edit"></i></a></td>
-                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-
+                                            <tr *ngFor="let ne of newsService.newss; let i = index;">
+                                                <td><img src={{ne.image}} alt="logo" id="imgNews" height="50px" width="50px"></td>
+                                                <td>{{ ne.title }}</td>
+                                                <td>
+                                                    <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(ne._id,ne)"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
+                                                </td>
+                                                <td><a routerLinkActive="active" [routerLink]="[]" (click)="onDelete(ne._id)"><i
+                                                            class="nav-icon fas fa-trash"></i></a></td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
                                             <tr>
                                                 <th>Title</th>
-                                                <th>News Link</th>
                                                 <th>Image</th>
                                                 <th>Edit Details</th>
                                                 <th>Delete Details</th>
@@ -78,7 +68,9 @@
                             </div>
                             <!-- /.card -->
 
-
+                            <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                                <p style="color: white">Please Wait. </p>
+                            </ngx-spinner>
                             <!-- /.card-body -->
                         </div>
                         <!-- /.card -->
