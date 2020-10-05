@@ -1,0 +1,47 @@
+<div>
+  <section class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <a [routerLink]="['/department']" routerLinkActive="active">
+          <ol class="breadcrumb float-sm-right">
+            <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i>
+            </li>
+            <li>Back</li>
+          </ol>
+        </a>
+      </div>
+      <div class="col-md-12">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Details Of Departments</h3>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="preview col-md-5">
+                <div class="tab-pane active" id="pic-1">
+                  <img src="{{this.department.image}}" class="img-rounded" alt="" width="400" height="230"> </div>
+              </div>
+              <div class="col-md-3">
+                <h6><b>Department Code</b></h6><span>{{this.department.code}}</span>
+                <h6><b>Department Name</b></h6><span>{{this.department.name}}</span>
+              </div>
+              <div class="col-md-12 mt-4">
+                <h6><b>Detail Description</b></h6>
+                <p [innerHTML]="this.department.about"></p>
+              </div>
+              <div class="input-group col-md-12 mt-4">
+                <div class="col-sm-6"><a [routerLink]="[]" routerLinkActive="active" type="submit"
+                    class="btn btn-primary float-right col-md-2" (click)="onEdit(this.department)">Edit</a>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- /.card-body -->
+
+      </div>
+    </div>
+  </section>
+</div>

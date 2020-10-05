@@ -1,17 +1,36 @@
 import { Component, OnInit } from '@angular/core';
-import { LoadScriptsService } from 'src/services/load-scripts.service';
+import { AchievementsService } from '../../../services/component/achievements.service';
+import { Router } from '@angular/router';
+import { Achievements } from '../../models/achievements.model';
 
 @Component({
   selector: 'app-view-achievements',
   templateUrl: './view-achievements.component.html',
-  styleUrls: ['./view-achievements.component.css']
+  styleUrls: ['./view-achievements.component.css'],
+  providers: [ AchievementsService ]
 })
 export class ViewAchievementsComponent implements OnInit {
 
-  constructor(private _loadSriptService: LoadScriptsService) {
+  achievements: Achievements
+
+  constructor(public achievementsService: AchievementsService,
+    private router: Router) {
+    this.achievements = new Achievements();
   }
 
   ngOnInit(): void {
-    this._loadSriptService.loadDatatbles("id");
+    if (history.state != undefined) {
+      this.achievements = null;
+      this.achievements = history.state;
+    }
+
   }
+
+  onEdit(achieve: Achievements) {
+    this.achievementsService.selectedAchievements = null;
+    this.achievementsService.selectedAchievements = achieve;
+
+    this.router.navigateByUrl('/achievements/add', { state: this.achievementsService.selectedAchievements });
+  }
+
 }
