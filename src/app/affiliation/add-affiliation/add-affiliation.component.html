@@ -1,11 +1,11 @@
 <div>
-    <section class="content">
+    <section class="content" style="margin-top:20px;">
         <div class="row">
             <div class="col-md-12">
                 <a [routerLink]="['/affiliation']" routerLinkActive="active">
                     <ol class="breadcrumb float-sm-right">
-                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                        <li>Back</li>
+                        <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li style="margin-left: px;">Back to Details</li>
                     </ol>
                 </a>
             </div>
@@ -16,41 +16,57 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" #affiliationForm="ngForm">
+                    <form role="form">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">ENTER TITLE</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter name.. " name="name" [(ngModel)]="this.affiliation.name"
-                                            required>
+                                            placeholder="Enter name.. ">
                                     </div>
                                 </div>
 
 
-                                <div class="col-sm-6">
+                                <div class="col-sm-5">
                                     <div class="form-group">
                                         <label for="exampleInputFile">CHOOSE ATTACHMENT</label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input"
-                                                    (change)="onUploadChange($event)" accept=".pdf" id="file">
-                                                <label class="custom-file-label"
-                                                    for="exampleInputFile">{{fileLabel}}</label>
+                                                <input type="file" class="custom-file-input" id="exampleInputFile">
+                                                <label class="custom-file-label" for="exampleInputFile">Choose
+                                                    file</label>
+                                            </div>
+                                            <div class="input-group-append">
+                                                <span class="input-group-text" id="">Upload</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
+                            <div class="col-md-12">
+                                <b>ENTER DESCRIPTION :</b>
+                                <!-- /.card-header -->
+                                <div class="form-group">
+                                    <div class="mb-3">
+                                        <textarea class="textarea" placeholder="Place some text here"
+                                            style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <!--end of editor-->
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(affiliationForm)"
+                                <div class="col-sm-6"><button type="submit"
                                         class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                <div class="col-sm-6"><button type="reset" (click)="resetForm(affiliationForm)"
-                                        class="btn btn-default col-md-2">Cancel</button></div>
+                                <div class="col-sm-6"><a [routerLink]="['/affiliation']"
+                                        class="btn btn-default col-md-2">Clear</a>
+                                </div>
                             </div>
                         </div>
                     </form>

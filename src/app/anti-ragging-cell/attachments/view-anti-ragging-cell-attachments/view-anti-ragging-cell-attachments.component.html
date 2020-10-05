@@ -12,7 +12,7 @@
                         <a [routerLink]="['/antiRaggingcell/add-attachments']">
                             <ol class="breadcrumb float-sm-right">
                                 <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
-                                <li>Add New Attachment</li>
+                                <li>Add New Details</li>
                             </ol>
                         </a>
                     </div>
@@ -31,36 +31,47 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Anti-Ragging Cell Attachments List</h3>
+                                <h3 class="card-title">Anti-Ragging Cell Lists</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="tblAntiRaggingAttch" class="table table-bordered table-hover text-center">
+                                <table id="example1" class="table table-bordered table-striped text-center">
                                     <thead>
                                         <tr>
                                             <th>Title</th>
-                                            <th>Document</th>
+                                            <th>Attachment File</th>
                                             <th>View</th>
                                             <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let data of antiRaggingAttachmentService.antiRaggingAttachments">
-                                            <td>{{data.name}}</td>
-                                            <td>{{data.fileName}}</td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]" (click)="onView(data._id)"><i
-                                                        class="nav-icon fas fa-eye"></i></a>
-                                            </td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i
+                                        <tr>
+                                            <td>GECP Anti-Ragging Circular </td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/antiRaggingcell/add-attachments']"><i
+                                                        class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GECP Anti-Ragging Circular </td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/antiRaggingcell/add-attachments']"><i
+                                                        class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mehandi Competition</td>
+                                            <td>Image Or PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/antiRaggingcell/add-attachments']"><i
                                                         class="nav-icon fas fa-edit"></i></a>
                                             </td>
-                                            <td><a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
-                                            </td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                         </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -71,7 +82,3 @@
         </section>
     </div>
 </div>
-
-<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-    <p style="color: white">Please Wait. </p>
-</ngx-spinner>

@@ -25,18 +25,11 @@
                   </div> -->
                   <div class="col-md-3">
                     <h6><b>Attachment:</b></h6><span>annual.pdf</span>
-                    <h6><b>Title:</b></h6><span>Annual</span>
+                    <h6><b>Title:</b></h6><span>{{this.nss.nss_title}}</span>
                   </div>
-                  <div class="col-md-12 mt-4">
-
-                    <h6><b>Detail Description</b></h6> <span>The presentation of annual report of college activities
-                         is a special feature of the annual day function. Felicitation and distribution of certificates 
-                         of merit in due acknowledgement to the students of the college for their exemplary performance
-                          in different academic pursuits formed another segment of the programme</span>
-
-                  </div>
+                  
                   <div class="input-group col-md-12 mt-4">
-                    <div class="col-sm-6"><a [routerLink]="['/nss/add']" routerLinkActive="active" type="submit"
+                    <div class="col-sm-6"><a [routerLink]="[]" routerLinkActive="active" (click)="onEdit(this.nss)"
                         class="btn btn-primary float-right col-md-2">Edit</a>
                     </div>
 

@@ -1,17 +1,45 @@
-import { Component, OnInit } from '@angular/core';
-import { LoadScriptsService } from 'src/services/load-scripts.service';
+import { Component, OnInit, ChangeDetectorRef   } from '@angular/core';
+import { Router } from '@angular/router';
+import { WomenDetailService } from 'src/services/component/women-detail.service';
+import { WomenDetail } from '../models/women_detail.model';
+import { NgxSpinnerService } from "ngx-spinner";  
 
 @Component({
   selector: 'app-women-cell',
   templateUrl: './women-cell.component.html',
-  styleUrls: ['./women-cell.component.css']
+  styleUrls: ['./women-cell.component.css'],
+  providers: [WomenDetailService]
 })
 export class WomenCellComponent implements OnInit {
+  womendetail: WomenDetail;
   
-  constructor(private _loadSriptService: LoadScriptsService) {
+  constructor(public womenService: WomenDetailService,
+    private router: Router,private SpinnerService: NgxSpinnerService) {
   }
 
   ngOnInit(): void {
-    this._loadSriptService.loadDatatbles("id");
+    this.refreshWomenDetail();
+ 
+    
+  }
+
+  refreshWomenDetail(){
+    this.SpinnerService.show(); 
+     this.womenService.getWomenDetail().subscribe((res)=>{
+      this.womenService.womendetails = res as WomenDetail[];
+    this.SpinnerService.hide(); 
+     });
+   }
+
+   onEdit(wd: WomenDetail) {
+ 
+    this.womenService.selectedWomenDetail = wd;
+    
+    
+  
+    this.router.navigateByUrl('/womencell/add',{ state: this.womenService.selectedWomenDetail });
+  
+  
+    
   }
 }
