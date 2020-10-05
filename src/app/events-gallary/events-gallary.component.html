@@ -1,0 +1,95 @@
+<div>
+    <!-- Content Header (Page header) -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h2>Gallery Details</h2>
+                </div>
+                <div class="col-sm-6">
+                    <a [routerLink]="['/events/add']" routerLinkActive="active">
+                        <ol class="breadcrumb float-sm-right">
+                            <li><i class="nav-icon fas fa-plus-circle"></i></li>
+                            <li>Add New Details</li>
+                        </ol>
+                    </a>
+                </div>
+                <div class="container-fluid">
+
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h1 class="card-title">Gallery List </h1>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <table id="example1" class="table table-bordered table-hover text-center">
+                                        <thead>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Image</th>
+                                                <th>View All Details</th>
+                                                <th>Edit Details</th>
+                                                <th>Delete Details</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Annul function</td>
+                                                <td>Annul function Image</td>
+                                                <td><i class="nav-icon fas fa-eye"></i></td>
+                                                <td><a [routerLink]="['/events/add']" routerLinkActive="active"><i
+                                                            class="nav-icon fas fa-edit"></i></a></td>
+                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Award Function</td>
+                                                <td>Award Function image</td>
+                                                <td><i class="nav-icon fas fa-eye"></i></td>
+                                                <td><a [routerLink]="['/events/add']" routerLinkActive="active"><i
+                                                            class="nav-icon fas fa-edit"></i></a></td>
+                                                <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Category</th>
+                                                <th>Image</th>
+                                                <th>View All Details</th>
+                                                <th>Edit Details</th>
+                                                <th>Delete Details</th>
+
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
+
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </section>
+        </div>
+        <!-- /.container-fluid -->
+
+        <!-- /.content -->
+    </div>
+</div>

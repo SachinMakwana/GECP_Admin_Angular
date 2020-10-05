@@ -1,0 +1,84 @@
+<div>
+    <div class="content">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-8">
+                        <h2 class="m-0 text-dark">Anti-Ragging Cell Attachments Details</h2>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-sm-4">
+                        <a [routerLink]="['/antiRaggingcell/add-attachments']">
+                            <ol class="breadcrumb float-sm-right">
+                                <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
+                                <li>Add New Details</li>
+                            </ol>
+                        </a>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Anti-Ragging Cell Lists</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body">
+                                <table id="example1" class="table table-bordered table-striped text-center">
+                                    <thead>
+                                        <tr>
+                                            <th>Title</th>
+                                            <th>Attachment File</th>
+                                            <th>View</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>GECP Anti-Ragging Circular </td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/antiRaggingcell/add-attachments']"><i
+                                                        class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GECP Anti-Ragging Circular </td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/antiRaggingcell/add-attachments']"><i
+                                                        class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mehandi Competition</td>
+                                            <td>Image Or PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/antiRaggingcell/add-attachments']"><i
+                                                        class="nav-icon fas fa-edit"></i></a>
+                                            </td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
