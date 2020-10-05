@@ -32,10 +32,8 @@ function loadEditorSummernote() {
 }
 
 function onlyNumbers(e) {
-    var charCode = (event.which) ? event.which : event.keyCode;
-    // Only Numbers 0-9
-    if ((charCode < 48 || charCode > 57)) {
-        event.preventDefault();
+    if ((e.charCode < 48 || e.charCode > 57)) {
+        e.preventDefault();
         return false;
     } else {
         return true;
@@ -48,14 +46,3 @@ function ValidateAlpha(event) {
 
     return false;
 }
-
-function htmlToPlaintext(text) {
-    return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-}
-
-angular.module('myApp.filters', []).
-filter('htmlToPlaintext', function() {
-    return function(text) {
-        return text ? String(text).replace(/<[^>]+>/gm, '') : '';
-    };
-});
