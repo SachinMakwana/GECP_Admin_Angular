@@ -8,7 +8,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6" style="margin-top:10px;">
-                    <a [routerLink]="['/labandworkshop/add']" >
+                    <a [routerLink]="['/labandworkshop/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
@@ -34,7 +34,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover text-center">
+                            <table id="tblLabAndWorkshop" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
                                         <th>Name</th>
@@ -46,221 +46,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
+                                    <tr *ngFor="let data of labAndWorkshopService.labAndWorkshops">
+                                        <td>{{data.name}}</td>
+                                        <td>{{data.category}}</td>
+                                        <td>{{data.deptCode}}</td>
                                         <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
+                                            <a routerLinkActive="active" [routerLink]="[]"
+                                                (click)="onView(data)"><i class="nav-icon fas fa-eye"></i></a>
                                         </td>
                                         <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
+                                            <a routerLinkActive="active" [routerLink]="[]" 
+                                            (click)="onEdit(data)"><i class="nav-icon fas fa-edit"></i></a>
                                         </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Power Electronic Lab</td>
-                                        <td>Lab</td>
-                                        <td>Electrical</td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/details']" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td>
-                                            <a [routerLink]="['/labandworkshop/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        <td><a routerLinkActive="active" [routerLink]="[]"
+                                            (click)="onDelete(data._id)"><i
+                                                class="nav-icon fas fa-trash"></i></a></td>
                                     </tr>
                                 </tbody>
                                 <tfoot>
@@ -285,3 +85,7 @@
     </section>
     <!-- /.content -->
 </div>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>
