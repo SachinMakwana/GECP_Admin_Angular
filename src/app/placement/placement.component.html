@@ -36,7 +36,7 @@
                         <div class="row justify-content-center">
                             <div class="col-12">
                                 <div class="card-body">
-                                    <table id="tblPlacement" class="table table-bordered table-hover text-center">
+                                    <table id="example1" class="table table-bordered table-hover text-center">
                                         <thead>
                                             <tr>
                                                 <th>Company Name</th>
@@ -54,24 +54,310 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr *ngFor="let data of placementService.placementDetails">
-                                                <td>{{data.companyId}}</td>
-                                                <td>{{data.deptCode}}</td>
-                                                <td>{{data.studentsTaken}}</td>
-                                                <td>{{data.lowestPkg}}</td>
-                                                <td>{{data.highestPkg}}</td>
-                                                <td>{{data.dateOfCampus}}</td>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
                                                 <td>
-                                                    <a routerLinkActive="active" [routerLink]="[]"
-                                                        (click)="onView(data)"><i class="nav-icon fas fa-eye"></i></a>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
                                                 </td>
                                                 <td>
-                                                    <a routerLinkActive="active" [routerLink]="[]" 
-                                                    (click)="onEdit(data)"><i class="nav-icon fas fa-edit"></i></a>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
                                                 </td>
-                                                <td><a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onDelete(data._id)"><i
-                                                        class="nav-icon fas fa-trash"></i></a></td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>L & T PVT LTD</td>
+                                                <td>Civil</td>
+                                                <td>15</td>
+                                                <td>1,00,000₹</td>
+                                                <td>1,50,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Microsoft</td>
+                                                <td>Computer</td>
+                                                <td>20</td>
+                                                <td>1,50,000₹</td>
+                                                <td>2,00,000₹</td>
+                                                <td>20/07/2020</td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/details']"
+                                                        class="nav-icon fas fa-eye"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/placementcell/add']"
+                                                        class="nav-icon fas fa-edit"></a>
+                                                </td>
+                                                <td>
+                                                    <a [routerLink]="['/']" class="nav-icon fas fa-trash"></a>
+                                                </td>
                                             </tr>
                                         </tbody>
                                         <tfoot>
@@ -104,7 +390,3 @@
     </section>
     <!-- /.content -->
 </div>
-
-<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-    <p style="color: white">Please Wait. </p>
-</ngx-spinner>
