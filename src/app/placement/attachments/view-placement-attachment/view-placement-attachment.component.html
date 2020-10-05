@@ -31,11 +31,11 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Placement Cell Attachments List</h3>
+                                <h3 class="card-title">Placement Cell Lists</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="tblPlacement" class="table table-bordered table-hover text-center">
+                                <table id="example1" class="table table-bordered table-striped text-center">
                                     <thead>
                                         <tr>
                                             <th>Title</th>
@@ -46,21 +46,31 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let data of placementAttachmentService.placementAttachments">
-                                            <td>{{data.name}}</td>
-                                            <td>{{data.fileName}}</td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]" (click)="onView(data._id)"><i
-                                                        class="nav-icon fas fa-eye"></i></a>
-                                            </td>
-                                            <td>
-                                                <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i
-                                                        class="nav-icon fas fa-edit"></i></a>
-                                            </td>
-                                            <td><a routerLinkActive="active" [routerLink]="[]"
-                                                    (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
-                                            </td>
+                                        <tr>
+                                            <td>Placement Circular</td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/placementcell/add-attachment']">
+                                                    <i class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
                                         </tr>
+                                        <tr>
+                                            <td>Placement Circular</td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/placementcell/add-attachment']"><i
+                                                        class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Placement Circular</td>
+                                            <td>PDF</td>
+                                            <td><a href=""><i class="nav-icon fas fa-eye"></i></a></td>
+                                            <td><a [routerLink]="['/placementcell/add-attachment']"><i
+                                                        class="nav-icon fas fa-edit"></i></a></td>
+                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>
@@ -71,7 +81,3 @@
         </section>
     </div>
 </div>
-
-<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
-    <p style="color: white">Please Wait. </p>
-</ngx-spinner>
