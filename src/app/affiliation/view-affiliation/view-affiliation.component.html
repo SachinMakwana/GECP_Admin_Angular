@@ -1,53 +1,18 @@
 <div>
-    <section class="content" style="margin-top:20px;">
-        <div class="row">
-          <div class="col-md-12">
-              <a [routerLink]="['/affiliation']" routerLinkActive="active">
-            <ol class="breadcrumb float-sm-right">
-              <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i>
-              </li>
-              <li style="margin-left: px;">Back to Details</li>
-            </ol>
-            </a>
-          </div>
-          <div class="col-md-12">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Details Of Affiliation</h3>
-              </div>
-              <div class="card-body">
-                <div class="row">
-                  <!-- <div class="preview col-md-5">
-                    <div class="tab-pane active" id="pic-1">
-                        <h3>Attachment:</h3>    
-                        <h2>10c.pdf</h2>
-                    </div>
-                  </div> -->
-                  <div class="col-md-3">
-                    <h6><b>ATTACHMENT:</b></h6><span>GTU.pdf</span>
-                    <h6><b>TITLE:</b></h6><span>GTU</span>
-                  </div>
-                  <div class="col-md-12 mt-4">
-
-                    <h6><b>Detail Description</b></h6> <span>AHMEDABAD: Ten years after being established, 
-                        Gujarat Technological University (GTU) officials said it is yet to receive the 12 (B)
-                         certificate from the University Grants Commission (UGC). ... The university was
-                          established in 2007 and at that time it functioned out of LD Engineering campus.</span>
-
-                  </div>
-                  <div class="input-group col-md-12 mt-4">
-                    <div class="col-sm-6"><a [routerLink]="['/affiliation/add']" routerLinkActive="active" type="submit"
-                        class="btn btn-primary float-right col-md-2">Edit</a>
-                    </div>
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            <!-- /.card-body -->
-
-          </div>
-        </div>
-      </section>
+  <section>
+    <div class="row">
+      <div class="col-md-12 fixed">
+        <a [routerLink]="['/affiliation']" routerLinkActive="active">
+          <ol class="breadcrumb float-sm-right">
+            <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+            <li>Back</li>
+          </ol>
+        </a>
+      </div>
+      <div class="col-md-12 form-group">
+        <ng2-pdfjs-viewer [pdfSrc]="pdfSrc" [externalWindow]="true" ></ng2-pdfjs-viewer>
+        <!--<pdf-viewer [src]="pdfSrc" [render-text]="true" style="display: block;"></pdf-viewer>-->
+      </div>
+    </div>
+  </section>
 </div>

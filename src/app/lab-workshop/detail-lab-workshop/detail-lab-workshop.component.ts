@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { LabAndWorkshop } from 'src/app/models/labAndWorkshop.model';
+import { LabAndWorkshopService } from 'src/services/component/labAndWorkshop.service';
 
 @Component({
   selector: 'app-detail-lab-workshop',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DetailLabWorkshopComponent implements OnInit {
 
-  constructor() { }
+  labAndWorkshop: LabAndWorkshop;
+
+  constructor(public labAndWorkshopService: LabAndWorkshopService,
+    private router: Router,) { 
+      this.labAndWorkshop = new LabAndWorkshop();
+     }
 
   ngOnInit(): void {
+    if (history.state != undefined) {
+      this.labAndWorkshop = null;
+      this.labAndWorkshop = history.state;
+    }
+  }
+
+  onEdit(data: LabAndWorkshop) {
+    this.labAndWorkshopService.selectedLabAndWorkshop = null;
+    this.labAndWorkshopService.selectedLabAndWorkshop = data;
+
+    this.router.navigateByUrl('/labandworkshop/add', { state: this.labAndWorkshopService.selectedLabAndWorkshop });
   }
 
 }

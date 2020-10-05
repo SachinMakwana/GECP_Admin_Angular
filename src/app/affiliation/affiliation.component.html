@@ -34,53 +34,38 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <table id="example1" class="table table-bordered table-hover text-center">
+                            <table id="tblAffiliation" class="table table-bordered table-hover text-center">
                                 <thead>
                                     <tr>
 
                                         <th>Title</th>
-                                        <th>Attachment</th>
+                                        <th>Document</th>
                                         <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
-
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-
-                                        <td>GTU</td>
-                                        <td>gtu.pdf</td>
-                                        <td><a [routerLink]="['/affiliation/view']" class="nav-icon fas fa-eye"></a>
+                                    <tr *ngFor="let data of affiliationService.affiliations">
+                                        <td>{{data.name}}</td>
+                                        <td>{{data.fileName}}</td>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onView(data._id)"><i
+                                                    class="nav-icon fas fa-eye"></i></a>
                                         </td>
-                                        <td><a [routerLink]="['/affiliation/add']" class="nav-icon fas fa-edit"></a>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(data)"><i
+                                                    class="nav-icon fas fa-edit"></i></a>
                                         </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
+                                        <td><a routerLinkActive="active" [routerLink]="[]"
+                                                (click)="onDelete(data._id)"><i class="nav-icon fas fa-trash"></i></a>
                                         </td>
-
                                     </tr>
-                                    <tr>
-
-                                        <td>AICTE</td>
-                                        <td>aicte.pdf</td>
-                                        <td><a [routerLink]="['/affiliation/view']"
-                                                routerLinkActive="router-link-active" class="nav-icon fas fa-eye"></a>
-                                        </td>
-                                        <td><a [routerLink]="['/affiliation/add']" class="nav-icon fas fa-edit"></a>
-                                        </td>
-                                        <td><a href=""><i class="nav-icon fas fa-trash"></i></a>
-                                        </td>
-
-                                    </tr>
-
-
-
                                 </tbody>
                                 <tfoot>
                                     <tr>
-
                                         <th>Title</th>
-                                        <th>Attachment</th>
+                                        <th>Document</th>
                                         <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
@@ -99,3 +84,7 @@
     </section>
     <!-- /.content -->
 </div>
+
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+</ngx-spinner>
