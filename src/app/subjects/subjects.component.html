@@ -2,122 +2,94 @@
     <!-- Content Header (Page header) -->
 
     <!-- Main content -->
-    <section class="content">
+    <div class="content">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h2>Subjects Details</h2>
+                    <h2 class="m-0 text-dark">Subjects Details</h2>
                 </div>
                 <div class="col-sm-6">
-                    <a [routerLink]="['/subjects/add']" routerLinkActive="active">
+                    <a [routerLink]="['/subjects/add']">
                         <ol class="breadcrumb float-sm-right">
                             <li><i class="nav-icon fas fa-plus-circle pr-2"></i></li>
                             <li>Add New Details</li>
                         </ol>
                     </a>
                 </div>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h3 class="card-title">Subject Lists</h3>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body">
-                                <table id="example1" class="table table-bordered table-hover text-center">
-                                    <thead>
-                                        <tr>
-                                            <th>Subject Code</th>
-                                            <th>Branch Name</th>
-                                            <th>Semester</th>
-                                            <th>Subject Name</th>
-                                            <th>Acronym of Subject</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2170701</td>
-                                            <td>Computer</td>
-                                            <td>7</td>
-                                            <td>Compiler Design</td>
-                                            <td>CD</td>
-                                            
-                                            <td><a [routerLink]="['/subjects/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>2170709</td>
-                                            <td>Computer</td>
-                                            <td>7</td>
-                                            <td>Information and Network Security</td>
-                                            <td>INS</td>
-                                            
-                                            <td><a [routerLink]="['/subjects/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>2170710</td>
-                                            <td>Computer</td>
-                                            <td>7</td>
-                                            <td>Mobile Computing and Wireless Communication</td>
-                                            <td>MCWC</td>
-                                            
-                                            <td><a [routerLink]="['/subjects/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2170715</td>
-                                            <td>Computer</td>
-                                            <td>7</td>
-                                            <td>Data Mining and Business Intelligence</td>
-                                            <td>DMBI</td>
-                                            
-                                            <td><a [routerLink]="['/subjects/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>217001</td>
-                                            <td>Computer</td>
-                                            <td>7</td>
-                                            <td>Project</td>
-                                            <td>PROJECT</td>
-                                            
-                                            <td><a [routerLink]="['/subjects/add']" routerLinkActive="active"><i class="nav-icon fas fa-edit"></i></a></td>
-                                            <td><a href=""><i class="nav-icon fas fa-trash"></i></a></td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Subject Code</th>
-                                            <th>Branch Name</th>
-                                            <th>Semester</th>
-                                            <th>Subject Name</th>
-                                            <th>Acronym of Subject</th>
-                                            <th>Edit</th>
-                                            <th>Delete</th>
-
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Subject Lists</h3>
                         </div>
-                        <!-- /.card -->
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <table id="tblSubject" class="table table-bordered table-hover text-center">
+                                <thead>
+                                    <tr>
+
+                                        <th>Subject Code</th>
+                                        <th>Branch Name</th>
+                                        <th>Semester</th>
+                                        <th>Subject Name</th>
+                                        <th>Acronym of Subject</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
 
 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let sub of subjectService.subjects; let i = index;">
+
+                                        <td>{{sub.code}}</td>
+                                        <td>{{sub.deptName}}</td>
+                                        <td>{{sub.semester}}</td>
+                                        <td>{{sub.name}}</td>
+                                        <td>{{sub.knownAs}}</td>
+                                        <td><a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(sub._id,sub)"><i
+                                                    class="nav-icon fas fa-edit"></i></a>
+                                        </td>
+                                        <td><a [routerLink]="[]" (click)="onDelete(sub._id)"><i class="nav-icon fas fa-trash"></i></a></td>
+
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+
+                                        <th>Subject Code</th>
+                                        <th>Branch Name</th>
+                                        <th>Semester</th>
+                                        <th>Subject Name</th>
+                                        <th>Acronym of Subject</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+
+
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
+                    <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+                        <p style="color: white">Please Wait. </p>
+                    </ngx-spinner>
+
+                    <!-- /.card-body -->
                 </div>
-                <!-- /.col -->
+                <!-- /.card -->
             </div>
-            <!-- /.row -->
+            <!-- /.col -->
         </div>
+        <!-- /.row -->
+
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->

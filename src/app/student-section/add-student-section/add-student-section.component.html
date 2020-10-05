@@ -1,11 +1,11 @@
 <div>
-    <section class="content" style="margin-top:20px;">
+    <section class="content">
         <div class="row">
             <div class="col-md-12">
-                <a [routerLink]="['/student-section']" routerLinkActive="active">
+                <a [routerLink]="['/student-section']">
                     <ol class="breadcrumb float-sm-right">
-                        <li style="margin-left: 00px;"><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
-                        <li style="margin-left: px;">Back</li>
+                        <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                        <li>Back</li>
                     </ol>
                 </a>
             </div>
@@ -16,53 +16,42 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form #ssForm="ngForm" name="ssForm">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Enter Title</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter name.. ">
+                                        <input type="hidden" name="_id" [(ngModel)]="this.ss._id">
+                                        <label for="exampleInputEmail1">Enter Title<label
+                                            class="red-text">*</label></label>
+                                        <input type="text" class="form-control" name="ss_title" [(ngModel)]="this.ss.ss_title" required placeholder="Enter title.. ">
                                     </div>
                                 </div>
 
 
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label for="exampleInputFile">Choose Attachment</label>
+                                        <label for="exampleInputFile">Choose Attachment<label
+                                            class="red-text">*</label></label>
                                         <div class="input-group">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="exampleInputFile">
-                                                <label class="custom-file-label" for="exampleInputFile">Choose
-                                                    file</label>
+                                                <input type="file" class="custom-file-input" (change)="onUploadChange($event)" id="file" accept=".pdf" required>
+                                                <label class="custom-file-label" for="exampleInputFile">{{fileLabel}}</label>
                                             </div>
-                                            <div class="input-group-append">
-                                                <span class="input-group-text" id="">Upload</span>
-                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
-                                    <div class="input-group">
-                                        <label>Add Description </label>
-                                    </div>
-                                    <div class="input-group">
-                                        <textarea class="textarea p-0" placeholder="Place some text here" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd;"></textarea>
-                                    </div>          
-                                </div>
-                                </div>
-                            
+                            </div>
+
                             <!--end of editor-->
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="input-group col-12">
-                                <div class="col-sm-6"><button type="submit"
-                                        class="btn btn-primary float-right col-md-2">Submit</button></div>
-                                <div class="col-sm-6"><a [routerLink]="['/student-section']"
-                                        class="btn btn-default col-md-2">Cancel</a>
+                                <div class="col-sm-6"><button type="submit" (click)="onSubmit(ssForm)" [disabled]="!ssForm.valid" class="btn btn-primary float-right col-md-2">Submit</button></div>
+                                <div class="col-sm-6"><button type="reset" (click)="resetForm(ssForm)" class="btn btn-default col-md-2">Clear</button>
                                 </div>
                             </div>
                         </div>
