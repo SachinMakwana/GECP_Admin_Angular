@@ -1,6 +1,12 @@
+import { AntiRaggingAttachment } from './models/anti_ragging/anti-ragging_attachments.model';
+import { Placement } from './models/placement/placement_details.model';
+import { PlacementAttachment } from './models/placement/placement_attachments.model';
+import { LabAndWorkshop } from 'src/app/models/labAndWorkshop.model';
+import { Subject } from 'rxjs';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
+import { RoleConstant } from "./common/roleConstant";
 import { AuthGuardService } from '../services/auth-guard.service';
 
 import { LoginComponent } from './login/login.component';
@@ -89,98 +95,98 @@ import { ViewAffiliationComponent } from './affiliation/view-affiliation/view-af
 
 
 const routes: Routes = [
-  { path: '', component: LoginComponent, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]  },
+  { path: '', component: DashboardComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, canActivate: [!AuthGuardService] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService], data: RoleConstant.Dashboard },
 
-  { path: 'aboutCollege', component: AboutCollegeComponent, canActivate: [AuthGuardService]  },
-  { path: 'aboutCollege/add', component: AddComponent, canActivate: [AuthGuardService]  },
+  { path: 'aboutCollege', component: AboutCollegeComponent, canActivate: [AuthGuardService], data: RoleConstant.AboutCollege },
+  { path: 'aboutCollege/add', component: AddComponent, canActivate: [AuthGuardService], data: RoleConstant.AboutCollege },
 
-  { path: 'campus', component: CampusComponent, canActivate: [AuthGuardService]  },
-  { path: 'campus/add', component: AddCampusComponent, canActivate: [AuthGuardService]  },
+  { path: 'campus', component: CampusComponent, canActivate: [AuthGuardService], data: RoleConstant.Campus },
+  { path: 'campus/add', component: AddCampusComponent, canActivate: [AuthGuardService], data: RoleConstant.Campus },
 
-  { path: 'faculty', component: FacultyDetailsComponent, canActivate: [AuthGuardService]  },
-  { path: 'faculty/add', component: AddFacultyComponent, canActivate: [AuthGuardService]  },
-  { path: 'faculty/details', component: DetailFacultyComponent, canActivate: [AuthGuardService]  },
+  { path: 'faculty', component: FacultyDetailsComponent, canActivate: [AuthGuardService], data: RoleConstant.FacultyDetails },
+  { path: 'faculty/add', component: AddFacultyComponent, canActivate: [AuthGuardService], data: RoleConstant.FacultyDetails },
+  { path: 'faculty/details', component: DetailFacultyComponent, canActivate: [AuthGuardService], data: RoleConstant.FacultyDetails },
 
-  { path: 'department', component: DepartmentComponent },
-  { path: 'department/add', component: AddDepartmentComponent },
-  { path: 'department/view-department', component: ViewDepartmentComponent },
+  { path: 'department', component: DepartmentComponent, canActivate: [AuthGuardService], data: RoleConstant.Department },
+  { path: 'department/add', component: AddDepartmentComponent, canActivate: [AuthGuardService], data: RoleConstant.Department },
+  { path: 'department/view-department', component: ViewDepartmentComponent, canActivate: [AuthGuardService], data: RoleConstant.Department },
 
-  { path: 'subjects', component: SubjectsComponent },
-  { path: 'subjects/add', component: AddSubjectsComponent },
+  { path: 'subjects', component: SubjectsComponent, canActivate: [AuthGuardService], data: RoleConstant.Subjects },
+  { path: 'subjects/add', component: AddSubjectsComponent, canActivate: [AuthGuardService], data: RoleConstant.Subjects },
 
-  { path: 'labandworkshop', component: LabWorkshopComponent },
-  { path: 'labandworkshop/add', component: AddLabWorkshopComponent },
-  { path: 'labandworkshop/details', component: DetailLabWorkshopComponent },
+  { path: 'labandworkshop', component: LabWorkshopComponent, canActivate: [AuthGuardService], data: RoleConstant.LabAndWorkshop },
+  { path: 'labandworkshop/add', component: AddLabWorkshopComponent, canActivate: [AuthGuardService], data: RoleConstant.LabAndWorkshop },
+  { path: 'labandworkshop/details', component: DetailLabWorkshopComponent, canActivate: [AuthGuardService], data: RoleConstant.LabAndWorkshop },
 
-  { path: 'attachments', component: AttachmentsComponent },
-  { path: 'attachments/add', component: AddAttachmentsComponent },
+  { path: 'attachments', component: AttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.Attachment },
+  { path: 'attachments/add', component: AddAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.Attachment },
 
-  { path: 'company', component: CompanyComponent },
-  { path: 'company/add', component: AddCompanyComponent },
+  { path: 'company', component: CompanyComponent, canActivate: [AuthGuardService], data: RoleConstant.Company },
+  { path: 'company/add', component: AddCompanyComponent, canActivate: [AuthGuardService], data: RoleConstant.Company },
 
-  { path: 'placementcell', component: PlacementComponent },
-  { path: 'placementcell/add', component: AddPlacementComponent },
-  { path: 'placementcell/details', component: DetailPlacementComponent },
-  { path: 'placementcell/add-attachment', component: AddPlacementAttachmentComponent },
-  { path: 'placementcell/view-attachment', component: ViewPlacementAttachmentComponent },
-  { path: 'placementcell/add-member', component: AddPlacementMemberComponent },
-  { path: 'placementcell/view-member', component: ViewPlacementMemberComponent },
+  { path: 'placementcell', component: PlacementComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementDetails },
+  { path: 'placementcell/add', component: AddPlacementComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementDetails },
+  { path: 'placementcell/details', component: DetailPlacementComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementDetails },
+  { path: 'placementcell/add-attachment', component: AddPlacementAttachmentComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementAttachment },
+  { path: 'placementcell/view-attachment', component: ViewPlacementAttachmentComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementAttachment },
+  { path: 'placementcell/add-member', component: AddPlacementMemberComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementMembers },
+  { path: 'placementcell/view-member', component: ViewPlacementMemberComponent, canActivate: [AuthGuardService], data: RoleConstant.PlacementMembers },
 
-  { path: 'womencell', component: WomenCellComponent },
-  { path: 'womencell/add', component: AddWomenCellComponent },
-  { path: 'womencell/add-attachments', component: AddWomenCellAttachmentsComponent },
-  { path: 'womencell/view-attachments', component: ViewWomenCellAttachmentsComponent },
-  { path: 'womencell/add-member', component: AddWomenCellMembersComponent },
-  { path: 'womencell/view-member', component: ViewWomenCellMembersComponent },
+  { path: 'womencell', component: WomenCellComponent, canActivate: [AuthGuardService], data: RoleConstant.WomenDetails },
+  { path: 'womencell/add', component: AddWomenCellComponent, canActivate: [AuthGuardService], data: RoleConstant.WomenDetails },
+  { path: 'womencell/add-attachments', component: AddWomenCellAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.WomenAttachment },
+  { path: 'womencell/view-attachments', component: ViewWomenCellAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.WomenAttachment },
+  { path: 'womencell/add-member', component: AddWomenCellMembersComponent, canActivate: [AuthGuardService], data: RoleConstant.WomenMembers },
+  { path: 'womencell/view-member', component: ViewWomenCellMembersComponent, canActivate: [AuthGuardService], data: RoleConstant.WomenMembers },
 
-  { path: 'ssipcell', component: SsipCellComponent },
-  { path: 'ssipcell/add', component: AddSsipComponent },
-  { path: 'ssipcell/add-attachments', component: AddSsipAttachmentsComponent },
-  { path: 'ssipcell/view-attachments', component: ViewSsipAttachmentsComponent },
-  { path: 'ssipcell/add-member', component: AddSsipMemberComponent },
-  { path: 'ssipcell/view-member', component: ViewSsipMemberComponent },
+  { path: 'ssipcell', component: SsipCellComponent, canActivate: [AuthGuardService], data: RoleConstant.SSIPDetails },
+  { path: 'ssipcell/add', component: AddSsipComponent, canActivate: [AuthGuardService], data: RoleConstant.SSIPDetails },
+  { path: 'ssipcell/add-attachments', component: AddSsipAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.SSIPAttachment },
+  { path: 'ssipcell/view-attachments', component: ViewSsipAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.SSIPAttachment },
+  { path: 'ssipcell/add-member', component: AddSsipMemberComponent, canActivate: [AuthGuardService], data: RoleConstant.SSIPMembers },
+  { path: 'ssipcell/view-member', component: ViewSsipMemberComponent, canActivate: [AuthGuardService], data: RoleConstant.SSIPMembers },
 
-  { path: 'antiRaggingcell', component: AntiRaggingCellComponent },
-  { path: 'antiRaggingcell/add', component: AddAntiRaggingCellComponent },
-  { path: 'antiRaggingcell/add-attachments', component: AddAntiRaggingCellAttachmentsComponent },
-  { path: 'antiRaggingcell/view-attachments', component: ViewAntiRaggingCellAttachmentsComponent },
-  { path: 'antiRaggingcell/add-member', component: AddAntiRaggingCellMembersComponent },
-  { path: 'antiRaggingcell/view-member', component: ViewAntiRaggingCellMembersComponent },
+  { path: 'antiRaggingcell', component: AntiRaggingCellComponent, canActivate: [AuthGuardService], data: RoleConstant.AntiRaggingDetails },
+  { path: 'antiRaggingcell/add', component: AddAntiRaggingCellComponent, canActivate: [AuthGuardService], data: RoleConstant.AntiRaggingDetails },
+  { path: 'antiRaggingcell/add-attachments', component: AddAntiRaggingCellAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.AntiRaggingAttachment },
+  { path: 'antiRaggingcell/view-attachments', component: ViewAntiRaggingCellAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.AntiRaggingAttachment },
+  { path: 'antiRaggingcell/add-member', component: AddAntiRaggingCellMembersComponent, canActivate: [AuthGuardService], data: RoleConstant.AntiRaggingMembers },
+  { path: 'antiRaggingcell/view-member', component: ViewAntiRaggingCellMembersComponent, canActivate: [AuthGuardService], data: RoleConstant.AntiRaggingMembers },
 
-  { path: 'grievancecell', component: GrievanceCellComponent },
-  { path: 'grievancecell/add', component: AddGrievanceCellComponent },
-  { path: 'grievancecell/add-attachments', component: AddGrievanceCellAttachmentsComponent },
-  { path: 'grievancecell/view-attachments', component: ViewGrievanceCellAttachmentsComponent },
-  { path: 'grievancecell/add-member', component: AddGrievanceCellMembersComponent },
-  { path: 'grievancecell/view-member', component: ViewGrievanceCellMembersComponent },
-  { path: 'grievancecell/complaint', component: GrievanceComplaintViewComponent },
+  { path: 'grievancecell', component: GrievanceCellComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceDetails },
+  { path: 'grievancecell/add', component: AddGrievanceCellComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceDetails },
+  { path: 'grievancecell/add-attachments', component: AddGrievanceCellAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceAttachment },
+  { path: 'grievancecell/view-attachments', component: ViewGrievanceCellAttachmentsComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceAttachment },
+  { path: 'grievancecell/add-member', component: AddGrievanceCellMembersComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceMembers },
+  { path: 'grievancecell/view-member', component: ViewGrievanceCellMembersComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceMembers },
+  { path: 'grievancecell/complaint', component: GrievanceComplaintViewComponent, canActivate: [AuthGuardService], data: RoleConstant.GrievanceDetails },
 
-  { path: 'news', component: NewsComponent },
-  { path: 'news/add', component: AddNewsComponent },
+  { path: 'news', component: NewsComponent, canActivate: [AuthGuardService], data: RoleConstant.News },
+  { path: 'news/add', component: AddNewsComponent, canActivate: [AuthGuardService], data: RoleConstant.News },
 
-  { path: 'events', component: EventsGallaryComponent },
-  { path: 'events/add', component: AddEventsGallaryComponent },
+  { path: 'events', component: EventsGallaryComponent, canActivate: [AuthGuardService], data: RoleConstant.CollegeGallary },
+  { path: 'events/add', component: AddEventsGallaryComponent, canActivate: [AuthGuardService], data: RoleConstant.CollegeGallary },
 
-  { path: 'achievements', component: AchievementsComponent },
-  { path: 'achievements/add', component: AddAchievementsComponent },
-  { path: 'achievements/view', component: ViewAchievementsComponent },
+  { path: 'achievements', component: AchievementsComponent, canActivate: [AuthGuardService], data: RoleConstant.Achievements },
+  { path: 'achievements/add', component: AddAchievementsComponent, canActivate: [AuthGuardService], data: RoleConstant.Achievements },
+  { path: 'achievements/view', component: ViewAchievementsComponent, canActivate: [AuthGuardService], data: RoleConstant.Achievements },
 
-  { path: 'contactinfo', component: ContactInfoComponent },
-  { path: 'contact-info/add', component: AddContactInfoComponent },
+  { path: 'contactinfo', component: ContactInfoComponent, canActivate: [AuthGuardService], data: RoleConstant.ContactInfo },
+  { path: 'contact-info/add', component: AddContactInfoComponent, canActivate: [AuthGuardService], data: RoleConstant.ContactInfo },
 
-  { path: 'student-section', component: StudentSectionComponent },
-  { path: 'student-section/add', component: AddStudentSectionComponent },
-  { path: 'student-section/view', component: ViewStudentSectionComponent },
+  { path: 'student-section', component: StudentSectionComponent, canActivate: [AuthGuardService], data: RoleConstant.StudentSection },
+  { path: 'student-section/add', component: AddStudentSectionComponent, canActivate: [AuthGuardService], data: RoleConstant.StudentSection },
+  { path: 'student-section/view', component: ViewStudentSectionComponent, canActivate: [AuthGuardService], data: RoleConstant.StudentSection },
 
-  { path: 'nss', component: NssComponent },
-  { path: 'nss/add', component: AddNssComponent },
-  { path: 'nss/view', component: ViewNssComponent },
+  { path: 'nss', component: NssComponent, canActivate: [AuthGuardService], data: RoleConstant.NSS },
+  { path: 'nss/add', component: AddNssComponent, canActivate: [AuthGuardService], data: RoleConstant.NSS },
+  { path: 'nss/view', component: ViewNssComponent, canActivate: [AuthGuardService], data: RoleConstant.NSS },
 
-  { path: 'affiliation', component: AffiliationComponent },
-  { path: 'affiliation/add', component: AddAffiliationComponent },
-  { path: 'affiliation/view', component: ViewAffiliationComponent }
+  { path: 'affiliation', component: AffiliationComponent, canActivate: [AuthGuardService], data: RoleConstant.Affiliation },
+  { path: 'affiliation/add', component: AddAffiliationComponent, canActivate: [AuthGuardService], data: RoleConstant.Affiliation },
+  { path: 'affiliation/view', component: ViewAffiliationComponent, canActivate: [AuthGuardService], data: RoleConstant.Affiliation }
 ];
 
 @NgModule({

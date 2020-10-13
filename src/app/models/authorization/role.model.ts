@@ -2,5 +2,20 @@ export enum Role {
         Admin = 'Admin',
         HOD = 'HOD',
         Faculty = 'Faculty',
-        SSIP_Head = 'SSIP_Head'
+        SSIP_Head = 'SSIP_Head',
+        Anti_Ragging_Head = 'Anti_Ragging_Head',
+        Women_Cell_Head = 'Women_Head',
+        Placement_Head = 'Placement_Head',
+        Grievance_Head = 'Grievance_Head',
+        Affiliation_Head = 'Affiliation_Head',
+        NSS_Head = 'NSS_Head',
+        Student_Section_Head = 'Student_Section_Head',
+        SSIP_Member = 'SSIP_Member',
+        Anti_Ragging_Member = 'Anti_Ragging_Member',
+        Women_Cell_Member = 'Women_Cell_Member',
+        Placement_Member = 'Placement_Member',
+        Grievance_Member = 'Grievance_Member',
+        Affiliation_Member = 'Affiliation_Member',
+        NSS_Member = 'NSS_Member',
+        Student_Section_Member = 'Student_Section_Member'
 }

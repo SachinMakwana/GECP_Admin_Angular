@@ -66,7 +66,7 @@
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/dashboard']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -74,7 +74,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="(Role == 'Admin')">
             <a [routerLink]="['/aboutCollege']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-university"></i>
               <p>
@@ -82,7 +82,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD'))">
             <a [routerLink]="['/campus']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-graduation-cap"></i>
               <p>
@@ -90,7 +90,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/faculty']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fa fa-users"></i>
               <p>
@@ -98,7 +98,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/department']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-building"></i>
               <p>
@@ -106,7 +106,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/subjects']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>
@@ -114,7 +114,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/labandworkshop']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fa fa-cogs"></i>
               <p>
@@ -122,7 +122,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/attachments']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fa fa-folder-open"></i>
               <p>
@@ -130,7 +130,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD'))">
             <a [routerLink]="['/company']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-industry"></i>
               <p>
@@ -138,7 +138,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty') || (Role == 'Placement_Member') || (Role == 'Placement_Head'))">
             <a class="nav-link" routerLinkActive="active">
               <i class="nav-icon fas fa-bullhorn"></i>
               <p>
@@ -146,8 +146,8 @@
                 <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <ul class="nav nav-treeview" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty') || (Role == 'Placement_Member') || (Role == 'Placement_Head'))">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
                 <a [routerLink]="['/placementcell']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>
@@ -155,13 +155,13 @@
                   </p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Placement_Head'))">
                 <a [routerLink]="['/placementcell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Placement_Member') || (Role == 'Placement_Head'))">
                 <a [routerLink]="['/placementcell/view-attachment']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Files Attachments</p>
@@ -169,7 +169,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview" *ngIf="((Role == 'Admin') || (Role == 'Women_Head') || (Role == 'Women_Cell_Member'))">
             <a class="nav-link">
               <i class="nav-icon fa fa-female"></i>
               <p>
@@ -177,20 +177,20 @@
                 <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <ul class="nav nav-treeview" *ngIf="((Role == 'Admin') || (Role == 'Women_Head') || (Role == 'Women_Cell_Member'))">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Women_Head') || (Role == 'Women_Cell_Member'))">
                 <a [routerLink]="['/womencell']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Women Cell Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Women_Head'))">
                 <a [routerLink]="['/womencell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Women_Head') || (Role == 'Women_Cell_Member'))">
                 <a [routerLink]="['/womencell/view-attachments']" routerLinkActive="active" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
@@ -198,7 +198,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview" *ngIf="((Role == 'Admin') || (Role == 'SSIP_Head') || (Role == 'SSIP_Member'))">
             <a class="nav-link">
               <i class="nav-icon fa fa-cube"></i>
               <p>
@@ -206,20 +206,20 @@
                 <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <ul class="nav nav-treeview" *ngIf="((Role == 'Admin') || (Role == 'SSIP_Head') || (Role == 'SSIP_Member'))">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'SSIP_Head') || (Role == 'SSIP_Member'))">
                 <a [routerLink]="['/ssipcell']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>SSIP Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'SSIP_Head'))">
                 <a [routerLink]="['ssipcell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'SSIP_Head') || (Role == 'SSIP_Member'))">
                 <a [routerLink]="['/ssipcell/view-attachments']" routerLinkActive="active" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
@@ -227,7 +227,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview" *ngIf="((Role == 'Admin') || (Role == 'Anti_Ragging_Head') || (Role == 'Anti_Ragging_Member'))">
             <a class="nav-link">
               <i class="nav-icon fa fa-male"></i>
               <p>
@@ -235,20 +235,20 @@
                 <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <ul class="nav nav-treeview" *ngIf="((Role == 'Admin') || (Role == 'Anti_Ragging_Head') || (Role == 'Anti_Ragging_Member'))">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Anti_Ragging_Head') || (Role == 'Anti_Ragging_Member'))">
                 <a [routerLink]="['/antiRaggingcell']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Anti Ragging Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Anti_Ragging_Head'))">
                 <a [routerLink]="['/antiRaggingcell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Anti_Ragging_Head') || (Role == 'Anti_Ragging_Member'))">
                 <a [routerLink]="['/antiRaggingcell/view-attachments']" routerLinkActive="active" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Files Attachments</p>
@@ -256,7 +256,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview">
+          <li class="nav-item has-treeview" *ngIf="((Role == 'Admin') || (Role == 'Grievance_Head') || (Role == 'Grievance_Member'))">
             <a class="nav-link">
               <i class="nav-icon fas fa-user-edit"></i>
               <p>
@@ -264,20 +264,20 @@
                 <i class="nav-icon right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
+            <ul class="nav nav-treeview" *ngIf="((Role == 'Admin') || (Role == 'Grievance_Head') || (Role == 'Grievance_Member'))">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Grievance_Head') || (Role == 'Grievance_Member'))">
                 <a [routerLink]="['/grievancecell']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Grievance Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Grievance_Head'))">
                 <a [routerLink]="['/grievancecell/view-member']" routerLinkActive="active" class="nav-link">
                   <i class="nav-icon far fa-circle"></i>
                   <p>Members Details</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Grievance_Head') || (Role == 'Grievance_Member'))">
                 <a [routerLink]="['/grievancecell/view-attachments']" routerLinkActive="router-link-active"
                   class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -286,7 +286,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/news']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-newspaper"></i>
               <p>
@@ -294,7 +294,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Affiliation_Head'))">
             <a [routerLink]="['/affiliation']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon far fa-file-alt"></i>
               <p>
@@ -302,7 +302,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'NSS_Head') || (Role == 'NSS_Member'))">
             <a [routerLink]="['/nss']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fa fa-universal-access"></i>
               <p>
@@ -310,7 +310,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'Student_Section_Head'))">
             <a [routerLink]="['/student-section']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-user-graduate"></i>
               <p>
@@ -318,7 +318,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/events']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-images"></i>
               <p>
@@ -326,7 +326,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin') || (Role == 'HOD') || (Role == 'Faculty'))">
             <a [routerLink]="['/achievements']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fa fa-trophy"></i>
               <p>
@@ -334,7 +334,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" *ngIf="((Role == 'Admin'))">
             <a [routerLink]="['/contactinfo']" routerLinkActive="active" class="nav-link">
               <i class="nav-icon fas fa-phone"></i>
               <p>
