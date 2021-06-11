@@ -12,6 +12,7 @@ import { AuthGuardService } from '../services/auth-guard.service';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AboutCollegeComponent } from './about-college/about-college.component';
+import {VissionMissionComponent} from './vission-mission/add/vission-mission/vission-mission.component';
 import { CampusComponent } from './campus/campus.component';
 import { FacultyDetailsComponent } from './faculty-details/faculty-details.component';
 import { DepartmentComponent } from './department/department.component';
@@ -96,11 +97,12 @@ import { ViewAffiliationComponent } from './affiliation/view-affiliation/view-af
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, canActivate: [!AuthGuardService] },
+  { path: 'login', component: LoginComponent },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService], data: RoleConstant.Dashboard },
 
   { path: 'aboutCollege', component: AboutCollegeComponent, canActivate: [AuthGuardService], data: RoleConstant.AboutCollege },
   { path: 'aboutCollege/add', component: AddComponent, canActivate: [AuthGuardService], data: RoleConstant.AboutCollege },
+  { path: 'vission-mission/add', component: VissionMissionComponent},
 
   { path: 'campus', component: CampusComponent, canActivate: [AuthGuardService], data: RoleConstant.Campus },
   { path: 'campus/add', component: AddCampusComponent, canActivate: [AuthGuardService], data: RoleConstant.Campus },
@@ -201,6 +203,7 @@ export const routingComponents = [
 
   AboutCollegeComponent,
   AddComponent,
+  VissionMissionComponent,
 
   CampusComponent,
   AddCampusComponent,

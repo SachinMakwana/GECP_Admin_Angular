@@ -42,6 +42,17 @@
                                                     </div>
 
                                                     <div class="form-group">
+                                                        <label for="phoneNumber">Enter Name<label
+                                                                class="red-text">*</label>
+                                                        </label>
+                                                        <input type="text" name="name" class="form-control"
+                                                            id="name" placeholder="Enter Your Name"
+                                                            [(ngModel)]="this.contactInfo.name" required
+                                                            #name="ngModel" (ngModelChange)="this.contactInfo.name=$event.toUpperCase()"
+                                                            onkeypress="return ValidateAlpha(event)"
+                                                            >
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="phoneNumber">Enter Phone Number<label
                                                                 class="red-text">*</label>
                                                         </label>
@@ -57,11 +68,11 @@
                                                 </div>
                                             </div>
                                             <div class="col-6">
-                                                <label for="address">Enter Address<label class="red-text">*</label>
+                                                <label for="address">Enter Message<label class="red-text">*</label>
                                                 </label>
-                                                <textarea required class="form-control" rows="4" id="address"
-                                                    name="address" placeholder="Enter Address"
-                                                    [(ngModel)]="this.contactInfo.address"></textarea>
+                                                <textarea required class="form-control" rows="8" id="message"
+                                                    name="message" placeholder="Enter Message"
+                                                    [(ngModel)]="this.contactInfo.message"></textarea>
                                             </div>
                                         </div>
                                     </div>

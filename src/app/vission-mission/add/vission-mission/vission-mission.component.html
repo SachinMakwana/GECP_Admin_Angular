@@ -1,0 +1,59 @@
+<section class="content" style="margin-top:20px;">
+    <div class="row">
+        <div class="col-md-12">
+            <a [routerLink]="['/vission-mission/add']">
+                <ol class="breadcrumb float-sm-right">
+                    <li><i class="nav-icon fas fa-chevron-circle-left pr-2"></i></li>
+                    <li>Back</li>
+                </ol>
+            </a>
+        </div>
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title">Add new details</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form #vissionform name="vissionform">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="input-group">
+                                <div class="col-12">
+                                    <label for="companyDetails">Add Vission Below<label
+                                            class="red-text">*</label></label>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea id="txtDescription" class="textarea form-control" placeholder="Place some text here" name="vission_description" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="input-group">
+                                <div class="col-12">
+                                    <label for="companyDetails">Add Mission Below<label
+                                            class="red-text">*</label></label>
+                                </div>
+
+                                <div class="col-12">
+                                    <textarea id="txtDescription" class="textarea form-control" placeholder="Place some text here" name="mission_description" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end of editor-->
+
+                    <!-- /.card-body -->
+                    <div class="card-footer">
+                        <div class="input-group col-12">
+                            <div class="col-sm-6"><button type="submit"  class="btn btn-primary float-right col-md-2">Submit</button>
+                            </div>
+                            <div class="col-sm-6"><button type="reset"  class="btn btn-default col-md-2">Clear</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

@@ -46,12 +46,13 @@ export class AddContactInfoComponent implements OnInit {
       _id: null,
       email: "",
       phoneNo: null,
-      address: ""
+      message: "",
+      name : ""
     }
   }
 
   onSubmit(form?: NgForm) {
-    if (!(this.contactInfo.email || this.contactInfo.phoneNo || this.contactInfo.address)) {
+    if (!(this.contactInfo.email || this.contactInfo.phoneNo || this.contactInfo.message || this.contactInfo.name)) {
       this.toastr.error("Please Insert Data.", "Required!");
       return;
     };
@@ -60,7 +61,8 @@ export class AddContactInfoComponent implements OnInit {
       _id: this.contactInfo._id,
       email: this.contactInfo.email,
       phoneNo: this.contactInfo.phoneNo,
-      address: this.contactInfo.address
+      message: this.contactInfo.message,
+      name: this.contactInfo.name
     }
 
     if (this.contactInfo._id != null) {

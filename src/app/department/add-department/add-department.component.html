@@ -21,7 +21,7 @@
                             <div class="col-12">
                                 <div class="form-group row justify-content-center">
                                     <div class="row">
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <!-- select -->
                                             <div class="form-group">
                                                 <div class="form-group">
@@ -46,8 +46,19 @@
                                                     onkeypress="return ValidateAlpha(event)">
                                             </div>
                                         </div>
-
-                                        <div class="col-sm-5">
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <label for="ShortName">Enter Acronym<label
+                                                        class="red-text">*</label></label>
+                                                <input required type="text" class="form-control" id="ShortName"
+                                                    placeholder="Enter ShortName.. " name="ShortName"
+                                                    [(ngModel)]="this.department.ShortName"
+                                                    (ngModelChange)="this.department.ShortName=$event.toUpperCase()"
+                                                    onkeypress="return ValidateAlpha(event)">
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="col-sm-6">
                                             <div class="form-group">
                                                 <label for="exampleInputFile">Choose Image<label
                                                         class="red-text">*</label></label>
@@ -62,7 +73,47 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <label for="exampleInputFile">Choose Cover Photo<label
+                                                        class="red-text">*</label></label>
+                                                <div class="input-group">
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input" name="coverPhoto"
+                                                            (change)="onUploadChange2($event)" accept=".png, .jpg, .jpeg"
+                                                            id="coverPhoto" name="coverPhoto" required>
+                                                        <label class="custom-file-label"
+                                                            for="exampleInputFile">{{fileLabel2}}</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- select -->
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <label for="name">Enter Students Intake<label
+                                                            class="red-text">*</label></label>
+                                                    <input required type="text" class="form-control" id="Intake"
+                                                        placeholder="Enter Intake" name="Intake"
+                                                        [(ngModel)]="this.department.Intake"
+                                                        onkeypress="return onlyNumbers(e)" minlength="2" maxlength="2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <!-- select -->
+                                            <div class="form-group">
+                                                <div class="form-group">
+                                                    <label for="name">Enter Total Subjects<label
+                                                            class="red-text">*</label></label>
+                                                    <input required type="text" class="form-control" id="TotalSubject"
+                                                        placeholder="Enter Total Subject" name="TotalSubject"
+                                                        [(ngModel)]="this.department.TotalSubject"
+                                                        onkeypress="return onlyNumbers(e)" minlength="2" maxlength="2">
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="col-md-12">
                                             <div class="input-group">
                                                 <div class="col-12">
