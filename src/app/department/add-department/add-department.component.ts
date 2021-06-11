@@ -17,8 +17,10 @@ import { Department } from '../../models/department.model';
 export class AddDepartmentComponent implements OnInit {
 
   fileLabel: string = "Choose Image";
+  fileLabel2: string = "Choose Cover Image";
   department: Department;
   fileSelected: boolean;
+  fileSelected2: boolean;
   isDescriptionEmpty: boolean;
 
   constructor(public departmentService: DepartmentService,
@@ -39,6 +41,9 @@ export class AddDepartmentComponent implements OnInit {
       this._loadScript.setSummernoteParseHTML("about", this.department.about)
       this.fileLabel = "Change Image";
       this.fileSelected = true;
+      this.fileLabel2 = "Change Cover Image";
+      this.fileSelected2 = true;
+      
     }
     else {
       this.department._id = null
@@ -52,6 +57,9 @@ export class AddDepartmentComponent implements OnInit {
     this._loadScript.resetFileInput("image");
     this.fileLabel = "Choose Image";
     this.fileSelected = false;
+    this._loadScript.resetFileInput("coverPhoto");
+    this.fileLabel2 = "Change Cover Image";
+    this.fileSelected2 = false;
     this.isDescriptionEmpty == true ? this.isDescriptionEmpty = false : null;
 
     this._loadScript.resetSummernote("about");
@@ -61,7 +69,11 @@ export class AddDepartmentComponent implements OnInit {
       code: null,
       name: "",
       image: "",
-      about: ""
+      about: "",
+      ShortName: "",
+      coverPhoto: "",
+      Intake: null,
+      TotalSubject: null
     }
   }
 
@@ -88,6 +100,26 @@ export class AddDepartmentComponent implements OnInit {
     this.base64textString.push('data:image/png;base64,' + btoa(e.target.result));
   }
 
+  base64textString2 = [];
+  onUploadChange2(evt: any) {
+    console.log("event entered");
+    const file2 = evt.target.files[0];
+    const filename2 = evt.target.files[0].name;
+
+    if (file2) {
+      const reader = new FileReader();
+
+      this.base64textString2.splice(0, this.base64textString2.length);
+      reader.onload = this.handleReaderLoaded2.bind(this);
+      reader.readAsBinaryString(file2);
+    }
+    this.fileLabel2 = filename2;
+    this.fileSelected2 = true;
+  }
+
+  handleReaderLoaded2(e) {
+    this.base64textString2.push('data:image/png;base64,' + btoa(e.target.result));
+  }
 
   onSubmit(form?: NgForm) {
 
@@ -95,18 +127,20 @@ export class AddDepartmentComponent implements OnInit {
 
     code == "" ? this.isDescriptionEmpty = true : this.isDescriptionEmpty = false;
 
-    if (this.isDescriptionEmpty || !this.fileSelected || !(this.department.code || this.department.name)) {
+    if (this.isDescriptionEmpty || !this.fileSelected||!this.fileSelected2 || !(this.department.code || this.department.name|| this.department.ShortName||this.department.Intake||this.department.TotalSubject)) {
       this.toastr.error("Please Insert Data", "Required");
       return;
     }
 
     if (this.department._id != null) {
-      if (this.base64textString[0]) {
+      if (this.base64textString[0] && this.base64textString2[0] ) {
         this.department.image = this.base64textString[0];
+        this.department.coverPhoto = this.base64textString2[0];
       }
     }
     else {
       this.department.image = this.base64textString[0];
+      this.department.coverPhoto = this.base64textString2[0];
     }
 
     this.department.about = code

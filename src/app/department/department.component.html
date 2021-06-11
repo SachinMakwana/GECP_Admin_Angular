@@ -39,27 +39,36 @@
                                     <tr>
                                         <th>Department Code</th>
                                         <th>Department Name</th>
-                                        <th>Image</th>
-                                        <th>View</th>
-                                        <th>Edit</th>
+                                        <th>Department Acronym</th>
+                                        <th>Department Image</th>
+                                        <th>Cover Photo</th>
+                                        <th>Total Intake</th>
+                                        <th>Total Subjects</th>
                                         <th>Delete</th>
+                                        <th>Edit</th>
+                                        <th>View</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let dept of departmentService.department; let i = index;">
                                         <td>{{dept.code}}</td>
                                         <td>{{dept.name}}</td>
+                                        <td>{{dept.ShortName}}</td>
                                         <td><img src={{dept.image}} alt="" id="image" height="70px" width="70px"></td>
-                                        <td>
-                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onView(dept)">
-                                                <i class="nav-icon fas fa-eye"></i></a>
-                                        </td>
+                                        <td><img src={{dept.coverPhoto}} alt="" id="coverPhoto" height="70px" width="70px"></td>
+                                        <td>{{dept.Intake}}</td>
+                                        <td>{{dept.TotalSubject}}</td>
+                                        <td><a routerLinkActive="active" [routerLink]="[]"
+                                            (click)="onDelete(dept._id)"><i class="nav-icon fas fa-trash"></i></a>
+                                    </td>
+                                       
                                         <td>
                                             <a routerLinkActive="active" [routerLink]="[]" (click)="onEdit(dept)"><i
                                                     class="nav-icon fas fa-edit"></i></a>
                                         </td>
-                                        <td><a routerLinkActive="active" [routerLink]="[]"
-                                                (click)="onDelete(dept._id)"><i class="nav-icon fas fa-trash"></i></a>
+                                        <td>
+                                            <a routerLinkActive="active" [routerLink]="[]" (click)="onView(dept)">
+                                                <i class="nav-icon fas fa-eye"></i></a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -67,10 +76,14 @@
                                     <tr>
                                         <th>Department Code</th>
                                         <th>Department Name</th>
-                                        <th>Image</th>
-                                        <th>View</th>
-                                        <th>Edit</th>
+                                        <th>Department Acronym</th>
+                                        <th>Department Image</th>
+                                        <th>Cover Photo</th>
+                                        <th>Total Intake</th>
+                                        <th>Total Subjects</th>
                                         <th>Delete</th>
+                                        <th>Edit</th>
+                                        <th>View</th>
                                     </tr>
                                 </tfoot>
                             </table>
